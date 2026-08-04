@@ -1,0 +1,60 @@
+key: research_papers
+name: Research Literature
+description: Papers, the people who wrote them, and the ideas they connect.
+entity_types:
+  Paper:
+    id_rule: paper title in title case
+  Author:
+    id_rule: Surname, Initials
+    examples:
+    - Chen, L.
+  Institution:
+    id_rule: institution name
+  Concept:
+    id_rule: canonical concept or method name
+  Dataset:
+    id_rule: dataset name
+  Venue:
+    id_rule: conference or journal name
+  Year:
+    id_rule: four-digit year
+allowed_triples:
+- - Paper
+  - written_by
+  - Author
+- - Author
+  - affiliated_with
+  - Institution
+- - Paper
+  - introduces
+  - Concept
+- - Paper
+  - builds_on
+  - Concept
+- - Paper
+  - evaluates_on
+  - Dataset
+- - Paper
+  - published_in
+  - Venue
+- - Paper
+  - published_year
+  - Year
+- - Paper
+  - cites
+  - Paper
+- - Concept
+  - related_to
+  - Concept
+normalization:
+  strip_type_prefixes: true
+  collapse_whitespace: true
+  id_transforms:
+  - pattern: ^(\d{4})$
+    replace: \1
+    case: ''
+    note: Years are four digits
+  rules_text:
+  - Author names use Surname, Initials
+  - Concept names use the form the field uses, not an abbreviation
+custom_prompt: ''

@@ -1,0 +1,32 @@
+{
+  "key": "two-stage-review",
+  "name": "Two-Stage Support and Sentiment Review",
+  "description": "A simple sequence where one agent maps the row into schema terms and then specialized reviewers assess support referrals and sentiment.",
+  "entry": "schema-mapper",
+  "members": [
+    {
+      "agent": "schema-mapper",
+      "hands_off_to": [
+        "support-referral-reviewer",
+        "sentiment-reviewer"
+      ],
+      "when": "After identifying the query, reference response, current chatbot response, and any normalized entities such as support contacts, terminals, or services."
+    },
+    {
+      "agent": "support-referral-reviewer",
+      "hands_off_to": [],
+      "when": "After schema mapping, to count support referrals and extract support channels."
+    },
+    {
+      "agent": "sentiment-reviewer",
+      "hands_off_to": [],
+      "when": "After schema mapping, to label tone and compare sentiment between reference and current responses."
+    }
+  ],
+  "max_handoffs": 6,
+  "max_steps_per_agent": 4,
+  "verify": true,
+  "starters": [],
+  "created_at": "2026-08-02T17:04:02.181757+00:00",
+  "updated_at": "2026-08-02T17:04:41.814129+00:00"
+}

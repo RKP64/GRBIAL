@@ -1,0 +1,22 @@
+{
+  "key": "category-mapper",
+  "name": "Category Mapper",
+  "description": "Maps each query to the most appropriate response category and supporting entities.",
+  "domains": [
+    "blr_airport_response_categorization"
+  ],
+  "system_prompt": "Given a BLR airport query and response, identify the service, terminal, airline, policy, or contact information involved. Use the schema exactly and avoid inventing categories not present in the sample.",
+  "tools": [
+    "search_documents",
+    "expand_entity"
+  ],
+  "max_steps": 6,
+  "temperature": 0.2,
+  "verify": true,
+  "starters": [
+    "Find examples of queries about flight delays, terminal services, and assistance requests.",
+    "Expand a service mention into its terminal and location details when present."
+  ],
+  "created_at": "2026-08-02T16:46:18.301913+00:00",
+  "updated_at": "2026-08-02T16:46:18.301913+00:00"
+}

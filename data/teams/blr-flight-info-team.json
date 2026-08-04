@@ -1,0 +1,32 @@
+{
+  "key": "blr-flight-info-team",
+  "name": "BLR Flight Info Team",
+  "description": "A small sequential team that routes a user request and then resolves it using either flight-status or airport-service knowledge.",
+  "entry": "routing-agent",
+  "members": [
+    {
+      "agent": "routing-agent",
+      "hands_off_to": [
+        "flight-status-agent",
+        "airport-services-agent"
+      ],
+      "when": "After classifying whether the request is about a flight, an airport service, or a general support topic."
+    },
+    {
+      "agent": "flight-status-agent",
+      "hands_off_to": [],
+      "when": "When the request is about a specific flight number, delay, route, terminal, or gate."
+    },
+    {
+      "agent": "airport-services-agent",
+      "hands_off_to": [],
+      "when": "When the request is about airport facilities, passenger assistance, contacts, or terminal-based services."
+    }
+  ],
+  "max_handoffs": 6,
+  "max_steps_per_agent": 4,
+  "verify": true,
+  "starters": [],
+  "created_at": "2026-08-03T06:05:01.974836+00:00",
+  "updated_at": "2026-08-03T06:05:01.974836+00:00"
+}

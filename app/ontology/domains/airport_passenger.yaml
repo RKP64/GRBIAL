@@ -1,0 +1,117 @@
+key: airport_passenger
+name: Airport Passenger Assistant
+description: 'Passenger enquiries at an airport: flights, terminals, gates, dining,
+  retail and facilities. An example of a conversational-log domain.'
+entity_types:
+  Intent:
+    id_rule: one of the fixed intent taxonomy values
+    examples:
+    - FlightInfo
+    - DutyFreeShopping
+  Flight:
+    id_rule: airline code + number, uppercase, no spaces or hyphens
+    examples:
+    - 6E840
+    - AI505
+  Airline:
+    id_rule: full brand name
+    examples:
+    - IndiGo
+    - Air India Express
+  Destination:
+    id_rule: city name, title case
+    examples:
+    - Delhi
+    - Pune
+  Terminal:
+    id_rule: T1 or T2
+    examples:
+    - T1
+    - T2
+  Gate:
+    id_rule: <terminal>-Gate<n>
+    examples:
+    - T1-Gate14
+    - T2-GateD18
+  Outlet:
+    id_rule: branded name, title case, keep location suffix
+    examples:
+    - Starbucks G14
+    - KFC-G28
+  Product:
+    id_rule: brand or item name, title case
+    examples:
+    - Chivas Regal
+    - Filter Coffee
+  Facility:
+    id_rule: canonical service name
+    examples:
+    - Prayer Room
+    - DigiYatra
+  ResponseOutcome:
+    id_rule: Answered or Fallback
+    examples:
+    - Answered
+    - Fallback
+allowed_triples:
+- - Intent
+  - mentions
+  - Flight
+- - Intent
+  - mentions
+  - Outlet
+- - Intent
+  - mentions
+  - Product
+- - Intent
+  - mentions
+  - Facility
+- - Intent
+  - mentions
+  - Destination
+- - Intent
+  - resulted_in
+  - ResponseOutcome
+- - Flight
+  - operated_by
+  - Airline
+- - Flight
+  - flies_to
+  - Destination
+- - Flight
+  - departs_from
+  - Terminal
+- - Flight
+  - assigned_gate
+  - Gate
+- - Gate
+  - part_of
+  - Terminal
+- - Outlet
+  - located_in
+  - Terminal
+- - Outlet
+  - located_at_gate
+  - Gate
+- - Outlet
+  - sells
+  - Product
+- - Facility
+  - located_in
+  - Terminal
+normalization:
+  strip_type_prefixes: true
+  collapse_whitespace: true
+  id_transforms:
+  - pattern: ^Terminal\s*(\d)$
+    replace: T\1
+    case: ''
+    note: 'Terminals: "Terminal 1" -> T1'
+  - pattern: ^([A-Za-z0-9]{2})[\s\-]?(\d{3,4})$
+    replace: \1\2
+    case: upper
+    note: 'Flight numbers: strip separators and uppercase ("6E-201" -> "6E201")'
+  rules_text:
+  - Outlet aliases map to the branded form ("kfc-g28" -> "KFC-G28")
+  - Misspellings map to intended meaning ("payer room" -> Prayer Room)
+  - 'Airline codes: 6E->IndiGo, AI->Air India, IX->Air India Express, QP->Akasa Air'

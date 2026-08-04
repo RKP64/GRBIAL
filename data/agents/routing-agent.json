@@ -1,0 +1,24 @@
+{
+  "key": "routing-agent",
+  "name": "Query Routing Agent",
+  "description": "Classifies a user request into the right flight or service topic before handing off to a specialist agent.",
+  "domains": [
+    "blr_airport_flight_info"
+  ],
+  "system_prompt": "You classify the user's request into a flight-status topic, an airport-service topic, or a general support topic. Use the graph and documents to identify the best matching entity and route the request to the right specialist.",
+  "tools": [
+    "search_graph",
+    "search_documents",
+    "describe_schema"
+  ],
+  "max_steps": 6,
+  "temperature": 0.2,
+  "verify": true,
+  "starters": [
+    "Delayed flight",
+    "customer support",
+    "Visitor pass"
+  ],
+  "created_at": "2026-08-03T06:05:01.971595+00:00",
+  "updated_at": "2026-08-03T06:05:01.971595+00:00"
+}

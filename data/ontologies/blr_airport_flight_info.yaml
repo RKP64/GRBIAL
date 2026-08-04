@@ -1,0 +1,153 @@
+key: blr_airport_flight_info
+name: BLR Airport Flight and Passenger Services
+description: Airport flight-status, airline, terminal, and passenger-service information
+  for Bangalore International Airport Limited (BLR / Kempegowda International Airport
+  Bengaluru), including support contacts and terminal-based services.
+entity_types:
+  airport:
+    id_rule: Use the airport/operator name as written; no special code pattern is
+      enforced.
+    examples:
+    - Bangalore International Airport Limited
+    - Kempegowda International Airport Bengaluru
+  terminal:
+    id_rule: Use the terminal label as written, typically Terminal 1 or Terminal 2.
+    examples:
+    - Terminal 1
+    - Terminal 2
+    - Terminal T1
+  airline:
+    id_rule: Use the airline name as written; no special code pattern is enforced.
+    examples:
+    - SpiceJet
+    - Lufthansa
+    - Air India Express
+  flight:
+    id_rule: Use the flight number as the identifier; common formats include airline
+      code plus digits.
+    examples:
+    - SG205
+    - IX2718
+  flight_status:
+    id_rule: Use the status phrase as written; no special code pattern is enforced.
+    examples:
+    - Delayed
+    - Arrived
+  route:
+    id_rule: Use the route string as written, preserving the arrow notation when present.
+    examples:
+    - Pune ➔ Bengaluru
+    - Bengaluru to Delhi
+  gate:
+    id_rule: Use the gate label as written, including terminal prefixes when present.
+    examples:
+    - Gate 38
+    - D11
+  airport_service:
+    id_rule: Use the service name as written; no special code pattern is enforced.
+    examples:
+    - Porter Service
+    - Buggy Service
+    - EZPass by BLR
+  service_zone:
+    id_rule: Use the zone text as written, often combining terminal and area.
+    examples:
+    - Terminal 1 - Zone D
+    - Terminal 2 - International Departures
+    - Terminal 1 - Kerbside / Check-in / Baggage Claim support
+  contact_point:
+    id_rule: Use the contact value as written; phone numbers and emails should be
+      preserved exactly.
+    examples:
+    - 080-66785555
+    - +91-8884998888
+    - feedback@bialairport.com
+  reference_link:
+    id_rule: Use the URL as the identifier.
+    examples:
+    - https://www.bengaluruairport.com/travellers/flights/airline-partners-information
+    - https://www.bengaluruairport.com/travellers/flights/flight-information?flight=SG205
+    - https://www.bengaluruairport.com/travellers/services/special-assistance/buggy-service
+  support_topic:
+    id_rule: Use the query phrase as written.
+    examples:
+    - Delayed flight
+    - customer support
+    - Visitor pass
+allowed_triples:
+- - airline
+  - operates_from
+  - terminal
+- - airport
+  - publishes
+  - reference_link
+- - airport_service
+  - available_in
+  - terminal
+- - airport_service
+  - has_contact_point
+  - contact_point
+- - airport_service
+  - has_reference
+  - reference_link
+- - airport_service
+  - has_zone
+  - service_zone
+- - flight
+  - arrives_at
+  - terminal
+- - flight
+  - departs_from
+  - terminal
+- - flight
+  - has_gate
+  - gate
+- - flight
+  - has_route
+  - route
+- - flight
+  - has_status
+  - flight_status
+- - flight
+  - is_operated_by
+  - airline
+- - support_topic
+  - maps_to
+  - airport_service
+- - support_topic
+  - maps_to
+  - flight
+open_relations: false
+normalization:
+  strip_type_prefixes: true
+  collapse_whitespace: true
+  id_transforms:
+  - pattern: ^SG\s*(\d+)$
+    replace: SG$1
+    case: upper
+    note: Normalizes SpiceJet flight numbers with optional spaces into compact flight
+      IDs.
+  - pattern: ^IX\s*(\d+)$
+    replace: IX$1
+    case: upper
+    note: Normalizes Air India Express flight numbers with optional spaces into compact
+      flight IDs.
+  - pattern: ^\+91[-\s]?(\d{10})$
+    replace: +91-$1
+    case: ''
+    note: Normalizes Indian mobile/WhatsApp contact numbers into a consistent country-code
+      format.
+  - pattern: ^(\d{3})[-\s]?(\d{8})$
+    replace: $1-$2
+    case: ''
+    note: Normalizes Bangalore landline contact numbers into a hyphenated format.
+  rules_text:
+  - Treat Terminal T1 as Terminal 1 and Terminal T2 as Terminal 2 when linking entities.
+  - Preserve flight status values exactly as stated, but normalize obvious capitalization
+    differences such as delayed and Delayed to Delayed.
+  - Keep route directionality as written; do not infer reverse routes.
+  - Keep reference URLs intact even when the visible link text differs.
+  - If a response mentions a service in multiple terminals, create one service entity
+    with separate terminal availability links rather than duplicating the service
+    name.
+custom_prompt: ''

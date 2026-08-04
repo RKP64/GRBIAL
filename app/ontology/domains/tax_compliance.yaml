@@ -1,0 +1,134 @@
+key: tax_compliance
+name: Tax & Compliance
+description: 'Tax positions and filings: which entity owes what, under which provision,
+  in which period, and what the authority said about it.'
+entity_types:
+  TaxpayerEntity:
+    id_rule: registered legal name
+    examples:
+    - Acme Private Limited
+  Jurisdiction:
+    id_rule: country or state name in title case
+    examples:
+    - India
+    - Karnataka
+  TaxType:
+    id_rule: canonical tax name
+    examples:
+    - GST
+    - Corporate Income Tax
+    - TDS
+  Provision:
+    id_rule: section or rule reference as cited
+    examples:
+    - Section 194C
+    - Rule 42
+  Regulation:
+    id_rule: act, circular or notification title
+  FilingPeriod:
+    id_rule: period label
+    examples:
+    - FY2025-26
+    - Q1 FY2026
+  Return:
+    id_rule: return form name
+    examples:
+    - GSTR-3B
+    - Form 26Q
+  TaxPosition:
+    id_rule: short label for the position taken
+  Assessment:
+    id_rule: assessment or order reference
+  Notice:
+    id_rule: notice reference as issued
+  Authority:
+    id_rule: issuing authority name
+    examples:
+    - CBDT
+    - GST Council
+  MonetaryValue:
+    id_rule: amount with currency code
+    examples:
+    - INR 4,20,000
+  Risk:
+    id_rule: short risk label
+allowed_triples:
+- - TaxpayerEntity
+  - registered_in
+  - Jurisdiction
+- - TaxpayerEntity
+  - liable_for
+  - TaxType
+- - TaxType
+  - governed_by
+  - Regulation
+- - Regulation
+  - contains
+  - Provision
+- - Provision
+  - applies_to
+  - TaxType
+- - Provision
+  - issued_by
+  - Authority
+- - TaxpayerEntity
+  - files
+  - Return
+- - Return
+  - covers_period
+  - FilingPeriod
+- - Return
+  - reports
+  - TaxPosition
+- - TaxPosition
+  - relies_on
+  - Provision
+- - TaxPosition
+  - values
+  - MonetaryValue
+- - TaxPosition
+  - carries
+  - Risk
+- - Assessment
+  - raised_against
+  - TaxpayerEntity
+- - Assessment
+  - concerns
+  - FilingPeriod
+- - Assessment
+  - demands
+  - MonetaryValue
+- - Notice
+  - issued_by
+  - Authority
+- - Notice
+  - served_on
+  - TaxpayerEntity
+- - Notice
+  - cites
+  - Provision
+- - TaxType
+  - levied_in
+  - Jurisdiction
+normalization:
+  strip_type_prefixes: true
+  collapse_whitespace: true
+  id_transforms:
+  - pattern: ^[Ss](?:ec(?:tion)?)?\s*\.?\s*([0-9]+[A-Za-z]*)$
+    replace: Section \1
+    case: ''
+    note: 'Provisions: ''sec 194C'' / ''s.194c'' -> ''Section 194C'''
+  - pattern: ^[Ff][Yy]\s*(\d{4})\s*[-/]\s*(\d{2,4})$
+    replace: FY\1-\2
+    case: upper
+    note: 'Periods: ''fy 2025 / 26'' -> ''FY2025-26'''
+  - pattern: (?i)^(GSTR|ITR|ITC|DRC|TRAN|CMP|TDS|TCS|ADT|ASMT)\s*[-_]?\s*(\d[A-Za-z0-9]*)$
+    replace: \1-\2
+    case: upper
+    note: 'Return codes are hyphenated and uppercase: ''gstr 3b'' -> ''GSTR-3B'''
+  rules_text:
+  - 'Section letters are uppercase: Section 194C, not Section 194c'
+  - Amounts keep their currency code and the source's own digit grouping
+  - Provisions are cited exactly as the document cites them, not paraphrased
+  - Never record PAN, GSTIN, TAN or any other taxpayer identification number
+custom_prompt: ''

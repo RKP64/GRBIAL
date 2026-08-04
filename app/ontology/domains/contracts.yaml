@@ -1,0 +1,80 @@
+key: contracts
+name: Contracts & Agreements
+description: 'Commercial agreements: who is bound to what, by which clause, by when.'
+entity_types:
+  Party:
+    id_rule: legal entity name as written on the agreement
+    examples:
+    - Acme Private Limited
+    - Northwind Services LLP
+  Agreement:
+    id_rule: agreement title or reference number
+    examples:
+    - MSA-2026-014
+  Clause:
+    id_rule: clause number as printed
+    examples:
+    - '4.2'
+    - 12.1(a)
+  Obligation:
+    id_rule: short imperative label
+    examples:
+    - Pay within 30 days
+    - Provide monthly report
+  Deliverable:
+    id_rule: deliverable name
+  Date:
+    id_rule: ISO date (YYYY-MM-DD)
+    examples:
+    - '2026-04-01'
+  MonetaryValue:
+    id_rule: amount with currency code
+    examples:
+    - INR 2,500,000
+allowed_triples:
+- - Party
+  - is_party_to
+  - Agreement
+- - Agreement
+  - contains
+  - Clause
+- - Clause
+  - imposes
+  - Obligation
+- - Obligation
+  - borne_by
+  - Party
+- - Obligation
+  - due_on
+  - Date
+- - Clause
+  - specifies
+  - MonetaryValue
+- - Agreement
+  - effective_from
+  - Date
+- - Agreement
+  - expires_on
+  - Date
+- - Agreement
+  - covers
+  - Deliverable
+- - Deliverable
+  - owed_by
+  - Party
+normalization:
+  strip_type_prefixes: true
+  collapse_whitespace: true
+  id_transforms:
+  - pattern: \b[Pp]vt\.?\s+[Ll]td\.?$
+    replace: Private Limited
+    case: ''
+    note: 'Company suffixes: Pvt Ltd -> Private Limited'
+  - pattern: ^[Cc]lause\s+
+    replace: ''
+    case: ''
+    note: Clause ids are the number alone
+  rules_text:
+  - Dates are normalised to YYYY-MM-DD
+  - Amounts keep their currency code, e.g. INR 250000
+custom_prompt: ''

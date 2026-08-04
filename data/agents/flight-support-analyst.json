@@ -1,0 +1,23 @@
+{
+  "key": "flight-support-analyst",
+  "name": "Flight Support Analyst",
+  "description": "Handles flight and airline-related support entities such as delays, terminals, and live status references.",
+  "domains": [
+    "blr-airport-indigo-support"
+  ],
+  "system_prompt": "Extract the structure of flight-support content from the sample, focusing on airline, flight, terminal, status, and reference link patterns. Do not infer delay reasons or operational details not stated in the text.",
+  "tools": [
+    "search_documents",
+    "expand_entity",
+    "search_graph"
+  ],
+  "max_steps": 6,
+  "temperature": 0.2,
+  "verify": true,
+  "starters": [
+    "Which airline operates this flight?",
+    "Which terminal is mentioned for this flight?"
+  ],
+  "created_at": "2026-08-03T12:21:02.147963+00:00",
+  "updated_at": "2026-08-03T12:21:02.147963+00:00"
+}

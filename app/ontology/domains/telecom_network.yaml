@@ -1,0 +1,133 @@
+key: telecom_network
+name: Telecom Network & Service
+description: 'Network estate and customer service: sites, cells, equipment, circuits,
+  plans, faults and the outages that connect them.'
+entity_types:
+  Site:
+    id_rule: site code, uppercase
+    examples:
+    - BLR-MYS-014
+    - DEL-NOR-002
+  CellSite:
+    id_rule: cell identifier, uppercase
+    examples:
+    - ENB-44210-3
+  Equipment:
+    id_rule: make and model as written
+    examples:
+    - Ericsson RBS 6601
+  Circuit:
+    id_rule: circuit reference, uppercase and hyphenated
+    examples:
+    - CKT-99120-A
+  Technology:
+    id_rule: generation or standard
+    examples:
+    - 5G NR
+    - LTE
+    - GPON
+  SpectrumBand:
+    id_rule: band label
+    examples:
+    - n78
+    - Band 3
+    - 700 MHz
+  ServicePlan:
+    id_rule: plan name as marketed
+  Subscriber:
+    id_rule: account reference, never a phone number
+  Fault:
+    id_rule: fault or incident reference, uppercase
+    examples:
+    - INC-88213
+  Outage:
+    id_rule: outage reference or short label
+  Region:
+    id_rule: circle, region or city name in title case
+  Vendor:
+    id_rule: vendor legal or brand name
+  SLA:
+    id_rule: SLA name or target, e.g. '99.95% availability'
+allowed_triples:
+- - CellSite
+  - located_at
+  - Site
+- - Site
+  - in_region
+  - Region
+- - CellSite
+  - uses_technology
+  - Technology
+- - CellSite
+  - operates_on
+  - SpectrumBand
+- - Site
+  - hosts
+  - Equipment
+- - Equipment
+  - supplied_by
+  - Vendor
+- - Circuit
+  - terminates_at
+  - Site
+- - Circuit
+  - carries
+  - Technology
+- - Fault
+  - affects
+  - CellSite
+- - Fault
+  - affects
+  - Circuit
+- - Fault
+  - affects
+  - Equipment
+- - Fault
+  - caused
+  - Outage
+- - Outage
+  - impacts
+  - Region
+- - Outage
+  - breaches
+  - SLA
+- - Subscriber
+  - subscribes_to
+  - ServicePlan
+- - ServicePlan
+  - delivered_over
+  - Technology
+- - Subscriber
+  - served_by
+  - CellSite
+- - Subscriber
+  - reported
+  - Fault
+- - ServicePlan
+  - available_in
+  - Region
+- - Vendor
+  - bound_by
+  - SLA
+normalization:
+  strip_type_prefixes: true
+  collapse_whitespace: true
+  id_transforms:
+  - pattern: ^([A-Za-z]{2,4})[\s_\-]+(\d{3,8})(?:[\s_\-]+([A-Za-z0-9]{1,3}))?$
+    replace: \1-\2-\3
+    case: upper
+    note: 'References use hyphens and uppercase: ''ckt 99120 a'' -> ''CKT-99120-A'''
+  - pattern: -$
+    replace: ''
+    case: ''
+    note: ''
+  - pattern: ^\s*(\d{3,4})\s*[Mm][Hh][Zz]\s*$
+    replace: \1 MHz
+    case: ''
+    note: Spectrum bands in MHz are written as '700 MHz'
+  rules_text:
+  - Never record a subscriber phone number, IMSI or MSISDN — use the account reference
+    only
+  - 'Technology names use the standard label: 5G NR, LTE, GPON, not marketing names'
+  - Regions use the operator's own circle or region naming
+custom_prompt: ''

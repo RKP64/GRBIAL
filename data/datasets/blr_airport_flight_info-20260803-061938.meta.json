@@ -1,0 +1,32 @@
+{
+  "id": "blr_airport_flight_info-20260803-061938",
+  "domain": "blr_airport_flight_info",
+  "created_at": "2026-08-03T06:19:38.526846+00:00",
+  "system_prompt": "You are a domain assistant. Answer questions about BLR Airport Flight and Passenger Services accurately and concisely. If you do not have the information, say so plainly.",
+  "train_examples": 437,
+  "validation_examples": 23,
+  "breakdown": {
+    "fact": 273,
+    "inverse": 145,
+    "refusal": 33,
+    "multihop": 6,
+    "passage": 3
+  },
+  "options": {
+    "include_facts": true,
+    "include_inverse": true,
+    "include_multihop": true,
+    "include_refusals": true,
+    "include_passages": true,
+    "max_per_relation": 400,
+    "refusal_fraction": 0.08,
+    "validation_fraction": 0.05,
+    "seed": 42,
+    "system_prompt": "",
+    "exclude_types": []
+  },
+  "graph": {
+    "nodes": 329,
+    "edges": 273
+  }
+}

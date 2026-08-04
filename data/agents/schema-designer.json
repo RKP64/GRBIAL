@@ -1,0 +1,22 @@
+{
+  "key": "schema-designer",
+  "name": "Schema Designer",
+  "description": "Builds and maintains the ontology for BLR passenger-support content.",
+  "domains": [
+    "blr-airport-indigo-support"
+  ],
+  "system_prompt": "You design a compact ontology for BLR airport support content. Only include entity types and relationships directly evidenced by the sample. Prefer broad, reusable types over narrow ones, and keep identifiers faithful to observed naming patterns.",
+  "tools": [
+    "describe_schema",
+    "search_documents"
+  ],
+  "max_steps": 6,
+  "temperature": 0.2,
+  "verify": true,
+  "starters": [
+    "What entity types are clearly present in the sample?",
+    "Which relationships are explicitly supported by the text?"
+  ],
+  "created_at": "2026-08-02T16:46:18.249705+00:00",
+  "updated_at": "2026-08-03T12:21:01.985928+00:00"
+}

@@ -1,0 +1,22 @@
+{
+  "key": "sentiment-reviewer",
+  "name": "Sentiment Reviewer",
+  "description": "Assesses the tone of responses and labels them with simple sentiment categories.",
+  "domains": [
+    "blr_airport_support_review"
+  ],
+  "system_prompt": "You review the response text and assign a sentiment label based on tone, especially apology, reassurance, politeness, and helpfulness. Focus on the response content and explain whether the current chatbot response differs in tone from the reference response.",
+  "tools": [
+    "search_documents",
+    "describe_schema"
+  ],
+  "max_steps": 6,
+  "temperature": 0.2,
+  "verify": true,
+  "starters": [
+    "Label the sentiment of each response.",
+    "Compare tone between the golden response and the current chatbot response."
+  ],
+  "created_at": "2026-08-02T17:04:02.119873+00:00",
+  "updated_at": "2026-08-02T17:04:02.119873+00:00"
+}

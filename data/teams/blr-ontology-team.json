@@ -1,0 +1,32 @@
+{
+  "key": "blr-ontology-team",
+  "name": "BLR Ontology Team",
+  "description": "A small sequential team for shaping the ontology and validating service and flight patterns in the sample.",
+  "entry": "schema-designer",
+  "members": [
+    {
+      "agent": "schema-designer",
+      "hands_off_to": [
+        "service-mapper",
+        "flight-support-analyst"
+      ],
+      "when": "After establishing the core entity types and relationships, hand off to the specialist agents to validate service and flight patterns."
+    },
+    {
+      "agent": "service-mapper",
+      "hands_off_to": [],
+      "when": "No further handoff required unless additional service-specific evidence is needed."
+    },
+    {
+      "agent": "flight-support-analyst",
+      "hands_off_to": [],
+      "when": "No further handoff required unless more flight-specific evidence is needed."
+    }
+  ],
+  "max_handoffs": 6,
+  "max_steps_per_agent": 4,
+  "verify": true,
+  "starters": [],
+  "created_at": "2026-08-03T12:21:02.151244+00:00",
+  "updated_at": "2026-08-03T12:21:02.151244+00:00"
+}

@@ -1,0 +1,140 @@
+key: blr-airport-indigo-support
+name: BLR Airport passenger support and service ontology for Indigo-related queries
+description: A compact ontology for Bangalore International Airport Limited (BLR)
+  passenger-support content, covering airport contact channels, terminals, airline/flight
+  information, and passenger services such as visitor access, transit hotel, porter,
+  EZPass, wheelchair assistance, buggy service, and related guidance.
+entity_types:
+  airport:
+    id_rule: Use the airport/operator name as written; no special code observed.
+    examples:
+    - Bangalore International Airport Limited
+    - BLR Airport
+    - Kempegowda International Airport Bengaluru
+  terminal:
+    id_rule: Use the terminal label as written, typically Terminal 1 or Terminal 2.
+    examples:
+    - Terminal 1
+    - Terminal 2
+    - T1
+  airline:
+    id_rule: Use the airline name as written; no code rule enforced unless the airline
+      is given with a flight number.
+    examples:
+    - Lufthansa
+    - SpiceJet
+    - Air India Express
+  flight:
+    id_rule: Use the flight designator as written, typically airline code plus number.
+    examples:
+    - SG205
+    - IX2718
+    - SpiceJet Flight SG205
+  passenger_service:
+    id_rule: Use the service name as written.
+    examples:
+    - Porter Service
+    - EZPass by BLR
+    - Buggy Service
+  special_assistance_service:
+    id_rule: Use the service name as written.
+    examples:
+    - Wheelchair Assistance
+    - Mobility Assist
+    - Buggy Service
+  contact_channel:
+    id_rule: Use the full contact value as written.
+    examples:
+    - 080-66785555
+    - +91-8884998888
+    - feedback@bialairport.com
+  location_zone:
+    id_rule: Use the zone text as written.
+    examples:
+    - Terminal 1 - Departures and Arrivals
+    - Terminal 2 - International Departures
+    - Terminal 1 - Zone D
+  reference_link:
+    id_rule: Use the URL as written.
+    examples:
+    - https://www.bengaluruairport.com/travellers/contact-us
+    - https://www.bengaluruairport.com/travellers/flights/airline-partners-information
+    - https://www.bengaluruairport.com/travellers/services/special-assistance/buggy-service
+  policy_or_requirement:
+    id_rule: Use the requirement text as written.
+    examples:
+    - valid boarding pass and a valid QR code
+    - minimum of 3 hours and a maximum of 12 hours
+    - please contact your airline in advance
+allowed_triples:
+- - airline
+  - operates_flight
+  - flight
+- - airport
+  - has_terminal
+  - terminal
+- - airport
+  - offers_service
+  - passenger_service
+- - airport
+  - offers_special_assistance
+  - special_assistance_service
+- - airport
+  - provides_contact_channel
+  - contact_channel
+- - flight
+  - uses_terminal
+  - terminal
+- - passenger_service
+  - has_reference
+  - reference_link
+- - passenger_service
+  - has_requirement
+  - policy_or_requirement
+- - passenger_service
+  - located_in
+  - location_zone
+- - special_assistance_service
+  - has_reference
+  - reference_link
+- - special_assistance_service
+  - has_requirement
+  - policy_or_requirement
+- - special_assistance_service
+  - located_in
+  - location_zone
+- - terminal
+  - hosts_service
+  - passenger_service
+- - terminal
+  - hosts_special_assistance
+  - special_assistance_service
+open_relations: false
+normalization:
+  strip_type_prefixes: true
+  collapse_whitespace: true
+  id_transforms:
+  - pattern: ^\s+|\s+$
+    replace: ''
+    case: ''
+    note: Trim leading and trailing whitespace from names, zones, and contact values.
+  - pattern: _x000D_
+    replace: ' '
+    case: ''
+    note: Normalize spreadsheet line-break artifacts into spaces.
+  - pattern: \s+
+    replace: ' '
+    case: ''
+    note: Collapse repeated internal whitespace in extracted labels and requirements.
+  rules_text:
+  - Treat BLR Airport, Bangalore International Airport Limited, and Kempegowda International
+    Airport Bengaluru as the same airport context when they appear in support answers.
+  - Preserve terminal labels exactly as written, but normalize T1 to Terminal 1 and
+    T2 to Terminal 2 when linking entities.
+  - Keep flight designators in uppercase alphanumeric form, including airline code
+    prefixes such as SG205 and IX2718.
+  - Keep phone numbers, WhatsApp numbers, and email addresses as distinct contact_channel
+    values.
+  - Do not infer service availability beyond what is explicitly stated in the answer
+    text or reference link.
+custom_prompt: ''

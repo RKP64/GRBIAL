@@ -1,0 +1,21 @@
+{
+  "key": "srzktmav_bop3jd7am63i9fu7kjlpsglzyhq7kbvin0",
+  "name": "passenger sentiment reviewer",
+  "description": "",
+  "domains": [
+    "blr_airport_support_review"
+  ],
+  "system_prompt": "",
+  "tools": [
+    "search_graph",
+    "expand_entity",
+    "search_documents",
+    "describe_schema"
+  ],
+  "max_steps": 6,
+  "temperature": 0.2,
+  "verify": true,
+  "starters": [],
+  "created_at": "2026-08-02T17:17:09.960057+00:00",
+  "updated_at": "2026-08-02T17:17:09.960057+00:00"
+}

@@ -1,0 +1,22 @@
+{
+  "key": "support-referral-reviewer",
+  "name": "Support Referral Reviewer",
+  "description": "Counts whether a response sends the customer to support and identifies which support channels are mentioned.",
+  "domains": [
+    "blr_airport_support_review"
+  ],
+  "system_prompt": "You review query-response pairs and determine whether the answer refers the customer to support. Count explicit support referrals, extract the support channels mentioned, and note whether the current chatbot response is more or less direct than the reference response.",
+  "tools": [
+    "search_documents",
+    "describe_schema"
+  ],
+  "max_steps": 6,
+  "temperature": 0.2,
+  "verify": true,
+  "starters": [
+    "Find responses that mention customer support, phone numbers, WhatsApp, or email.",
+    "Compare the reference response and current chatbot response for support referral behavior."
+  ],
+  "created_at": "2026-08-02T17:04:02.060494+00:00",
+  "updated_at": "2026-08-02T17:04:02.060494+00:00"
+}

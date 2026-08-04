@@ -1,0 +1,156 @@
+key: blr_airport_response_categorization
+name: BLR Airport response categorization
+description: A collection of airport customer-service queries and model responses
+  for Bangalore International Airport Limited, covering flight status, terminal-specific
+  services, assistance, and contact guidance.
+entity_types:
+  query:
+    id_rule: Use the exact query text when available; otherwise a normalized short
+      label from the query content.
+    examples:
+    - Delayed flight
+    - customer support
+    - Visitor pass
+  response:
+    id_rule: Use the exact response text or a stable hash of the response text if
+      long.
+    examples:
+    - Namaskara from Bangalore International Airport Limited. Thank you for reaching
+      out.
+    - Lufthansa international flights operate from **Terminal 2** at BLR.
+    - The Porter Service at BLR Airport is available to help you move comfortably
+      with your baggage.
+  chatbot_response:
+    id_rule: Use the exact current chatbot response text or a stable hash of it if
+      long.
+    examples:
+    - Namaskara from Bangalore International Airport Limited, I am still learning,
+      so please reach out to customer support...
+    - Lufthansa international flights operate from **Terminal 2** at Kempegowda International
+      Airport Bengaluru.
+    - EZPass by BLR is a PreSecure Lane that lets you choose a preferred time window...
+  airport_service:
+    id_rule: Use the service name as written; preserve branded names like 080 Transit
+      Hotel or EZPass by BLR.
+    examples:
+    - 080 Transit Hotel
+    - Porter Service
+    - Buggy Service
+  flight:
+    id_rule: Use the flight number as the identifier; if present, keep airline prefix
+      and digits together.
+    examples:
+    - SG205
+    - IX2718
+    - SG-205
+  airline:
+    id_rule: Use the airline name as written.
+    examples:
+    - Lufthansa
+    - SpiceJet
+    - Air India Express
+  terminal:
+    id_rule: Use the terminal label as written, such as Terminal 1 or Terminal 2.
+    examples:
+    - Terminal 1
+    - Terminal 2
+    - T1
+  location_zone:
+    id_rule: Use the location phrase as written; keep gate, lane, level, and zone
+      references intact.
+    examples:
+    - Terminal 1 - Zone D
+    - Terminal 2 - International Departures
+    - Terminal 1 - Landside / Departure support
+  contact_channel:
+    id_rule: Use the contact value as written; normalize phone numbers only if needed
+      for matching.
+    examples:
+    - 080-66785555
+    - +91-8884998888
+    - feedback@bialairport.com
+  airport_policy:
+    id_rule: Use the policy phrase as written or a short normalized label from the
+      rule text.
+    examples:
+    - Visitors are not allowed inside the terminal
+    - Booking is available only after web check-in
+    - Bookings are not permitted within 75 minutes of departure
+  support_need:
+    id_rule: Use the query intent as written or a short normalized label.
+    examples:
+    - Delayed flight
+    - Visitor pass
+    - own electric wheelchair
+allowed_triples:
+- - airport_service
+  - available_in
+  - terminal
+- - airport_service
+  - located_in
+  - location_zone
+- - flight
+  - has_status
+  - airport_policy
+- - flight
+  - operated_by
+  - airline
+- - query
+  - is_answered_by
+  - chatbot_response
+- - query
+  - is_answered_by
+  - response
+- - response
+  - addresses
+  - support_need
+- - response
+  - mentions
+  - airline
+- - response
+  - mentions
+  - airport_service
+- - response
+  - mentions
+  - contact_channel
+- - response
+  - mentions
+  - flight
+- - response
+  - mentions
+  - location_zone
+- - response
+  - mentions
+  - terminal
+- - response
+  - states
+  - airport_policy
+open_relations: false
+normalization:
+  strip_type_prefixes: true
+  collapse_whitespace: true
+  id_transforms:
+  - pattern: ^SG[- ]?(\d+)$
+    replace: SG\1
+    case: upper
+    note: Normalizes SpiceJet flight numbers with optional hyphen or space.
+  - pattern: ^ix(\d+)$
+    replace: IX\1
+    case: upper
+    note: Normalizes Air India Express flight numbers to uppercase prefix.
+  - pattern: ^T(\d+)$
+    replace: Terminal \1
+    case: title
+    note: Normalizes shorthand terminal labels like T1 and T2.
+  rules_text:
+  - Treat Response and Chatbot Response (Current) as separate text fields for evaluation,
+    not as the same entity.
+  - Normalize terminal shorthand such as T1/T2 to Terminal 1/Terminal 2 when comparing
+    categories.
+  - Keep branded service names intact, including 080 Transit Hotel, EZPass by BLR,
+    and Care by BLR.
+  - Preserve contact details exactly as written for matching, but allow phone-number
+    formatting variants.
+  - Use the query intent as the primary categorization target when the response is
+    clearly about a service, policy, or flight status.
+custom_prompt: ''

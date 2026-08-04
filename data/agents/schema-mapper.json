@@ -1,0 +1,23 @@
+{
+  "key": "schema-mapper",
+  "name": "Schema Mapper",
+  "description": "Maps extracted text into the ontology and resolves terminals, services, flights, and contacts.",
+  "domains": [
+    "blr_airport_support_review"
+  ],
+  "system_prompt": "You map text from the spreadsheet into the approved entity types and relationships. Normalize terminals, flight numbers, support contacts, and service names according to the schema, and flag anything that does not fit the ontology.",
+  "tools": [
+    "describe_schema",
+    "expand_entity",
+    "search_documents"
+  ],
+  "max_steps": 6,
+  "temperature": 0.2,
+  "verify": true,
+  "starters": [
+    "Identify the entity types present in a sample row.",
+    "Normalize terminal and flight references before review."
+  ],
+  "created_at": "2026-08-02T17:04:02.178848+00:00",
+  "updated_at": "2026-08-02T17:04:02.178848+00:00"
+}

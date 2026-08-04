@@ -1,0 +1,21 @@
+{
+  "id": "863e394e8c45",
+  "provider": "hosted",
+  "dataset_id": "blr_airport_flight_info-20260803-061938",
+  "domain": "blr_airport_flight_info",
+  "base_model": "",
+  "suffix": "",
+  "state": "failed",
+  "created_at": "2026-08-03T06:25:53.440750+00:00",
+  "job_ref": null,
+  "model_ref": null,
+  "error": "Error code: 400 - {'error': {'code': 'invalidPayload', 'message': 'The Model field is required.'}}",
+  "hyperparameters": {
+    "epochs": 2,
+    "learning_rate_multiplier": null,
+    "learning_rate": null,
+    "batch_size": null,
+    "seed": 42,
+    "adapter": null
+  }
+}

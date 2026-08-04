@@ -1,0 +1,60 @@
+key: support_tickets
+name: Support Tickets
+description: Customer or internal support requests, their causes and resolutions.
+entity_types:
+  Ticket:
+    id_rule: ticket reference
+    examples:
+    - INC-10432
+  Issue:
+    id_rule: short problem description in lowercase
+  Product:
+    id_rule: product or service name
+  Component:
+    id_rule: module or subsystem name
+  Resolution:
+    id_rule: short action taken
+  Team:
+    id_rule: team or queue name
+  Severity:
+    id_rule: 'one of: critical, high, medium, low'
+allowed_triples:
+- - Ticket
+  - reports
+  - Issue
+- - Ticket
+  - concerns
+  - Product
+- - Issue
+  - affects
+  - Component
+- - Component
+  - part_of
+  - Product
+- - Ticket
+  - resolved_by
+  - Resolution
+- - Ticket
+  - assigned_to
+  - Team
+- - Ticket
+  - has_severity
+  - Severity
+- - Issue
+  - caused_by
+  - Component
+normalization:
+  strip_type_prefixes: true
+  collapse_whitespace: true
+  id_transforms:
+  - pattern: ^([A-Za-z]{2,4})[\s\-]?(\d{3,8})$
+    replace: \1-\2
+    case: upper
+    note: 'Ticket references: INC 10432 / inc10432 -> INC-10432'
+  - pattern: ^(Critical|High|Medium|Low)$
+    replace: \1
+    case: lower
+    note: Severity is lowercase
+  rules_text:
+  - Issue labels are lowercase and describe the symptom, not the fix
+custom_prompt: ''

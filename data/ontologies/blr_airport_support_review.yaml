@@ -1,0 +1,156 @@
+key: blr_airport_support_review
+name: BLR Airport Customer Support Review and Sentiment
+description: A collection of airport customer queries, reference responses, and current
+  chatbot responses used to review how often the chatbot defers to customer support
+  and to assess sentiment in support-related interactions.
+entity_types:
+  query:
+    id_rule: Use the raw query text as the identifier; no special format is enforced.
+    examples:
+    - Delayed flight
+    - customer support
+    - Ez pass
+  response:
+    id_rule: Use the raw response text as the identifier; no special format is enforced.
+    examples:
+    - Namaskara from Bangalore International Airport Limited. Thank you for reaching
+      out.
+    - Namaskara from Bangalore International Airport Limited. Thank you for contacting
+      us.
+    - If you are travelling with your own electric wheelchair, please inform your
+      respective airline in advance
+  chatbot_response:
+    id_rule: Use the raw chatbot response text as the identifier; no special format
+      is enforced.
+    examples:
+    - Namaskara from Bangalore International Airport Limited, I am still learning,
+      so please reach out to customer support at **+91-80-22012001** or **+91-80-66785555**
+    - Namaskara from Bangalore International Airport Limited. Thank you for contacting
+      us.
+    - If you are travelling with your own electric wheelchair, please inform your
+      respective airline in advance
+  airport_service:
+    id_rule: Use the service name as written; no special format is enforced.
+    examples:
+    - 080 Transit Hotel
+    - Porter Service
+    - Buggy Service
+  terminal:
+    id_rule: Normalize to the terminal label as written, typically T1 or T2.
+    examples:
+    - Terminal 1
+    - Terminal 2
+    - Terminal T1
+  support_contact:
+    id_rule: Phone and WhatsApp numbers follow the collection's displayed number formats;
+      emails follow standard email format.
+    examples:
+    - 080-66785555
+    - +91-8884998888
+    - feedback@bialairport.com
+  airline:
+    id_rule: Use the airline name as written; no special format is enforced.
+    examples:
+    - Lufthansa
+    - SpiceJet
+    - Air India Express
+  flight:
+    id_rule: Flight numbers follow airline code plus digits, optionally with spaces;
+      preserve the displayed form.
+    examples:
+    - SG205
+    - IX2718
+    - SG-205
+  location_or_zone:
+    id_rule: Use the location label as written; no special format is enforced.
+    examples:
+    - Zone D
+    - Level 3
+    - Kerbside / Check-in / Baggage Claim support
+  policy_or_requirement:
+    id_rule: Use the policy text as written; no special format is enforced.
+    examples:
+    - Visitors are not allowed inside the terminal as per BCAS directive.
+    - Bookings are not permitted within 75 minutes of departure.
+    - Passengers requiring wheelchair assistance at BLR Airport must place a request
+      with the respective airlines at the time of booking or 48 hours prior to their
+      travel.
+  sentiment:
+    id_rule: Use a simple label such as positive, neutral, or negative when assigned
+      by analysis; no source-side naming convention is enforced.
+    examples:
+    - I’m sorry your flight is delayed.
+    - I’m sorry for the inconvenience caused.
+    - Thank you for contacting us.
+allowed_triples:
+- - airport_service
+  - located_in
+  - terminal
+- - chatbot_response
+  - expresses_sentiment
+  - sentiment
+- - chatbot_response
+  - mentions_airport_service
+  - airport_service
+- - chatbot_response
+  - mentions_support_contact
+  - support_contact
+- - flight
+  - has_status
+  - policy_or_requirement
+- - flight
+  - operated_by
+  - airline
+- - query
+  - has_current_response
+  - chatbot_response
+- - query
+  - has_reference_response
+  - response
+- - response
+  - mentions_airline
+  - airline
+- - response
+  - mentions_airport_service
+  - airport_service
+- - response
+  - mentions_flight
+  - flight
+- - response
+  - mentions_policy_or_requirement
+  - policy_or_requirement
+- - response
+  - mentions_support_contact
+  - support_contact
+- - response
+  - mentions_terminal
+  - terminal
+open_relations: false
+normalization:
+  strip_type_prefixes: true
+  collapse_whitespace: true
+  id_transforms:
+  - pattern: \s*_x000D_\s*
+    replace: ' '
+    case: ''
+    note: Removes Excel carriage-return artifacts from text fields.
+  - pattern: \*\*(.*?)\*\*
+    replace: $1
+    case: ''
+    note: Strips markdown bold markers from service names, contacts, and labels.
+  - pattern: \s+
+    replace: ' '
+    case: ''
+    note: Collapses repeated whitespace into single spaces.
+  rules_text:
+  - Treat the three columns as a query-response pair plus the current chatbot answer
+    for review.
+  - Count support referrals by detecting explicit mentions of customer support channels
+    such as phone, WhatsApp, email, or instructions to contact support.
+  - Normalize terminal labels so T1, Terminal 1, and Terminal T1 are treated as the
+    same terminal concept when reviewing answers.
+  - Normalize flight numbers by removing punctuation differences such as SG-205 versus
+    SG205 when comparing references.
+  - Sentiment review should focus on the tone of the response text, especially apologies,
+    reassurance, and helpfulness.
+custom_prompt: ''

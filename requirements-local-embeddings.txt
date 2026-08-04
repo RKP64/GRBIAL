@@ -1,0 +1,9 @@
+# Optional: embeddings computed on this host, with no API key and no text
+# leaving the machine. Install only if EMBEDDING_PROVIDER=local.
+#
+#   pip install -r requirements-local-embeddings.txt
+#
+# This pulls in PyTorch, which is large. For a CPU-only host, install the
+# smaller CPU build first:
+#   pip install torch --index-url https://download.pytorch.org/whl/cpu
+sentence-transformers>=3.0.0

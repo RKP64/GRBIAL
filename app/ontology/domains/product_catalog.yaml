@@ -1,0 +1,54 @@
+key: product_catalog
+name: Product Catalog
+description: Products, how they are categorised, priced and supplied.
+entity_types:
+  Product:
+    id_rule: product name as marketed
+  SKU:
+    id_rule: stock code, uppercase, hyphenated
+  Category:
+    id_rule: category name in title case
+  Brand:
+    id_rule: brand name
+  Supplier:
+    id_rule: supplier legal name
+  Location:
+    id_rule: store, warehouse or region name
+  Price:
+    id_rule: amount with currency code
+allowed_triples:
+- - Product
+  - has_sku
+  - SKU
+- - Product
+  - in_category
+  - Category
+- - Product
+  - made_by
+  - Brand
+- - Product
+  - supplied_by
+  - Supplier
+- - Product
+  - priced_at
+  - Price
+- - Product
+  - stocked_at
+  - Location
+- - Category
+  - child_of
+  - Category
+- - Supplier
+  - operates_in
+  - Location
+normalization:
+  strip_type_prefixes: true
+  collapse_whitespace: true
+  id_transforms:
+  - pattern: ^([A-Za-z0-9]+)[\s_]([A-Za-z0-9]+)$
+    replace: \1-\2
+    case: upper
+    note: 'SKUs: separators become hyphens, uppercase'
+  rules_text:
+  - Categories use the retailer's own taxonomy wording
+custom_prompt: ''

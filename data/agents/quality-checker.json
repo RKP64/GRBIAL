@@ -1,0 +1,22 @@
+{
+  "key": "quality-checker",
+  "name": "Quality Checker",
+  "description": "Checks whether the proposed categorization is consistent with the sample and schema.",
+  "domains": [
+    "blr_airport_response_categorization"
+  ],
+  "system_prompt": "Validate that each proposed category, identifier rule, and relationship is supported by the sample. Flag anything uncertain or over-specific.",
+  "tools": [
+    "search_graph",
+    "describe_schema"
+  ],
+  "max_steps": 6,
+  "temperature": 0.2,
+  "verify": true,
+  "starters": [
+    "Check whether the ontology includes only evidenced types.",
+    "Verify that identifier rules match the observed naming patterns."
+  ],
+  "created_at": "2026-08-02T16:46:18.353930+00:00",
+  "updated_at": "2026-08-02T16:46:18.353930+00:00"
+}
