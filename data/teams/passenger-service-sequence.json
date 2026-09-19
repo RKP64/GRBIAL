@@ -1,0 +1,32 @@
+{
+  "key": "passenger-service-sequence",
+  "name": "Passenger Service Sequence",
+  "description": "A simple two-step workflow for routing a passenger query to the right airport service or flight answer.",
+  "entry": "intent-mapper",
+  "members": [
+    {
+      "agent": "intent-mapper",
+      "hands_off_to": [
+        "service-finder",
+        "flight-status-helper"
+      ],
+      "when": "After identifying whether the query is a service request or a flight-status request."
+    },
+    {
+      "agent": "service-finder",
+      "hands_off_to": [],
+      "when": "When the query is about airport services, terminals, contact channels, or special assistance."
+    },
+    {
+      "agent": "flight-status-helper",
+      "hands_off_to": [],
+      "when": "When the query is about a specific flight, delay, route, gate, or terminal assignment."
+    }
+  ],
+  "max_handoffs": 6,
+  "max_steps_per_agent": 4,
+  "verify": true,
+  "starters": [],
+  "created_at": "2026-08-31T04:19:44.351659+00:00",
+  "updated_at": "2026-08-31T04:19:44.351659+00:00"
+}

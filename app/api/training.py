@@ -33,6 +33,9 @@ class GenerateRequest(BaseModel):
     max_per_relation: int = Field(default=400, ge=10, le=5000)
     refusal_fraction: float = Field(default=0.08, ge=0.0, le=0.3)
     validation_fraction: float = Field(default=0.05, ge=0.01, le=0.3)
+    rephrase: bool = False
+    rephrase_batch: int = Field(default=40, ge=5, le=100)
+    abstract_entities: bool = False
     seed: int = 42
     system_prompt: str = ""
     exclude_types: list[str] = Field(default_factory=list)
@@ -45,7 +48,10 @@ async def generate_dataset(body: GenerateRequest) -> dict:
         include_multihop=body.include_multihop, include_refusals=body.include_refusals,
         include_passages=body.include_passages, max_per_relation=body.max_per_relation,
         refusal_fraction=body.refusal_fraction,
-        validation_fraction=body.validation_fraction, seed=body.seed,
+        validation_fraction=body.validation_fraction,
+        rephrase=body.rephrase, rephrase_batch=body.rephrase_batch,
+        abstract_entities=body.abstract_entities,
+        seed=body.seed,
         system_prompt=body.system_prompt, exclude_types=body.exclude_types,
     )
     try:
@@ -97,12 +103,15 @@ async def providers() -> list[dict]:
         caps = trainer.capabilities()
         out.append({
             "key": key,
+            "label": caps.label or key,
             "can_train": caps.can_train,
             "can_deploy": caps.can_deploy,
             "hyperparameters": caps.hyperparameters,
             "base_models": caps.base_models,
             "requirements": caps.requirements,
             "note": caps.note,
+            "can_download_weights": caps.can_download_weights,
+            "data_residency": caps.data_residency,
         })
     return out
 

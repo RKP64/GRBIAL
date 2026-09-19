@@ -90,6 +90,8 @@ async def run_agent(
     temperature: float = 0.2,
     verify: bool = True,
     permitted_domains: list[str] | None = None,
+    model: str = "",
+    principal: Any = None,
 ) -> AgentResult:
     """Answer with tool use.
 
@@ -104,14 +106,22 @@ async def run_agent(
             f"{', '.join(permitted_domains)}."
         )
 
-    provider = get_provider()
+    # A blank model keeps the platform default, so agents that do not name one
+    # are unaffected.
+    try:
+        provider = get_provider(model)
+    except RuntimeError as exc:
+        raise RuntimeError(
+            f"This agent asks for the model '{model}', which could not be "
+            f"prepared: {exc}"
+        ) from exc
     if not provider.tools_available:
         raise RuntimeError(
             "The configured language model does not support tool use. Use the "
             "standard query instead."
         )
 
-    available = await available_tools()
+    available = await available_tools(domain=domain)
     tools = [t for t in available
              if not allowed_tools or t["name"] in allowed_tools]
     if not tools:
@@ -164,7 +174,8 @@ async def run_agent(
             else:
                 seen_calls.add(signature)
                 tool_started = time.perf_counter()
-                result = await run_tool(call["name"], call["arguments"], domain=domain)
+                result = await run_tool(call["name"], call["arguments"],
+                                        domain=domain, principal=principal)
                 steps.append(Step(step_index, "tool_result",
                                   _summarise(call["name"], result),
                                   data={"tool": call["name"], "result": result[:2000]},

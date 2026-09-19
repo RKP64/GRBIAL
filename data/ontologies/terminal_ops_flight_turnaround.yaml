@@ -1,0 +1,143 @@
+key: terminal_ops_flight_turnaround
+name: Terminal Operations Flight Turnaround Analytics
+description: A flight-operations dataset centered on arrival, turnaround, stand/gate,
+  baggage, passenger, and departure timing for airport terminal ops analysis.
+entity_types:
+  flight_record:
+    id_rule: Use the flight number plus day/date when available; otherwise the row
+      is identified by its flight number and movement context.
+    examples:
+    - 6E499
+    - QP9532
+    - AI2512
+  airline:
+    id_rule: Use the airline code (IATA/ICAO) as the identifier when present.
+    examples:
+    - IndiGo
+    - Akasa Air
+    - Air India
+  aircraft:
+    id_rule: Use registration as the primary identifier; combine with type when needed.
+    examples:
+    - VTIBL
+    - VTTQF
+    - VTYBM
+  airport:
+    id_rule: Use IATA code as the identifier when present; otherwise ICAO code.
+    examples:
+    - VNS
+    - IXM
+    - BOM
+  stand:
+    id_rule: Use the stand code exactly as shown.
+    examples:
+    - '507'
+    - V36
+    - '31'
+  gate:
+    id_rule: Use the gate code exactly as shown.
+    examples:
+    - '22'
+    - D18
+    - '27'
+  terminal:
+    id_rule: Use the terminal code exactly as shown.
+    examples:
+    - T1
+    - T2
+    - T2DA
+  runway:
+    id_rule: Use the runway designator exactly as shown.
+    examples:
+    - 09L
+    - 09R
+    - 09
+  taxi_timing_event:
+    id_rule: Use the event label plus its timestamp field name; no standalone identifier
+      needed.
+    examples:
+    - AIBT
+    - AOBT
+    - ATOT
+  delay_reason:
+    id_rule: Use the delay code or text as shown.
+    examples:
+    - 600[LB][Last Bag Delay]
+    - 500[FB][First Bag Delay]
+    - create day process
+  route:
+    id_rule: Use the routing string exactly as shown.
+    examples:
+    - VNS-BLR-IXM
+    - DEL-BLR-BOM
+    - CCU-BLR-IXB
+  handling_agent:
+    id_rule: Use the agent name or code exactly as shown.
+    examples:
+    - IGO
+    - AKJ
+    - AIS
+allowed_triples:
+- - flight_record
+  - arrives_from
+  - airport
+- - flight_record
+  - assigned_to_gate
+  - gate
+- - flight_record
+  - assigned_to_stand
+  - stand
+- - flight_record
+  - assigned_to_terminal
+  - terminal
+- - flight_record
+  - departs_to
+  - airport
+- - flight_record
+  - diverted_to
+  - airport
+- - flight_record
+  - handled_by
+  - handling_agent
+- - flight_record
+  - has_delay_reason
+  - delay_reason
+- - flight_record
+  - has_route
+  - route
+- - flight_record
+  - has_taxi_timing_event
+  - taxi_timing_event
+- - flight_record
+  - operated_by
+  - airline
+- - flight_record
+  - uses_aircraft
+  - aircraft
+- - flight_record
+  - uses_runway
+  - runway
+open_relations: false
+normalization:
+  strip_type_prefixes: true
+  collapse_whitespace: true
+  id_transforms:
+  - pattern: ^([A-Z0-9]+)\s*$
+    replace: $1
+    case: upper
+    note: Trim and uppercase codes such as airline, airport, stand, gate, runway,
+      and aircraft registration values when they are stored as codes.
+  - pattern: ^(\d{2})/(\d{2})/(\d{2})\s+(\d{2})(\d{2})$
+    replace: 20$3-$2-$1T$4:$5:00
+    case: ''
+    note: Normalize timestamps like 04/02/26 2219 into ISO-like datetime strings.
+  rules_text:
+  - Treat arrival and departure sides as separate facets of the same flight_record
+    rather than separate entities.
+  - Prefer IATA codes for airports when both IATA and ICAO are present; keep ICAO
+    as an alternate identifier.
+  - Preserve operational codes and comments verbatim because they often carry the
+    reason for taxi or turnaround delay.
+  - Do not infer missing timestamps or statuses; only store what is explicitly present
+    in the row.
+custom_prompt: ''

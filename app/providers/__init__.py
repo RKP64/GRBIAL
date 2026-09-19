@@ -9,13 +9,33 @@ from .base import LLMProvider, parse_json_response  # noqa: F401
 log = logging.getLogger(__name__)
 
 
+# Which settings field names the model, per provider. Overriding a per-agent
+# model means writing to the right one of these — the credentials and endpoint
+# stay as configured, only the model changes.
+_MODEL_FIELD = {
+    "azure": "azure_openai_deployment",
+    "azure_openai": "azure_openai_deployment",
+    "bedrock": "bedrock_model_id",
+    "aws": "bedrock_model_id",
+    "anthropic": "anthropic_model",
+    "openai": "openai_model",
+    "openai_compatible": "openai_model",
+}
+
+
 @lru_cache
-def get_provider() -> LLMProvider:
-    """Build the configured provider.
+def get_provider(model: str = "") -> LLMProvider:
+    """Build the configured provider, optionally against a specific model.
 
     LLM_PROVIDER selects it. When left as `auto`, whichever set of credentials
     is present wins — so a deployment only has to fill in the block for the
     cloud it actually has.
+
+    Passing `model` returns a provider pointed at that model instead of the
+    configured default, using the same credentials and endpoint. This is how an
+    agent runs on a fine-tuned model while the rest of the platform — extraction,
+    verification, other agents — stays on the general one. Cached per model, so
+    a mixed deployment does not rebuild a client on every call.
     """
     s = get_settings()
     choice = (s.llm_provider or "auto").lower()
@@ -35,6 +55,14 @@ def get_provider() -> LLMProvider:
                 "Anthropic, Azure OpenAI, Amazon Bedrock, or an OpenAI-compatible "
                 "endpoint."
             )
+
+    if model:
+        field = _MODEL_FIELD.get(choice)
+        if not field:
+            raise RuntimeError(f"Provider '{choice}' does not support a model override.")
+        # model_copy keeps every other setting — endpoint, key, api version —
+        # and swaps only the model name.
+        s = s.model_copy(update={field: model})
 
     if choice in ("azure", "azure_openai"):
         from .azure_openai import AzureOpenAIProvider
@@ -84,6 +112,14 @@ def get_embedder() -> LLMProvider:
         from .bedrock import BedrockProvider
 
         return _metered(BedrockProvider(s))
+    if model:
+        field = _MODEL_FIELD.get(choice)
+        if not field:
+            raise RuntimeError(f"Provider '{choice}' does not support a model override.")
+        # model_copy keeps every other setting — endpoint, key, api version —
+        # and swaps only the model name.
+        s = s.model_copy(update={field: model})
+
     if choice in ("azure", "azure_openai"):
         from .azure_openai import AzureOpenAIProvider
 

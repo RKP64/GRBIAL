@@ -11,7 +11,8 @@ from typing import Any
 
 from ..config import Settings, get_settings
 from .trainers import (BedrockTrainer, InferenceOnlyTrainer, OpenAICompatibleTrainer,
-                       RemoteGPUTrainer, Trainer, TrainingRequest)
+                       RemoteGPUTrainer, ShaktiTrainer, TogetherTrainer, Trainer,
+                       TrainingRequest)
 
 log = logging.getLogger(__name__)
 
@@ -24,6 +25,8 @@ def build_trainers(s: Settings) -> dict[str, Trainer]:
         "hosted": OpenAICompatibleTrainer(s),
         "bedrock": BedrockTrainer(s),
         "your_gpu": RemoteGPUTrainer(s),
+        "together": TogetherTrainer(s),
+        "shakti": ShaktiTrainer(s),
     }
     if s.groq_api_key:
         trainers["groq"] = InferenceOnlyTrainer(s, "Groq")

@@ -1,0 +1,239 @@
+key: direct-tax
+name: KPMG Direct Tax
+description: Indian direct tax knowledge graph — Income-tax Act 1961/2025, case law,
+  CBDT circulars, rules, notifications, and KPMG firm positions. Covers statutory
+  provisions, judicial interpretations, legal principles, and binding scope hierarchy.
+entity_types:
+  Act:
+    id_rule: ''
+    examples:
+    - Income-tax Act, 1961
+    - Income-tax Act, 2025
+  Section:
+    id_rule: ''
+    examples:
+    - Section 2
+    - Section 9
+    - Section 45
+    - Section 47
+    - Section 56(2)(x)
+    - Section 115BAA
+  Definition:
+    id_rule: ''
+    examples:
+    - capital asset
+    - transfer
+    - amalgamation
+    - demerger
+    - income
+    - person
+  CaseLaw:
+    id_rule: ''
+    examples:
+    - CIT v. Grace Collis (2001)
+    - Vodafone International Holdings BV v. UOI (2012)
+    - Azadi Bachao Andolan (2003)
+  Issue:
+    id_rule: ''
+    examples:
+    - Taxability of liquidation distribution to shareholders
+    - Capital gains on transfer of shares in amalgamation
+    - Applicability of GAAR provisions
+  LegalPrinciple:
+    id_rule: ''
+    examples:
+    - Tax neutrality in corporate reorganization
+    - Substance over form
+    - Look through vs look at
+  FirmPosition:
+    id_rule: ''
+    examples:
+    - DPP-Tax-2024-001
+    - DPP-Tax-2024-002
+  Domain:
+    id_rule: ''
+    examples:
+    - Corporate Reorganization
+    - International Tax
+    - Transfer Pricing
+    - Capital Gains
+  Concept:
+    id_rule: ''
+    examples:
+    - Tax Neutrality
+    - Avoidance vs Evasion
+    - Permanent Establishment
+  Circular:
+    id_rule: ''
+    examples:
+    - Circular 495/2007
+    - Circular 4/2015
+    - Circular 17/2020
+  Notification:
+    id_rule: ''
+    examples:
+    - Notification 94/2023
+    - Notification SO 3912(E)
+  Rule:
+    id_rule: ''
+    examples:
+    - Rule 11UA
+    - Rule 8D
+    - Rule 10B
+    - Rule 114F
+  FinanceAct:
+    id_rule: ''
+    examples:
+    - Finance Act 2023
+    - Finance Act 2024
+    - Finance (No.2) Act 2024
+  Court:
+    id_rule: ''
+    examples:
+    - Supreme Court of India
+    - Bombay High Court
+    - Delhi High Court
+    - ITAT Mumbai
+  TreatyArticle:
+    id_rule: ''
+    examples:
+    - India-Mauritius DTAA Article 13
+    - India-Singapore DTAA Article 7
+  Jurisdiction:
+    id_rule: ''
+    examples:
+    - India
+    - Mauritius
+    - Singapore
+    - UAE
+  TaxpayerType:
+    id_rule: ''
+    examples:
+    - Non-resident
+    - Domestic company
+    - Foreign company
+    - Individual HUF
+  TransactionType:
+    id_rule: ''
+    examples:
+    - Amalgamation
+    - Demerger
+    - Slump sale
+    - Liquidation
+    - Share buyback
+  ExternalProvision:
+    id_rule: ''
+    examples:
+    - Companies Act 2013 Section 233
+    - SEBI LODR Regulation 37
+    - FEMA Section 6
+allowed_triples:
+- - CaseLaw
+  - applies
+  - Section
+- - CaseLaw
+  - decided_by
+  - Court
+- - CaseLaw
+  - decides_issue
+  - Issue
+- - CaseLaw
+  - distinguishes
+  - CaseLaw
+- - CaseLaw
+  - establishes
+  - LegalPrinciple
+- - CaseLaw
+  - follows
+  - CaseLaw
+- - CaseLaw
+  - instantiates_concept
+  - Concept
+- - CaseLaw
+  - interprets
+  - Section
+- - CaseLaw
+  - refers_to_case
+  - CaseLaw
+- - CaseLaw
+  - refers_to_section
+  - Section
+- - CaseLaw
+  - refers_to_statute
+  - ExternalProvision
+- - Circular
+  - clarifies
+  - Section
+- - Circular
+  - issued_under
+  - Section
+- - Definition
+  - defined_in
+  - Section
+- - FinanceAct
+  - amends
+  - Section
+- - FirmPosition
+  - addresses_issue
+  - Issue
+- - FirmPosition
+  - cites
+  - CaseLaw
+- - FirmPosition
+  - cites
+  - Section
+- - FirmPosition
+  - supersedes
+  - FirmPosition
+- - Issue
+  - belongs_to_domain
+  - Domain
+- - Notification
+  - supersedes
+  - Notification
+- - Rule
+  - implements
+  - Section
+- - Section
+  - addresses_issue
+  - Issue
+- - Section
+  - applies_to
+  - Jurisdiction
+- - Section
+  - applies_to
+  - TaxpayerType
+- - Section
+  - applies_to
+  - TransactionType
+- - Section
+  - corresponds_to
+  - Section
+- - Section
+  - defines
+  - Definition
+- - Section
+  - instantiates_concept
+  - Concept
+- - Section
+  - part_of
+  - Act
+- - Section
+  - references
+  - ExternalProvision
+- - Section
+  - refers_to
+  - Section
+- - TreatyArticle
+  - overrides
+  - Section
+open_relations: false
+normalization:
+  strip_type_prefixes: true
+  collapse_whitespace: true
+  id_transforms: []
+  rules_text:
+  - 'Normalize section numbers: ''2(14)'' → ''Section 2(14)'''
+  - 'Normalize case citations: strip extra whitespace, standardize court abbreviations'
+  - 'Normalize act references: ''IT Act'' → ''Income-tax Act, 1961'''
+custom_prompt: ''

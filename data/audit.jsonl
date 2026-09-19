@@ -1,0 +1,285 @@
+{"timestamp": "2026-08-10T05:24:23.325035+00:00", "user": "apikey:dev-key-...", "action": "POST", "resource": "login", "detail": "status=401", "ip": "127.0.0.1", "method": "POST", "path": "/auth/login"}
+{"timestamp": "2026-08-10T05:24:45.586154+00:00", "user": "raushanpandey@kpmg.com", "action": "login", "resource": "", "detail": "", "ip": "127.0.0.1", "method": "", "path": ""}
+{"timestamp": "2026-08-10T05:24:45.587890+00:00", "user": "apikey:dev-key-...", "action": "POST", "resource": "login", "detail": "status=200", "ip": "127.0.0.1", "method": "POST", "path": "/auth/login"}
+{"timestamp": "2026-08-10T05:24:50.291175+00:00", "user": "raushanpandey@kpmg.com", "action": "login", "resource": "", "detail": "", "ip": "127.0.0.1", "method": "", "path": ""}
+{"timestamp": "2026-08-10T05:24:50.293394+00:00", "user": "apikey:dev-key-...", "action": "POST", "resource": "login", "detail": "status=200", "ip": "127.0.0.1", "method": "POST", "path": "/auth/login"}
+{"timestamp": "2026-08-10T05:24:52.227736+00:00", "user": "raushanpandey@kpmg.com", "action": "login", "resource": "", "detail": "", "ip": "127.0.0.1", "method": "", "path": ""}
+{"timestamp": "2026-08-10T05:24:52.229421+00:00", "user": "apikey:dev-key-...", "action": "POST", "resource": "login", "detail": "status=200", "ip": "127.0.0.1", "method": "POST", "path": "/auth/login"}
+{"timestamp": "2026-08-10T05:24:53.744339+00:00", "user": "raushanpandey@kpmg.com", "action": "login", "resource": "", "detail": "", "ip": "127.0.0.1", "method": "", "path": ""}
+{"timestamp": "2026-08-10T05:24:53.746131+00:00", "user": "apikey:dev-key-...", "action": "POST", "resource": "login", "detail": "status=200", "ip": "127.0.0.1", "method": "POST", "path": "/auth/login"}
+{"timestamp": "2026-08-10T05:24:55.043162+00:00", "user": "raushanpandey@kpmg.com", "action": "login", "resource": "", "detail": "", "ip": "127.0.0.1", "method": "", "path": ""}
+{"timestamp": "2026-08-10T05:24:55.045152+00:00", "user": "apikey:dev-key-...", "action": "POST", "resource": "login", "detail": "status=200", "ip": "127.0.0.1", "method": "POST", "path": "/auth/login"}
+{"timestamp": "2026-08-10T05:24:56.281557+00:00", "user": "raushanpandey@kpmg.com", "action": "login", "resource": "", "detail": "", "ip": "127.0.0.1", "method": "", "path": ""}
+{"timestamp": "2026-08-10T05:24:56.283985+00:00", "user": "apikey:dev-key-...", "action": "POST", "resource": "login", "detail": "status=200", "ip": "127.0.0.1", "method": "POST", "path": "/auth/login"}
+{"timestamp": "2026-08-10T05:24:57.432655+00:00", "user": "raushanpandey@kpmg.com", "action": "login", "resource": "", "detail": "", "ip": "127.0.0.1", "method": "", "path": ""}
+{"timestamp": "2026-08-10T05:24:57.434100+00:00", "user": "apikey:dev-key-...", "action": "POST", "resource": "login", "detail": "status=200", "ip": "127.0.0.1", "method": "POST", "path": "/auth/login"}
+{"timestamp": "2026-08-10T05:24:58.615293+00:00", "user": "raushanpandey@kpmg.com", "action": "login", "resource": "", "detail": "", "ip": "127.0.0.1", "method": "", "path": ""}
+{"timestamp": "2026-08-10T05:24:58.616752+00:00", "user": "apikey:dev-key-...", "action": "POST", "resource": "login", "detail": "status=200", "ip": "127.0.0.1", "method": "POST", "path": "/auth/login"}
+{"timestamp": "2026-08-10T05:24:59.900790+00:00", "user": "raushanpandey@kpmg.com", "action": "login", "resource": "", "detail": "", "ip": "127.0.0.1", "method": "", "path": ""}
+{"timestamp": "2026-08-10T05:24:59.902344+00:00", "user": "apikey:dev-key-...", "action": "POST", "resource": "login", "detail": "status=200", "ip": "127.0.0.1", "method": "POST", "path": "/auth/login"}
+{"timestamp": "2026-08-10T05:37:41.659084+00:00", "user": "raushanpandey@kpmg.com", "action": "login", "resource": "", "detail": "", "ip": "127.0.0.1", "method": "", "path": ""}
+{"timestamp": "2026-08-10T05:37:41.660556+00:00", "user": "apikey:dev-key-...", "action": "POST", "resource": "login", "detail": "status=200", "ip": "127.0.0.1", "method": "POST", "path": "/auth/login"}
+{"timestamp": "2026-08-10T05:37:43.393480+00:00", "user": "raushanpandey@kpmg.com", "action": "login", "resource": "", "detail": "", "ip": "127.0.0.1", "method": "", "path": ""}
+{"timestamp": "2026-08-10T05:37:43.395117+00:00", "user": "apikey:dev-key-...", "action": "POST", "resource": "login", "detail": "status=200", "ip": "127.0.0.1", "method": "POST", "path": "/auth/login"}
+{"timestamp": "2026-08-10T10:26:36.842497+00:00", "user": "raushanpandey@kpmg.com", "action": "login", "resource": "", "detail": "", "ip": "127.0.0.1", "method": "", "path": ""}
+{"timestamp": "2026-08-10T10:26:36.848327+00:00", "user": "apikey:dev-key-...", "action": "POST", "resource": "login", "detail": "status=200", "ip": "127.0.0.1", "method": "POST", "path": "/auth/login"}
+{"timestamp": "2026-08-10T11:23:36.376989+00:00", "user": "raushanpandey@kpmg.com", "action": "login", "resource": "", "detail": "", "ip": "127.0.0.1", "method": "", "path": ""}
+{"timestamp": "2026-08-10T11:23:36.385047+00:00", "user": "apikey:dev-key-...", "action": "POST", "resource": "login", "detail": "status=200", "ip": "127.0.0.1", "method": "POST", "path": "/auth/login"}
+{"timestamp": "2026-08-10T16:26:52.961030+00:00", "user": "raushanpandey@kpmg.com", "action": "login", "resource": "", "detail": "", "ip": "127.0.0.1", "method": "", "path": ""}
+{"timestamp": "2026-08-10T16:26:52.963280+00:00", "user": "apikey:dev-key-...", "action": "POST", "resource": "login", "detail": "status=200", "ip": "127.0.0.1", "method": "POST", "path": "/auth/login"}
+{"timestamp": "2026-08-10T16:34:36.024384+00:00", "user": "raushanpandey@kpmg.com", "action": "login", "resource": "", "detail": "", "ip": "127.0.0.1", "method": "", "path": ""}
+{"timestamp": "2026-08-10T16:34:36.026051+00:00", "user": "apikey:dev-key-...", "action": "POST", "resource": "login", "detail": "status=200", "ip": "127.0.0.1", "method": "POST", "path": "/auth/login"}
+{"timestamp": "2026-08-11T07:20:29.319280+00:00", "user": "raushanpandey@kpmg.com", "action": "login", "resource": "", "detail": "", "ip": "127.0.0.1", "method": "", "path": ""}
+{"timestamp": "2026-08-11T07:20:29.320974+00:00", "user": "apikey:dev-key-...", "action": "POST", "resource": "login", "detail": "status=200", "ip": "127.0.0.1", "method": "POST", "path": "/auth/login"}
+{"timestamp": "2026-08-11T07:24:38.534830+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "resource": "ask", "detail": "status=200", "ip": "127.0.0.1", "method": "POST", "path": "/agents/passenger-assistant/ask"}
+{"timestamp": "2026-08-11T07:28:37.370567+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "resource": "ask", "detail": "status=200", "ip": "127.0.0.1", "method": "POST", "path": "/agents/passenger-assistant/ask"}
+{"timestamp": "2026-08-11T07:29:11.113498+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "resource": "ask", "detail": "status=200", "ip": "127.0.0.1", "method": "POST", "path": "/agents/passenger-assistant/ask"}
+{"timestamp": "2026-08-11T07:35:23.127298+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "resource": "ontologies", "detail": "status=201", "ip": "127.0.0.1", "method": "POST", "path": "/ontologies"}
+{"timestamp": "2026-08-12T08:37:50.589886+00:00", "user": "raushanpandey@kpmg.com", "action": "login", "resource": "", "detail": "", "ip": "127.0.0.1", "method": "", "path": ""}
+{"timestamp": "2026-08-12T08:37:50.591910+00:00", "user": "apikey:dev-key-...", "action": "POST", "resource": "login", "detail": "status=200", "ip": "127.0.0.1", "method": "POST", "path": "/auth/login"}
+{"timestamp": "2026-08-12T08:39:32.081031+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "resource": "index", "detail": "status=200", "ip": "127.0.0.1", "method": "POST", "path": "/graph/airport_passenger/index"}
+{"timestamp": "2026-08-12T08:40:47.672740+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "resource": "query", "detail": "status=200", "ip": "127.0.0.1", "method": "POST", "path": "/query"}
+{"timestamp": "2026-08-12T08:41:30.075668+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "resource": "query", "detail": "status=200", "ip": "127.0.0.1", "method": "POST", "path": "/query"}
+{"timestamp": "2026-08-12T08:42:27.494265+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "resource": "agents", "detail": "status=201", "ip": "127.0.0.1", "method": "POST", "path": "/agents"}
+{"timestamp": "2026-08-12T08:42:50.357342+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "resource": "ask", "detail": "status=200", "ip": "127.0.0.1", "method": "POST", "path": "/agents/passenger-assistant/ask"}
+{"timestamp": "2026-08-12T08:43:14.481229+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "resource": "ask", "detail": "status=200", "ip": "127.0.0.1", "method": "POST", "path": "/agents/passenger-assistant/ask"}
+{"timestamp": "2026-08-12T08:44:52.915588+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "resource": "ask", "detail": "status=200", "ip": "127.0.0.1", "method": "POST", "path": "/agents/passenger-assistant/ask"}
+{"timestamp": "2026-08-12T08:45:16.949491+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "resource": "ask", "detail": "status=200", "ip": "127.0.0.1", "method": "POST", "path": "/agents/passenger-assistant/ask"}
+{"timestamp": "2026-08-12T08:46:21.830514+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "resource": "query", "detail": "status=200", "ip": "127.0.0.1", "method": "POST", "path": "/query"}
+{"timestamp": "2026-08-12T08:50:19.327243+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "resource": "ingest", "detail": "status=202", "ip": "127.0.0.1", "method": "POST", "path": "/ingest"}
+{"timestamp": "2026-08-12T08:51:00.817048+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "resource": "index", "detail": "status=200", "ip": "127.0.0.1", "method": "POST", "path": "/graph/airport_passenger/passages/index"}
+{"timestamp": "2026-08-12T08:51:13.049880+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "resource": "index", "detail": "status=200", "ip": "127.0.0.1", "method": "POST", "path": "/graph/airport_passenger/index"}
+{"timestamp": "2026-08-12T08:52:41.212659+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "resource": "ask", "detail": "status=200", "ip": "127.0.0.1", "method": "POST", "path": "/agents/passenger-assistant/ask"}
+{"timestamp": "2026-08-12T08:53:02.709254+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "resource": "ask", "detail": "status=200", "ip": "127.0.0.1", "method": "POST", "path": "/agents/passenger-assistant/ask"}
+{"timestamp": "2026-08-12T08:53:27.051872+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "resource": "ask", "detail": "status=200", "ip": "127.0.0.1", "method": "POST", "path": "/agents/passenger-assistant/ask"}
+{"timestamp": "2026-08-12T08:54:48.204741+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "resource": "agents", "detail": "status=201", "ip": "127.0.0.1", "method": "POST", "path": "/agents"}
+{"timestamp": "2026-08-12T08:56:02.417892+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "resource": "ask", "detail": "status=200", "ip": "127.0.0.1", "method": "POST", "path": "/agents/passenger-assistant/ask"}
+{"timestamp": "2026-08-12T08:58:21.882009+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "resource": "query", "detail": "status=200", "ip": "127.0.0.1", "method": "POST", "path": "/query"}
+{"timestamp": "2026-08-12T08:58:43.910564+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "resource": "query", "detail": "status=200", "ip": "127.0.0.1", "method": "POST", "path": "/query"}
+{"timestamp": "2026-08-12T08:59:51.191081+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "resource": "query", "detail": "status=200", "ip": "127.0.0.1", "method": "POST", "path": "/query"}
+{"timestamp": "2026-08-12T09:00:23.627653+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "resource": "query", "detail": "status=200", "ip": "127.0.0.1", "method": "POST", "path": "/query"}
+{"timestamp": "2026-08-12T15:45:42.441779+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "resource": "query", "detail": "status=200", "ip": "127.0.0.1", "method": "POST", "path": "/query"}
+{"timestamp": "2026-08-13T02:45:12.350840+00:00", "user": "raushanpandey@kpmg.com", "action": "login", "resource": "", "detail": "", "ip": "127.0.0.1", "method": "", "path": ""}
+{"timestamp": "2026-08-13T02:45:12.352557+00:00", "user": "apikey:dev-key-...", "action": "POST", "resource": "login", "detail": "status=200", "ip": "127.0.0.1", "method": "POST", "path": "/auth/login"}
+{"timestamp": "2026-08-13T02:46:09.957900+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "resource": "query", "detail": "status=200", "ip": "127.0.0.1", "method": "POST", "path": "/query"}
+{"timestamp": "2026-08-13T02:54:55.609662+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "resource": "query", "detail": "status=200", "ip": "127.0.0.1", "method": "POST", "path": "/query"}
+{"timestamp": "2026-08-13T03:01:48.205836+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "resource": "query", "detail": "status=200", "ip": "127.0.0.1", "method": "POST", "path": "/query"}
+{"timestamp": "2026-08-13T03:05:10.652116+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "resource": "query", "detail": "status=200", "ip": "127.0.0.1", "method": "POST", "path": "/query"}
+{"timestamp": "2026-08-13T03:11:21.074482+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "resource": "query", "detail": "status=200", "ip": "127.0.0.1", "method": "POST", "path": "/query"}
+{"timestamp": "2026-08-13T03:41:22.176735+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "resource": "query", "detail": "status=200", "ip": "127.0.0.1", "method": "POST", "path": "/query"}
+{"timestamp": "2026-08-13T03:42:30.828431+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "resource": "query", "detail": "status=200", "ip": "127.0.0.1", "method": "POST", "path": "/query"}
+{"timestamp": "2026-08-13T03:43:18.969383+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "resource": "ask", "detail": "status=200", "ip": "127.0.0.1", "method": "POST", "path": "/agents/passenger-assistant/ask"}
+{"timestamp": "2026-08-18T04:15:17.876986+00:00", "user": "raushanpandey@kpmg.com", "action": "login", "resource": "", "detail": "", "ip": "127.0.0.1", "method": "", "path": ""}
+{"timestamp": "2026-08-18T04:15:17.879048+00:00", "user": "apikey:dev-key-...", "action": "POST", "resource": "login", "detail": "status=200", "ip": "127.0.0.1", "method": "POST", "path": "/auth/login"}
+{"timestamp": "2026-08-18T04:21:26.240883+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "resource": "query", "detail": "status=200", "ip": "127.0.0.1", "method": "POST", "path": "/query"}
+{"timestamp": "2026-08-18T04:22:18.002543+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "resource": "query", "detail": "status=200", "ip": "127.0.0.1", "method": "POST", "path": "/query"}
+{"timestamp": "2026-08-18T04:25:49.492745+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "resource": "ask", "detail": "status=200", "ip": "127.0.0.1", "method": "POST", "path": "/agents/passenger-assistant/ask"}
+{"timestamp": "2026-08-18T04:27:15.705171+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "resource": "query", "detail": "status=200", "ip": "127.0.0.1", "method": "POST", "path": "/query"}
+{"timestamp": "2026-08-18T04:46:43.898054+00:00", "user": "raushanpandey@kpmg.com", "action": "login", "resource": "", "detail": "", "ip": "127.0.0.1", "method": "", "path": ""}
+{"timestamp": "2026-08-18T04:46:43.899522+00:00", "user": "apikey:dev-key-...", "action": "POST", "resource": "login", "detail": "status=200", "ip": "127.0.0.1", "method": "POST", "path": "/auth/login"}
+{"timestamp": "2026-08-18T04:51:10.685339+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "resource": "propose", "detail": "status=200", "ip": "127.0.0.1", "method": "POST", "path": "/design/propose"}
+{"timestamp": "2026-08-18T04:53:05.403222+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "resource": "apply", "detail": "status=201", "ip": "127.0.0.1", "method": "POST", "path": "/design/apply"}
+{"timestamp": "2026-08-18T04:54:27.050061+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "resource": "ingest", "detail": "status=202", "ip": "127.0.0.1", "method": "POST", "path": "/ingest"}
+{"timestamp": "2026-08-18T13:29:42.765838+00:00", "user": "anonymous", "action": "POST", "resource": "ingest", "detail": "status=401", "ip": "127.0.0.1", "method": "POST", "path": "/ingest"}
+{"timestamp": "2026-08-18T13:29:45.396388+00:00", "user": "raushanpandey@kpmg.com", "action": "login", "resource": "", "detail": "", "ip": "127.0.0.1", "method": "", "path": ""}
+{"timestamp": "2026-08-18T13:29:45.397610+00:00", "user": "apikey:dev-key-...", "action": "POST", "resource": "login", "detail": "status=200", "ip": "127.0.0.1", "method": "POST", "path": "/auth/login"}
+{"timestamp": "2026-08-18T13:30:10.124593+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "resource": "ingest", "detail": "status=202", "ip": "127.0.0.1", "method": "POST", "path": "/ingest"}
+{"timestamp": "2026-08-18T13:45:29.204830+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "resource": "ingest", "detail": "status=202", "ip": "127.0.0.1", "method": "POST", "path": "/ingest"}
+{"timestamp": "2026-08-18T14:00:18.233376+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "resource": "ingest", "detail": "status=202", "ip": "127.0.0.1", "method": "POST", "path": "/ingest"}
+{"timestamp": "2026-08-24T13:55:55.626812+00:00", "user": "anonymous", "action": "POST", "resource": "propose", "detail": "status=401", "ip": "127.0.0.1", "method": "POST", "path": "/design/propose"}
+{"timestamp": "2026-08-24T13:55:58.831841+00:00", "user": "raushanpandey@kpmg.com", "action": "login", "resource": "", "detail": "", "ip": "127.0.0.1", "method": "", "path": ""}
+{"timestamp": "2026-08-24T13:55:58.833826+00:00", "user": "apikey:dev-key-...", "action": "POST", "resource": "login", "detail": "status=200", "ip": "127.0.0.1", "method": "POST", "path": "/auth/login"}
+{"timestamp": "2026-08-24T13:57:04.377975+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "resource": "propose", "detail": "status=400", "ip": "127.0.0.1", "method": "POST", "path": "/design/propose"}
+{"timestamp": "2026-08-24T13:57:10.536780+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "resource": "propose", "detail": "status=400", "ip": "127.0.0.1", "method": "POST", "path": "/design/propose"}
+{"timestamp": "2026-08-24T13:57:40.994874+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "resource": "propose", "detail": "status=400", "ip": "127.0.0.1", "method": "POST", "path": "/design/propose"}
+{"timestamp": "2026-08-24T14:01:55.093215+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "resource": "propose", "detail": "status=200", "ip": "127.0.0.1", "method": "POST", "path": "/design/propose"}
+{"timestamp": "2026-08-24T14:02:19.500695+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "resource": "apply", "detail": "status=201", "ip": "127.0.0.1", "method": "POST", "path": "/design/apply"}
+{"timestamp": "2026-08-24T14:02:38.003917+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "resource": "ingest", "detail": "status=202", "ip": "127.0.0.1", "method": "POST", "path": "/ingest"}
+{"timestamp": "2026-08-24T14:27:30.477256+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "resource": "index", "detail": "status=200", "ip": "127.0.0.1", "method": "POST", "path": "/graph/terminal_ops_flight_turnaround/passages/index"}
+{"timestamp": "2026-08-24T14:29:31.638916+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "resource": "query", "detail": "status=200", "ip": "127.0.0.1", "method": "POST", "path": "/query"}
+{"timestamp": "2026-08-24T14:31:16.791899+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "resource": "query", "detail": "status=200", "ip": "127.0.0.1", "method": "POST", "path": "/query"}
+{"timestamp": "2026-08-24T14:32:39.690135+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "resource": "query", "detail": "status=200", "ip": "127.0.0.1", "method": "POST", "path": "/query"}
+{"timestamp": "2026-08-24T14:34:32.948986+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "resource": "query", "detail": "status=200", "ip": "127.0.0.1", "method": "POST", "path": "/query"}
+{"timestamp": "2026-08-25T04:41:43.094699+00:00", "user": "raushanpandey@kpmg.com", "action": "login", "resource": "", "detail": "", "ip": "127.0.0.1", "method": "", "path": ""}
+{"timestamp": "2026-08-25T04:41:43.095936+00:00", "user": "apikey:dev-key-...", "action": "POST", "resource": "login", "detail": "status=200", "ip": "127.0.0.1", "method": "POST", "path": "/auth/login"}
+{"timestamp": "2026-08-26T05:46:22.556989+00:00", "user": "raushanpandey@kpmg.com", "action": "login", "resource": "", "detail": "", "ip": "127.0.0.1", "method": "", "path": ""}
+{"timestamp": "2026-08-26T05:46:22.558830+00:00", "user": "apikey:dev-key-...", "action": "POST", "resource": "login", "detail": "status=200", "ip": "127.0.0.1", "method": "POST", "path": "/auth/login"}
+{"timestamp": "2026-09-01T03:42:35.063698+00:00", "user": "raushanpandey@kpmg.com", "action": "login_failed", "path": "", "resource": "", "detail": "", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-01T03:42:35.067571+00:00", "user": "apikey:dev-ke\u2026", "action": "POST", "path": "/auth/login", "resource": "login", "detail": "status=401", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-01T03:42:42.998414+00:00", "user": "raushanpandey@kpmg.com", "action": "login_failed", "path": "", "resource": "", "detail": "", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-01T03:42:43.000253+00:00", "user": "apikey:dev-ke\u2026", "action": "POST", "path": "/auth/login", "resource": "login", "detail": "status=401", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-01T03:42:56.123525+00:00", "user": "raushanpandey@kpmg.com", "action": "login_failed", "path": "", "resource": "", "detail": "", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-01T03:42:56.125279+00:00", "user": "apikey:dev-ke\u2026", "action": "POST", "path": "/auth/login", "resource": "login", "detail": "status=401", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-01T03:43:18.463560+00:00", "user": "raushanpandey@kpmg.com", "action": "login_failed", "path": "", "resource": "", "detail": "", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-01T03:43:18.465529+00:00", "user": "apikey:dev-ke\u2026", "action": "POST", "path": "/auth/login", "resource": "login", "detail": "status=401", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-01T03:47:42.093415+00:00", "user": "raushanpandey@kpmg.com", "action": "login", "path": "", "resource": "", "detail": "", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-01T03:47:42.095125+00:00", "user": "apikey:dev-ke\u2026", "action": "POST", "path": "/auth/login", "resource": "login", "detail": "status=200", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-01T03:49:56.752804+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/teams/cyber-analysis-team/ask", "resource": "ask", "detail": "status=200", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-01T04:17:09.096644+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/teams/cyber-analysis-team/ask", "resource": "ask", "detail": "status=200", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-01T04:17:59.301293+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/query", "resource": "query", "detail": "status=200", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-01T06:50:54.378139+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/teams/cyber-analysis-team/ask", "resource": "ask", "detail": "status=200", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-01T06:52:06.622500+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/teams/cyber-analysis-team/ask", "resource": "ask", "detail": "status=200", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-01T06:53:24.924545+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/teams/cyber-analysis-team/ask", "resource": "ask", "detail": "status=200", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-01T06:53:57.613104+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/query", "resource": "query", "detail": "status=200", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-01T07:48:27.584766+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/design/propose", "resource": "propose", "detail": "status=200", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-01T07:53:19.823591+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/design/apply", "resource": "apply", "detail": "status=201", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-01T07:57:14.360077+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/ingest", "resource": "ingest", "detail": "status=202", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-01T07:58:28.312690+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/graph/blr-flight-status-support/passages/index", "resource": "index", "detail": "status=200", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-01T08:17:45.907623+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/query", "resource": "query", "detail": "status=200", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-01T08:20:40.680159+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/query", "resource": "query", "detail": "status=200", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-01T08:23:31.687316+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/query", "resource": "query", "detail": "status=200", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-01T08:29:19.992923+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/agents", "resource": "agents", "detail": "status=201", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-01T08:29:48.997923+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/agents/blr-passenger/ask", "resource": "ask", "detail": "status=200", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-01T08:39:14.047632+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/training/datasets", "resource": "datasets", "detail": "status=201", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-01T09:02:35.215052+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/access/keys/generate", "resource": "generate", "detail": "status=200", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-01T09:03:56.284366+00:00", "user": "raushanpandey@kpmg.com", "action": "login", "path": "", "resource": "", "detail": "", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-01T09:03:56.286340+00:00", "user": "apikey:dev-ke\u2026", "action": "POST", "path": "/auth/login", "resource": "login", "detail": "status=200", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-02T02:26:59.917726+00:00", "user": "raushanpandey@kpmg.com", "action": "login", "path": "", "resource": "", "detail": "", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-02T02:26:59.919998+00:00", "user": "invalid-token", "action": "POST", "path": "/auth/login", "resource": "login", "detail": "status=200", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-02T02:28:52.858828+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/design/propose", "resource": "propose", "detail": "status=200", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-02T02:31:02.610936+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/design/apply", "resource": "apply", "detail": "status=201", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-02T02:31:36.659874+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/ingest", "resource": "ingest", "detail": "status=202", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-02T02:46:55.527013+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/graph/consumer-sector-journey-mapping/passages/index", "resource": "index", "detail": "status=200", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-02T02:48:07.253026+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/query", "resource": "query", "detail": "status=200", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-02T07:26:28.078050+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/query", "resource": "query", "detail": "status=200", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-02T07:29:20.945098+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/query", "resource": "query", "detail": "status=200", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-02T07:33:52.383720+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/query", "resource": "query", "detail": "status=200", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-02T07:36:01.412617+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/training/datasets", "resource": "datasets", "detail": "status=201", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-03T08:17:47.245402+00:00", "user": "raushanpandey@kpmg.com", "action": "login", "path": "", "resource": "", "detail": "", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-03T08:17:47.248237+00:00", "user": "apikey:dev-ke\u2026", "action": "POST", "path": "/auth/login", "resource": "login", "detail": "status=200", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-03T08:19:46.065438+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/query", "resource": "query", "detail": "status=200", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-03T08:20:32.382833+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/query", "resource": "query", "detail": "status=200", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-03T08:20:54.584101+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/query", "resource": "query", "detail": "status=200", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-03T08:21:41.539950+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/query", "resource": "query", "detail": "status=200", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-03T08:40:57.950401+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/graph/airport_passenger/passages/index", "resource": "index", "detail": "status=200", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-03T08:48:51.610047+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/design/propose", "resource": "propose", "detail": "status=200", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-03T09:28:46.182509+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/design/propose", "resource": "propose", "detail": "status=200", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-03T09:30:25.307659+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/design/apply", "resource": "apply", "detail": "status=201", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-03T09:31:59.701123+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/ingest", "resource": "ingest", "detail": "status=202", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-03T09:35:50.297837+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/query", "resource": "query", "detail": "status=200", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-03T09:42:47.335035+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/agents/passenger-assistant/ask", "resource": "ask", "detail": "status=403", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-06T11:08:08.242527+00:00", "user": "raushanpandey@kpmg.com", "action": "login", "path": "", "resource": "", "detail": "", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-06T11:08:08.244421+00:00", "user": "apikey:dev-ke\u2026", "action": "POST", "path": "/auth/login", "resource": "login", "detail": "status=200", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-06T11:09:31.540340+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/agents/passenger-assistant/ask", "resource": "ask", "detail": "status=200", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-06T11:23:59.629860+00:00", "user": "raushanpandey@kpmg.com", "action": "DELETE", "path": "/agents/airline-route-pattern-analyst", "resource": "airline-route-pattern-analyst", "detail": "status=204", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-06T11:24:03.518426+00:00", "user": "raushanpandey@kpmg.com", "action": "DELETE", "path": "/agents/airport-services-agent", "resource": "airport-services-agent", "detail": "status=204", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-06T11:26:50.815023+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/agents", "resource": "agents", "detail": "status=201", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-06T11:27:25.574539+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/agents/passenger-assistant/ask", "resource": "ask", "detail": "status=200", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-06T11:29:16.857665+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/agents/passenger-assistant/ask", "resource": "ask", "detail": "status=200", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-06T11:32:42.240556+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/agents", "resource": "agents", "detail": "status=201", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-06T11:33:17.170178+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/agents/flight-status-agent/ask", "resource": "ask", "detail": "status=200", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-06T11:34:01.449112+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/agents/flight-status-agent/ask", "resource": "ask", "detail": "status=200", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-06T11:39:23.948304+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/agents", "resource": "agents", "detail": "status=201", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-06T11:40:38.802381+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/agents/passenger-assistant/ask", "resource": "ask", "detail": "status=200", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-06T17:52:38.578334+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/agents/passenger-assistant/ask", "resource": "ask", "detail": "status=200", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-06T17:53:44.120430+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/agents/passenger-assistant/ask", "resource": "ask", "detail": "status=200", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-06T17:59:36.194432+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/agents/passenger-assistant/ask", "resource": "ask", "detail": "status=200", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-06T18:01:13.067171+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/agents/passenger-assistant/ask", "resource": "ask", "detail": "status=200", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-07T08:02:22.213097+00:00", "user": "raushanpandey@kpmg.com", "action": "login", "path": "", "resource": "", "detail": "", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-07T08:02:22.216536+00:00", "user": "apikey:dev-ke\u2026", "action": "POST", "path": "/auth/login", "resource": "login", "detail": "status=200", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-07T08:04:34.752444+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/design/propose", "resource": "propose", "detail": "status=200", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-07T08:05:36.496831+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/design/apply", "resource": "apply", "detail": "status=201", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-07T08:06:06.605484+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/ingest", "resource": "ingest", "detail": "status=202", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-07T08:13:34.126371+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/query", "resource": "query", "detail": "status=200", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-10T10:13:56.274783+00:00", "user": "raushanpandey@kpmg.com", "action": "login", "path": "", "resource": "", "detail": "", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-10T10:13:56.277141+00:00", "user": "apikey:dev-ke\u2026", "action": "POST", "path": "/auth/login", "resource": "login", "detail": "status=200", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-10T10:15:16.806055+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/ingest", "resource": "ingest", "detail": "status=202", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-10T10:22:31.235985+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/graph/container-image-vulnerability-graph/passages/index", "resource": "index", "detail": "status=200", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-10T10:31:01.977655+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/access/keys/generate", "resource": "generate", "detail": "status=200", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-12T16:27:03.931025+00:00", "user": "raushanpandey@kpmg.com", "action": "login", "path": "", "resource": "", "detail": "", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-12T16:27:03.934078+00:00", "user": "apikey:dev-ke\u2026", "action": "POST", "path": "/auth/login", "resource": "login", "detail": "status=200", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-12T19:03:26.008219+00:00", "user": "raushanpandey@kpmg.com", "action": "login", "path": "", "resource": "", "detail": "", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-12T19:03:26.011172+00:00", "user": "apikey:dev-ke\u2026", "action": "POST", "path": "/auth/login", "resource": "login", "detail": "status=200", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-12T19:13:02.841049+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/design/propose", "resource": "propose", "detail": "status=200", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-12T19:13:49.268684+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/design/apply", "resource": "apply", "detail": "status=201", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-12T19:16:50.074652+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/ingest", "resource": "ingest", "detail": "status=202", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-12T21:58:43.224140+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/graph/bial_airport_operations/passages/index", "resource": "index", "detail": "status=400", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-12T22:02:38.263909+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/query", "resource": "query", "detail": "status=200", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-12T22:06:10.385906+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/query", "resource": "query", "detail": "status=200", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-12T22:08:22.857176+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/query", "resource": "query", "detail": "status=200", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-12T22:09:54.414513+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/query", "resource": "query", "detail": "status=200", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-12T22:11:44.414789+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/query", "resource": "query", "detail": "status=200", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-12T22:13:06.580347+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/query", "resource": "query", "detail": "status=200", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-12T22:20:54.710178+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/query", "resource": "query", "detail": "status=200", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-12T22:23:01.351855+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/query", "resource": "query", "detail": "status=200", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-12T22:27:04.191100+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/query", "resource": "query", "detail": "status=200", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-12T22:28:18.110265+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/query", "resource": "query", "detail": "status=200", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-12T22:29:03.570006+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/query", "resource": "query", "detail": "status=200", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-12T22:30:35.923200+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/query", "resource": "query", "detail": "status=200", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-12T22:33:18.405628+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/query", "resource": "query", "detail": "status=200", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-12T22:34:58.512456+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/query", "resource": "query", "detail": "status=200", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-12T22:57:51.734834+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/ontologies/import", "resource": "import", "detail": "status=200", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-12T23:02:40.081544+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/ontologies", "resource": "ontologies", "detail": "status=422", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-12T23:03:02.621916+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/ontologies", "resource": "ontologies", "detail": "status=422", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-12T23:03:49.546325+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/ontologies", "resource": "ontologies", "detail": "status=422", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-12T23:07:45.745845+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/ontologies/import", "resource": "import", "detail": "status=200", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-12T23:08:09.528235+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/ontologies", "resource": "ontologies", "detail": "status=422", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-12T23:14:50.450887+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/ontologies/import", "resource": "import", "detail": "status=200", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-12T23:14:53.485193+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/ontologies", "resource": "ontologies", "detail": "status=422", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-12T23:16:17.784811+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/ontologies/import", "resource": "import", "detail": "status=200", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-12T23:16:20.300627+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/ontologies", "resource": "ontologies", "detail": "status=422", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-12T23:16:41.796817+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/ontologies", "resource": "ontologies", "detail": "status=422", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-12T23:18:25.573594+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/ontologies/import", "resource": "import", "detail": "status=200", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-12T23:18:29.731574+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/ontologies", "resource": "ontologies", "detail": "status=201", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-12T23:32:38.531418+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/ingest", "resource": "ingest", "detail": "status=202", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-13T06:22:15.472174+00:00", "user": "raushanpandey@kpmg.com", "action": "login", "path": "", "resource": "", "detail": "", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-13T06:22:15.474988+00:00", "user": "apikey:dev-ke\u2026", "action": "POST", "path": "/auth/login", "resource": "login", "detail": "status=200", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-13T06:23:49.164963+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/query", "resource": "query", "detail": "status=200", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-13T06:24:47.352998+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/query", "resource": "query", "detail": "status=200", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-13T06:29:17.096587+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/query", "resource": "query", "detail": "status=200", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-13T06:30:59.007641+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/query", "resource": "query", "detail": "status=200", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-13T06:31:56.465768+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/query", "resource": "query", "detail": "status=200", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-13T06:32:40.763974+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/query", "resource": "query", "detail": "status=200", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-13T06:33:25.271271+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/query", "resource": "query", "detail": "status=200", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-13T06:33:56.064030+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/query", "resource": "query", "detail": "status=200", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-13T06:34:41.162548+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/query", "resource": "query", "detail": "status=200", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-13T06:35:13.467331+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/query", "resource": "query", "detail": "status=200", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-13T06:35:52.368016+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/query", "resource": "query", "detail": "status=200", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-13T06:37:12.833121+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/query", "resource": "query", "detail": "status=200", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-13T06:38:02.685258+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/query", "resource": "query", "detail": "status=200", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-13T06:38:53.197751+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/query", "resource": "query", "detail": "status=200", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-13T06:52:05.457190+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/query", "resource": "query", "detail": "status=200", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-13T06:54:11.778717+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/query", "resource": "query", "detail": "status=200", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-13T06:55:27.293295+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/query", "resource": "query", "detail": "status=200", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-13T06:56:24.031290+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/query", "resource": "query", "detail": "status=200", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-13T06:57:21.463953+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/query", "resource": "query", "detail": "status=200", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-13T06:59:04.256030+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/ontologies/import", "resource": "import", "detail": "status=200", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-13T06:59:29.068753+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/ontologies", "resource": "ontologies", "detail": "status=201", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-13T07:02:02.152062+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/agents", "resource": "agents", "detail": "status=201", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-13T07:03:05.112237+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/agents/bial-operation-manager/ask", "resource": "ask", "detail": "status=200", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-13T07:05:06.501115+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/agents/bial-operation-manager/ask", "resource": "ask", "detail": "status=200", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-13T09:10:38.172027+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/evals/sets", "resource": "sets", "detail": "status=400", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-13T09:11:31.440095+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/access/keys/generate", "resource": "generate", "detail": "status=200", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-16T16:15:52.826019+00:00", "user": "raushanpandey@kpmg.com", "action": "login", "path": "", "resource": "", "detail": "", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-16T16:15:52.828530+00:00", "user": "apikey:dev-ke\u2026", "action": "POST", "path": "/auth/login", "resource": "login", "detail": "status=200", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-16T17:32:01.655357+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/ingest", "resource": "ingest", "detail": "status=202", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-16T17:51:39.711749+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/query", "resource": "query", "detail": "status=200", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-17T04:13:43.022666+00:00", "user": "raushanpandey@kpmg.com", "action": "login", "path": "", "resource": "", "detail": "", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-17T04:13:43.024533+00:00", "user": "apikey:dev-ke\u2026", "action": "POST", "path": "/auth/login", "resource": "login", "detail": "status=200", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-17T04:14:24.150934+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/ontologies/import", "resource": "import", "detail": "status=200", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-17T04:14:32.874132+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/ontologies", "resource": "ontologies", "detail": "status=201", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-17T04:14:44.506590+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/ontologies/import", "resource": "import", "detail": "status=200", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-17T04:14:46.946300+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/ontologies", "resource": "ontologies", "detail": "status=422", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-17T04:15:09.950352+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/ontologies/import", "resource": "import", "detail": "status=200", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-17T04:15:35.966038+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/ontologies", "resource": "ontologies", "detail": "status=201", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-17T04:26:36.147382+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/ontologies/import", "resource": "import", "detail": "status=200", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-17T04:26:38.524785+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/ontologies", "resource": "ontologies", "detail": "status=422", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-17T05:25:19.203729+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/ontologies/import", "resource": "import", "detail": "status=200", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-17T05:25:21.194221+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/ontologies", "resource": "ontologies", "detail": "status=201", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-17T10:12:30.094625+00:00", "user": "raushanpandey@kpmg.com", "action": "login", "path": "", "resource": "", "detail": "", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-17T10:12:30.096796+00:00", "user": "apikey:dev-ke\u2026", "action": "POST", "path": "/auth/login", "resource": "login", "detail": "status=200", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-17T18:33:52.048402+00:00", "user": "raushanpandey@kpmg.com", "action": "login", "path": "", "resource": "", "detail": "", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-17T18:33:52.050421+00:00", "user": "apikey:dev-ke\u2026", "action": "POST", "path": "/auth/login", "resource": "login", "detail": "status=200", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-18T08:23:15.448848+00:00", "user": "raushanpandey@kpmg.com", "action": "login", "path": "", "resource": "", "detail": "", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-18T08:23:15.450952+00:00", "user": "apikey:dev-ke\u2026", "action": "POST", "path": "/auth/login", "resource": "login", "detail": "status=200", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-18T08:28:17.054133+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/ingest", "resource": "ingest", "detail": "status=202", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-18T08:45:39.983166+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/design/propose", "resource": "propose", "detail": "status=200", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-18T08:46:29.732453+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/design/apply", "resource": "apply", "detail": "status=201", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-18T08:46:44.670675+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/ingest", "resource": "ingest", "detail": "status=202", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-18T08:49:37.295342+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/graph/retail_outlet_master/index", "resource": "index", "detail": "status=200", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-18T08:49:46.079155+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/graph/retail_outlet_master/passages/index", "resource": "index", "detail": "status=200", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-18T09:00:13.886811+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/query", "resource": "query", "detail": "status=200", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-18T09:01:10.849483+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/query", "resource": "query", "detail": "status=200", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-18T09:02:31.256482+00:00", "user": "raushanpandey@kpmg.com", "action": "POST", "path": "/query", "resource": "query", "detail": "status=200", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-19T16:02:21.201110+00:00", "user": "raushanpandey@kpmg.com", "action": "login", "path": "", "resource": "", "detail": "", "ip": "127.0.0.1"}
+{"timestamp": "2026-09-19T16:02:21.202591+00:00", "user": "apikey:dev-ke\u2026", "action": "POST", "path": "/auth/login", "resource": "login", "detail": "status=200", "ip": "127.0.0.1"}

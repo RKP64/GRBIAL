@@ -1,0 +1,26 @@
+{
+  "key": "flight-status-support-team",
+  "name": "Flight Status Support Team",
+  "description": "A two-step support flow for flight-status questions that may need escalation to airport support when the flight lookup is incomplete or the user needs contact details.",
+  "entry": "flight-status-agent",
+  "members": [
+    {
+      "agent": "flight-status-agent",
+      "hands_off_to": [
+        "airport-support-agent"
+      ],
+      "when": "When the user asks for customer support, the flight number is missing, or the status reason is not available in the graph and the user needs a contact path."
+    },
+    {
+      "agent": "airport-support-agent",
+      "hands_off_to": [],
+      "when": "When the user needs phone, WhatsApp, email, terminal help, or a reference link after the flight-status answer."
+    }
+  ],
+  "max_handoffs": 6,
+  "max_steps_per_agent": 4,
+  "verify": true,
+  "starters": [],
+  "created_at": "2026-09-01T07:53:19.821641+00:00",
+  "updated_at": "2026-09-01T07:53:19.821641+00:00"
+}

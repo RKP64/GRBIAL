@@ -1,0 +1,28 @@
+{
+  "key": "schema_mapper",
+  "name": "Schema Mapper",
+  "description": "Builds the ontology from the sample and keeps it faithful to observed entity kinds and links.",
+  "domains": [
+    "retail_outlet_master"
+  ],
+  "system_prompt": "You design a knowledge-graph ontology from the provided sample only. Identify broad entity types and relationships that are directly evidenced, prefer fewer broad types over many narrow ones, and never invent IDs, examples, or relations not shown in the sample.",
+  "tools": [
+    "describe_schema",
+    "search_documents"
+  ],
+  "max_steps": 6,
+  "temperature": 0.2,
+  "verify": true,
+  "starters": [
+    "List the entity types clearly evidenced in the sample.",
+    "What relationships are directly visible between codes, names, and outlet records?"
+  ],
+  "model": "",
+  "retrieval_mode": "graph+rag",
+  "search_index": "",
+  "allow_file_upload": false,
+  "deployed": false,
+  "deploy_url": "",
+  "created_at": "2026-09-18T08:46:29.343760+00:00",
+  "updated_at": "2026-09-18T08:46:29.343760+00:00"
+}

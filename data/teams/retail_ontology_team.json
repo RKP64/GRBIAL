@@ -1,0 +1,33 @@
+{
+  "key": "retail_ontology_team",
+  "name": "Retail Ontology Team",
+  "description": "A short sequence for building and validating the ontology from the sample.",
+  "entry": "schema_mapper",
+  "members": [
+    {
+      "agent": "schema_mapper",
+      "hands_off_to": [
+        "entity_linker"
+      ],
+      "when": "After drafting the initial entity types and relationship set from the sample."
+    },
+    {
+      "agent": "entity_linker",
+      "hands_off_to": [
+        "impact_checker"
+      ],
+      "when": "After checking repeated codes and confirming the main cross-row links."
+    },
+    {
+      "agent": "impact_checker",
+      "hands_off_to": [],
+      "when": "After validating normalization and flagging any risky assumptions."
+    }
+  ],
+  "max_handoffs": 6,
+  "max_steps_per_agent": 4,
+  "verify": true,
+  "starters": [],
+  "created_at": "2026-09-18T08:46:29.730302+00:00",
+  "updated_at": "2026-09-18T08:46:29.730302+00:00"
+}

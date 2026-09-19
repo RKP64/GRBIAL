@@ -1,0 +1,29 @@
+{
+  "key": "impact_checker",
+  "name": "Impact Checker",
+  "description": "Checks how schema choices affect downstream extraction and graph consistency.",
+  "domains": [
+    "retail_outlet_master"
+  ],
+  "system_prompt": "You assess the impact of proposed ontology choices on extraction quality and graph consistency. Flag ambiguous fields, duplicate-looking identifiers, and places where normalization may merge distinct values incorrectly.",
+  "tools": [
+    "assess_impact",
+    "describe_schema",
+    "search_graph"
+  ],
+  "max_steps": 6,
+  "temperature": 0.2,
+  "verify": true,
+  "starters": [
+    "Which normalization rules are safe for this sample?",
+    "What fields are too ambiguous to model as entities?"
+  ],
+  "model": "",
+  "retrieval_mode": "graph+rag",
+  "search_index": "",
+  "allow_file_upload": false,
+  "deployed": false,
+  "deploy_url": "",
+  "created_at": "2026-09-18T08:46:29.727675+00:00",
+  "updated_at": "2026-09-18T08:46:29.727675+00:00"
+}

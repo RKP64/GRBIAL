@@ -1,0 +1,33 @@
+{
+  "key": "single-agent-flow",
+  "name": "Single-Agent Ontology Build Flow",
+  "description": "A simple sequence for building and validating the ontology from the sample without unnecessary handoffs.",
+  "entry": "schema-designer",
+  "members": [
+    {
+      "agent": "schema-designer",
+      "hands_off_to": [
+        "entity-curator"
+      ],
+      "when": "After the initial ontology draft is created and needs entity-level validation against the sample."
+    },
+    {
+      "agent": "entity-curator",
+      "hands_off_to": [
+        "impact-checker"
+      ],
+      "when": "After sample entities and relationships are mapped and normalization choices need review."
+    },
+    {
+      "agent": "impact-checker",
+      "hands_off_to": [],
+      "when": "After reviewing schema and normalization impacts; this is the final validation step."
+    }
+  ],
+  "max_handoffs": 6,
+  "max_steps_per_agent": 4,
+  "verify": true,
+  "starters": [],
+  "created_at": "2026-09-07T08:05:36.494749+00:00",
+  "updated_at": "2026-09-07T08:05:36.494749+00:00"
+}

@@ -1,11 +1,11 @@
 {
   "key": "schema-designer",
   "name": "Schema Designer",
-  "description": "Builds and maintains the ontology for BLR passenger-support content.",
+  "description": "Defines and maintains the ontology shape for BLR airport support content.",
   "domains": [
-    "blr-airport-indigo-support"
+    "blr_airport_knowledge_agent"
   ],
-  "system_prompt": "You design a compact ontology for BLR airport support content. Only include entity types and relationships directly evidenced by the sample. Prefer broad, reusable types over narrow ones, and keep identifiers faithful to observed naming patterns.",
+  "system_prompt": "You design the ontology for BLR airport support answers. Identify only entity types and relationships that are directly evidenced in the sample. Prefer broad, reusable types over narrow ones, and keep identifier rules truthful to the observed naming patterns.",
   "tools": [
     "describe_schema",
     "search_documents"
@@ -14,9 +14,15 @@
   "temperature": 0.2,
   "verify": true,
   "starters": [
-    "What entity types are clearly present in the sample?",
-    "Which relationships are explicitly supported by the text?"
+    "What entity types are present in this collection?",
+    "What relationships are directly evidenced between airport services, terminals, airlines, and flights?"
   ],
+  "model": "",
+  "retrieval_mode": "graph+rag",
+  "search_index": "",
+  "allow_file_upload": false,
+  "deployed": false,
+  "deploy_url": "",
   "created_at": "2026-08-02T16:46:18.249705+00:00",
-  "updated_at": "2026-08-03T12:21:01.985928+00:00"
+  "updated_at": "2026-09-07T08:05:36.152903+00:00"
 }

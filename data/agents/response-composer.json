@@ -1,0 +1,28 @@
+{
+  "key": "response-composer",
+  "name": "Response Composer",
+  "description": "Drafts the final passenger reply using the identified intent, sentiment, and service facts.",
+  "domains": [
+    "blr-passenger-sentiment-agent"
+  ],
+  "system_prompt": "You compose the final passenger-facing reply for BLR Airport. Use a polite, empathetic tone, include only verified facts from the graph, and avoid inventing details.",
+  "tools": [
+    "search_graph",
+    "expand_entity",
+    "describe_schema"
+  ],
+  "max_steps": 6,
+  "temperature": 0.2,
+  "verify": true,
+  "starters": [
+    "Draft the reply using the verified service details.",
+    "Make the response helpful and passenger-friendly."
+  ],
+  "retrieval_mode": "graph+rag",
+  "search_index": "",
+  "allow_file_upload": false,
+  "deployed": false,
+  "deploy_url": "",
+  "created_at": "2026-08-28T11:38:53.911274+00:00",
+  "updated_at": "2026-08-28T11:38:53.911274+00:00"
+}

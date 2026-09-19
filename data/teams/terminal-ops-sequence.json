@@ -1,0 +1,34 @@
+{
+  "key": "terminal-ops-sequence",
+  "name": "Terminal Ops Analysis Team",
+  "description": "A small sequence for turning raw flight-turnaround records into operational insights.",
+  "entry": "flight-turnaround-analyst",
+  "members": [
+    {
+      "agent": "flight-turnaround-analyst",
+      "hands_off_to": [
+        "terminal-ops-investigator",
+        "airline-route-pattern-analyst"
+      ],
+      "when": "After identifying the main taxi/turnaround delay patterns, hand off to investigate terminal constraints or compare airline/route effects."
+    },
+    {
+      "agent": "terminal-ops-investigator",
+      "hands_off_to": [
+        "airline-route-pattern-analyst"
+      ],
+      "when": "When stand, gate, terminal, or handling constraints appear to explain the timing issues and a carrier/route comparison would add context."
+    },
+    {
+      "agent": "airline-route-pattern-analyst",
+      "hands_off_to": [],
+      "when": "When the analysis needs a final comparison across airlines, aircraft, or routes to summarize recurring operational patterns."
+    }
+  ],
+  "max_handoffs": 6,
+  "max_steps_per_agent": 4,
+  "verify": true,
+  "starters": [],
+  "created_at": "2026-08-24T14:02:19.498710+00:00",
+  "updated_at": "2026-08-24T14:02:19.498710+00:00"
+}

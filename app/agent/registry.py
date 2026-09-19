@@ -39,6 +39,15 @@ class Agent:
     temperature: float = 0.2
     verify: bool = True
     starters: list[str] = field(default_factory=list)
+    # v2: retrieval mode and data connections
+    # Blank means the platform default. Naming a model here runs this agent on
+    # it — a fine-tuned deployment, say — while everything else stays put.
+    model: str = ""
+    retrieval_mode: str = "graph+rag"  # graph | rag | graph+rag | context
+    search_index: str = ""             # Azure AI Search index name (blank = default)
+    allow_file_upload: bool = False    # allow users to attach files at chat time
+    deployed: bool = False             # whether this agent has a live deployment
+    deploy_url: str = ""               # URL of the deployed static app
     created_at: str = ""
     updated_at: str = ""
 
@@ -49,6 +58,10 @@ class Agent:
             "tools": self.tools, "max_steps": self.max_steps,
             "temperature": self.temperature, "verify": self.verify,
             "starters": self.starters,
+            "model": self.model,
+            "retrieval_mode": self.retrieval_mode, "search_index": self.search_index,
+            "allow_file_upload": self.allow_file_upload,
+            "deployed": self.deployed, "deploy_url": self.deploy_url,
             "created_at": self.created_at, "updated_at": self.updated_at,
         }
 
@@ -124,7 +137,17 @@ class AgentRegistry:
             max_steps=max(1, min(12, int(spec.get("max_steps") or 6))),
             temperature=max(0.0, min(1.0, float(spec.get("temperature") or 0.2))),
             verify=bool(spec.get("verify", True)),
-            starters=[s for s in (spec.get("starters") or []) if str(s).strip()][:6],
+            starters=[
+                (s if isinstance(s, str) else s.get('text', s.get('question', str(s))) if isinstance(s, dict) else str(s)).strip()
+                for s in (spec.get("starters") or [])
+                if (s if isinstance(s, str) else s.get('text', s.get('question', str(s))) if isinstance(s, dict) else str(s)).strip()
+            ][:6],
+            model=str(spec.get("model") or "").strip(),
+            retrieval_mode=str(spec.get("retrieval_mode") or "graph+rag").strip(),
+            search_index=str(spec.get("search_index") or "").strip(),
+            allow_file_upload=bool(spec.get("allow_file_upload", False)),
+            deployed=bool(spec.get("deployed", existing.deployed if existing else False)),
+            deploy_url=str(spec.get("deploy_url") or (existing.deploy_url if existing else "")).strip(),
             created_at=existing.created_at if existing else now,
             updated_at=now,
         )

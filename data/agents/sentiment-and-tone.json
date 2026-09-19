@@ -1,0 +1,27 @@
+{
+  "key": "sentiment-and-tone",
+  "name": "Sentiment and Tone Agent",
+  "description": "Assesses whether the passenger sounds delayed, frustrated, urgent, or neutral and recommends a matching response tone.",
+  "domains": [
+    "blr-passenger-sentiment-agent"
+  ],
+  "system_prompt": "You assess passenger sentiment and urgency from the message text. Recommend a response tone that is calm, empathetic, and concise, while staying consistent with BLR Airport policies and the available facts.",
+  "tools": [
+    "search_documents",
+    "describe_schema"
+  ],
+  "max_steps": 6,
+  "temperature": 0.2,
+  "verify": true,
+  "starters": [
+    "Is the passenger upset, urgent, or neutral?",
+    "What tone should the reply use?"
+  ],
+  "retrieval_mode": "graph+rag",
+  "search_index": "",
+  "allow_file_upload": false,
+  "deployed": false,
+  "deploy_url": "",
+  "created_at": "2026-08-28T11:38:53.665714+00:00",
+  "updated_at": "2026-08-28T11:38:53.665714+00:00"
+}

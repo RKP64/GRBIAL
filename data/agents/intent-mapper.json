@@ -1,0 +1,29 @@
+{
+  "key": "intent-mapper",
+  "name": "Intent Mapper",
+  "description": "Classifies the passenger query into the closest airport service intent and identifies the likely service or flight topic.",
+  "domains": [
+    "blr_passenger_service_agent"
+  ],
+  "system_prompt": "You map a passenger query to the most relevant BLR airport service or flight topic using only the provided knowledge graph and document evidence. Prefer broad passenger-service intents and avoid inventing unsupported services.",
+  "tools": [
+    "search_graph",
+    "search_documents",
+    "describe_schema"
+  ],
+  "max_steps": 6,
+  "temperature": 0.2,
+  "verify": true,
+  "starters": [
+    "What is the passenger asking for?",
+    "Which service or flight topic best matches this query?"
+  ],
+  "model": "",
+  "retrieval_mode": "graph+rag",
+  "search_index": "",
+  "allow_file_upload": false,
+  "deployed": false,
+  "deploy_url": "",
+  "created_at": "2026-08-31T04:19:44.090067+00:00",
+  "updated_at": "2026-08-31T04:19:44.090067+00:00"
+}

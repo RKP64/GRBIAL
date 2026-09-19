@@ -1,25 +1,39 @@
 {
   "key": "flight-status-agent",
   "name": "Flight Status Agent",
-  "description": "Finds and summarizes specific flight status, route, terminal, and gate details from the graph.",
+  "description": "Answers flight-status questions by finding the flight, its current status, terminal, gate, and route when available.",
   "domains": [
-    "blr_airport_flight_info"
+    "blr-flight-status-support",
+    "airport_passenger",
+    "blr_passenger",
+    "blr-passenger-sentiment-agent",
+    "blr_airport_flight_info",
+    "blr_airport_response_categorization"
   ],
-  "system_prompt": "You answer questions about specific flights at BLR Airport. Look up the flight, its airline, status, route, terminal, and gate, and respond with the most relevant current details. If the flight number is missing, ask for it.",
+  "system_prompt": "You help users check flight status at BLR. First identify the flight number or airline, then retrieve the latest status, terminal, gate, and route if present. If the query is underspecified, ask for the flight number or airline and do not guess the status reason.",
   "tools": [
     "search_graph",
     "expand_entity",
     "search_documents",
-    "describe_schema"
+    "describe_schema",
+    "assess_impact",
+    "flightfeed__get_flight_status",
+    "flightfeed__find_flights_by_route"
   ],
   "max_steps": 6,
   "temperature": 0.2,
   "verify": true,
   "starters": [
     "Check the status for SG205.",
-    "Where is IX2718 arriving?",
-    "Is this flight delayed?"
+    "Why is my flight delayed?",
+    "Where is IX2718 now?"
   ],
+  "model": "",
+  "retrieval_mode": "graph+rag",
+  "search_index": "",
+  "allow_file_upload": false,
+  "deployed": false,
+  "deploy_url": "",
   "created_at": "2026-08-03T06:05:01.828351+00:00",
-  "updated_at": "2026-08-03T06:05:01.828351+00:00"
+  "updated_at": "2026-09-06T11:32:42.238023+00:00"
 }

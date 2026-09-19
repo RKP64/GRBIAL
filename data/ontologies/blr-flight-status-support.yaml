@@ -1,0 +1,149 @@
+key: blr-flight-status-support
+name: BLR Flight Status Support
+description: An airport customer-support ontology for answering flight-status and
+  related passenger queries at Bangalore International Airport Limited (BLR), including
+  flight updates, airline/terminal guidance, and support contacts.
+entity_types:
+  airport:
+    id_rule: Use the airport name as written; no special code pattern is evident.
+    examples:
+    - Bangalore International Airport Limited
+    - BLR Airport
+    - Kempegowda International Airport Bengaluru
+  airline:
+    id_rule: Use the airline name as written; no stable airline code pattern is consistently
+      shown in the sample.
+    examples:
+    - SpiceJet
+    - Lufthansa
+    - Air India Express
+  flight:
+    id_rule: If present, use the flight number format shown in the sample, such as
+      airline code plus digits.
+    examples:
+    - SG205
+    - IX2718
+    - SG-205
+  flight_status:
+    id_rule: Use the status phrase as written; no separate identifier pattern is evident.
+    examples:
+    - Delayed
+    - Arrived
+    - currently delayed
+  terminal:
+    id_rule: Use the terminal label as written, typically Terminal 1 or Terminal 2.
+    examples:
+    - Terminal 1
+    - Terminal 2
+    - T1
+  gate:
+    id_rule: Use the gate label as written; gate identifiers appear as alphanumeric
+      labels.
+    examples:
+    - Gate 38
+    - D11
+    - Boarding Gate 31
+  route:
+    id_rule: Use the route text as written, including arrow notation when present.
+    examples:
+    - Pune ➔ Bengaluru
+    - Bengaluru to Delhi
+  support_contact:
+    id_rule: Use the contact value as written; phone and email formats are visible
+      in the sample.
+    examples:
+    - 080-66785555
+    - +91-8884998888
+    - feedback@bialairport.com
+  service:
+    id_rule: Use the service name as written; no formal code pattern is evident.
+    examples:
+    - Porter Service
+    - Buggy Service
+    - EZPass by BLR
+  special_assistance:
+    id_rule: Use the assistance name as written; no formal code pattern is evident.
+    examples:
+    - Wheelchair Assistance
+    - Mobility Assist
+  location_zone:
+    id_rule: Use the zone text as written; no formal code pattern is evident.
+    examples:
+    - Terminal 1 - Zone D
+    - Terminal 2 - International Departures
+    - Terminal 1 - Kerbside / Check-in / Baggage Claim support
+  reference_link:
+    id_rule: Use the URL as written.
+    examples:
+    - https://www.bengaluruairport.com/travellers/flights/flight-information?flight=SG205
+    - https://www.bengaluruairport.com/travellers/contact-us
+    - https://www.bengaluruairport.com/travellers/services/special-assistance/buggy-service
+allowed_triples:
+- - airline
+  - operates_flight
+  - flight
+- - airport
+  - provides_contact
+  - support_contact
+- - flight
+  - has_reference
+  - reference_link
+- - flight
+  - has_route
+  - route
+- - flight
+  - has_status
+  - flight_status
+- - flight
+  - uses_gate
+  - gate
+- - flight
+  - uses_terminal
+  - terminal
+- - service
+  - available_in
+  - terminal
+- - service
+  - has_reference
+  - reference_link
+- - service
+  - located_at
+  - location_zone
+- - special_assistance
+  - available_in
+  - terminal
+- - special_assistance
+  - has_reference
+  - reference_link
+- - special_assistance
+  - located_at
+  - location_zone
+open_relations: false
+normalization:
+  strip_type_prefixes: true
+  collapse_whitespace: true
+  id_transforms:
+  - pattern: ^SG-?(\d+)$
+    replace: SG$1
+    case: ''
+    note: Normalizes SpiceJet flight numbers with or without a hyphen, e.g. SG-205
+      to SG205.
+  - pattern: ^IX\s*(\d+)$
+    replace: IX$1
+    case: ''
+    note: Normalizes Air India Express flight numbers with optional whitespace.
+  - pattern: ^Terminal\s*(\d+)$
+    replace: Terminal $1
+    case: ''
+    note: Normalizes terminal labels to a consistent Terminal N form.
+  rules_text:
+  - Treat BLR Airport, Bangalore International Airport Limited, and Kempegowda International
+    Airport Bengaluru as the same airport entity when context indicates the same operator/facility.
+  - Preserve the original flight number string, but normalize obvious punctuation
+    variants such as SG-205 to SG205.
+  - Keep terminal-specific service zones as separate location_zone values when the
+    sample distinguishes Terminal 1 and Terminal 2.
+  - Store contact values exactly as shown, including country codes and punctuation.
+  - Do not infer a flight status reason when the sample explicitly says the reason
+    is unavailable.
+custom_prompt: ''

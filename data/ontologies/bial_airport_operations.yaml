@@ -1,0 +1,147 @@
+key: bial_airport_operations
+name: Bangalore International Airport operations
+description: Airport operations data spanning AODB master infrastructure, departure
+  control, baggage summaries, and security screening logs for BIAL. Cross-system linking
+  of flights, passengers, baggage, trays, and fixed airport assets for multi-hop operational
+  queries. Passenger identifier is the 6-character PNR value only. BagAlias in ATRS
+  and OSTagID in Maxworth are the same identifier and must merge to one baggage node.
+  CheckPointName values are passenger attributes not infrastructure nodes. Do not
+  use PassengerId numeric values as passenger identifiers.
+entity_types:
+  gate:
+    id_rule: Use the AODB gate code as the identifier; preserve code text such as
+      D11, 17, or C10.
+    examples:
+    - D11
+    - '17'
+    - C10
+  stand:
+    id_rule: Use the AODB stand code as the identifier; preserve code text such as
+      74A, 88, or V58.
+    examples:
+    - 74A
+    - '88'
+    - V58
+  counter:
+    id_rule: Use the AODB counter code as the identifier; preserve code text such
+      as I10, B29, or E4.
+    examples:
+    - I10
+    - B29
+    - E4
+  makeup_belt:
+    id_rule: Use the AODB makeup code as the identifier; preserve code text such as
+      4T2, 1T2, or W.
+    examples:
+    - 4T2
+    - 1T2
+    - W
+  reclaim_belt:
+    id_rule: Use the AODB reclaim code as the identifier; preserve code text such
+      as 7A, 06B, or 2A.
+    examples:
+    - 7A
+    - 06B
+    - 2A
+  flight:
+    id_rule: Use the airline-prefixed flight number in uppercase such as IX2981 or
+      6E7071. Always include the airline prefix. Do not store bare numeric flight
+      numbers.
+    examples:
+    - IX2981
+    - 6E7071
+    - QP1421
+  airline:
+    id_rule: Use the IATA airline code in uppercase as the identifier.
+    examples:
+    - EK
+    - QR
+    - 6E
+  passenger:
+    id_rule: Use the 6-character alphanumeric PNR value as the identifier such as
+      H6TYHM or PDY52R. Do not use the column header PNR or field names PassengerId
+      or PassengerNumber. Extract the value not the field name.
+    examples:
+    - H6TYHM
+    - PDY52R
+    - F8ACL5
+  baggage:
+    id_rule: Use OSTagID from DCS records and BagAlias from ATRS records as the same
+      identifier. Merge nodes where these values match into a single baggage node.
+    examples:
+    - S-379470
+    - S-287861
+    - S-342150
+  security_tray:
+    id_rule: Use TrayInstanceID as the primary identifier. Use SourceFileName as fallback.
+    examples:
+    - '121127835'
+    - '851'
+    - '918'
+  security_machine:
+    id_rule: Use Machine_Name from ATRS T2 or Analyst field from ATRS T1 as the identifier.
+    examples:
+    - ANALYST-1-14
+    - OLS-1-4
+    - OLS-1-3
+  kpi:
+    id_rule: Use the KPI name exactly as written in the knowledge file KPI Definitions
+      sheet.
+    examples:
+    - AGHT
+    - Total Aircraft Movements
+    - Turnaround Time
+allowed_triples:
+- - baggage
+  - screened_on
+  - security_tray
+- - baggage
+  - tagged_to
+  - passenger
+- - counter
+  - is_preferred_by
+  - airline
+- - flight
+  - arrives_at_belt
+  - reclaim_belt
+- - flight
+  - assigned_to_belt
+  - makeup_belt
+- - flight
+  - has_kpi
+  - kpi
+- - flight
+  - operated_by
+  - airline
+- - flight
+  - uses_gate
+  - gate
+- - flight
+  - uses_stand
+  - stand
+- - passenger
+  - booked_on
+  - flight
+- - passenger
+  - checked_in_at
+  - counter
+- - passenger
+  - cleared_security_at
+  - security_machine
+- - security_tray
+  - contains_baggage
+  - baggage
+- - security_tray
+  - was_screened_at
+  - security_machine
+- - stand
+  - has_connected_gate
+  - gate
+open_relations: false
+normalization:
+  strip_type_prefixes: true
+  collapse_whitespace: true
+  id_transforms: []
+  rules_text: []
+custom_prompt: ''
+actions: []

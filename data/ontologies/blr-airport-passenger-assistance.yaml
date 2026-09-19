@@ -1,0 +1,160 @@
+key: blr-airport-passenger-assistance
+name: BLR Airport Passenger Assistance Ontology
+description: Ontology for Bangalore International Airport passenger-facing support
+  content, including flights, terminals, airport services, contact channels, and assistance
+  guidance.
+entity_types:
+  airport:
+    id_rule: Use the airport/operator name as written.
+    examples:
+    - Bangalore International Airport Limited
+    - BLR Airport
+    - Kempegowda International Airport Bengaluru
+  terminal:
+    id_rule: Use the terminal label as written, typically Terminal 1 or Terminal 2.
+    examples:
+    - Terminal 1
+    - Terminal 2
+    - T1
+  airline:
+    id_rule: Use the airline name as written.
+    examples:
+    - Lufthansa
+    - SpiceJet
+    - Air India Express
+  flight:
+    id_rule: Use the flight number as written; if airline is included, keep both.
+    examples:
+    - SG205
+    - IX2718
+    - SpiceJet Flight SG205
+  service:
+    id_rule: Use the service name as written.
+    examples:
+    - Porter Service
+    - EZPass by BLR
+    - 080 Transit Hotel
+  assistance_type:
+    id_rule: Use the assistance label as written.
+    examples:
+    - Wheelchair Assistance
+    - Mobility Assist
+    - Buggy Service
+  contact_channel:
+    id_rule: Use the contact value as written.
+    examples:
+    - 080-66785555
+    - +91-8884998888
+    - feedback@bialairport.com
+  location_zone:
+    id_rule: Use the zone text as written.
+    examples:
+    - Terminal 1 - Zone D
+    - Terminal 2 - International Departures
+    - Terminal 1 - Kerbside / Check-in / Baggage Claim support
+  reference_link:
+    id_rule: Use the URL as written.
+    examples:
+    - https://www.bengaluruairport.com/travellers/contact-us
+    - https://www.bengaluruairport.com/cbb-services-listing
+    - https://www.bengaluruairport.com/travellers/flights/flight-information?flight=SG205
+  passenger_group:
+    id_rule: Use the group label as written.
+    examples:
+    - senior citizens
+    - passengers with reduced mobility
+    - families
+  booking_rule:
+    id_rule: Use the rule text as written.
+    examples:
+    - minimum of 3 hours and a maximum of 12 hours
+    - entry starts 4 hours before scheduled departure
+    - Bookings are not permitted within 75 minutes of departure
+  query_topic:
+    id_rule: Use the query phrase as written.
+    examples:
+    - Delayed flight
+    - customer support
+    - Visitor pass
+allowed_triples:
+- - airport
+  - has_terminal
+  - terminal
+- - airport
+  - offers_assistance
+  - assistance_type
+- - airport
+  - offers_service
+  - service
+- - airport
+  - uses_contact_channel
+  - contact_channel
+- - flight
+  - arrives_at
+  - terminal
+- - flight
+  - departs_from
+  - terminal
+- - flight
+  - has_reference
+  - reference_link
+- - flight
+  - operated_by
+  - airline
+- - query_topic
+  - maps_to
+  - assistance_type
+- - query_topic
+  - maps_to
+  - flight
+- - query_topic
+  - maps_to
+  - service
+- - service
+  - available_in
+  - terminal
+- - service
+  - has_booking_rule
+  - booking_rule
+- - service
+  - has_reference
+  - reference_link
+- - service
+  - located_in
+  - location_zone
+- - service
+  - serves_passenger_group
+  - passenger_group
+open_relations: false
+normalization:
+  strip_type_prefixes: true
+  collapse_whitespace: true
+  id_transforms:
+  - pattern: \\x000D\\n
+    replace: '
+
+      '
+    case: ''
+    note: Normalize Excel carriage-return escape sequences into line breaks
+  - pattern: \s+
+    replace: ' '
+    case: ''
+    note: Collapse repeated whitespace in extracted text
+  - pattern: ^\s+|\s+$
+    replace: ''
+    case: ''
+    note: Trim leading and trailing whitespace
+  rules_text:
+  - Treat BLR Airport, Bangalore International Airport Limited, and Kempegowda International
+    Airport Bengaluru as the same airport context when the text clearly refers to
+    the airport operator or airport brand.
+  - Preserve terminal labels exactly as written, but normalize T1/T2 to Terminal 1/Terminal
+    2 in the graph when they clearly refer to the same terminal.
+  - Keep flight numbers and airline names separate when both are present; do not infer
+    a flight if only a route or delay topic is mentioned.
+  - 'Store contact channels as distinct values by type when the type is explicit in
+    the text: phone, WhatsApp, or email.'
+  - Keep service names and assistance types separate even when both are passenger-help
+    related.
+  - Use the reference URL as the canonical identifier for reference_link entities.
+custom_prompt: ''

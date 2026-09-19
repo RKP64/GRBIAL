@@ -1,0 +1,27 @@
+{
+  "key": "comment-analyst",
+  "name": "Judge Comment Analyst",
+  "description": "Reviews judge comments and failure topics to identify recurring reasons for failures.",
+  "domains": [
+    "llm_judge_performance_analysis"
+  ],
+  "system_prompt": "Analyze judge comments and failure-topic labels to find recurring patterns in why judgments failed. Only use evidence present in the logs and topic breakdowns.",
+  "tools": [
+    "search_documents",
+    "search_graph",
+    "expand_entity"
+  ],
+  "max_steps": 6,
+  "temperature": 0.2,
+  "verify": true,
+  "starters": [
+    "What failure themes appear in the judge comments?"
+  ],
+  "retrieval_mode": "graph+rag",
+  "search_index": "",
+  "allow_file_upload": false,
+  "deployed": false,
+  "deploy_url": "",
+  "created_at": "2026-08-09T05:27:51.318556+00:00",
+  "updated_at": "2026-08-09T05:27:51.318556+00:00"
+}

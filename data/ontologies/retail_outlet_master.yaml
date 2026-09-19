@@ -1,0 +1,199 @@
+key: retail_outlet_master
+name: Retail Outlet Master
+description: A retailer master dataset linking outlets to distributors, beats, sales
+  representatives, locations, contact and compliance fields, and approval/status metadata.
+entity_types:
+  retailer_region:
+    id_rule: Use the region text as seen; no stable code is shown.
+    examples:
+    - East 1
+  distributor:
+    id_rule: Use DB Code when present; otherwise use DB Name.
+    examples:
+    - '121746'
+    - SOVANS DISTRIBUTION PRIVATE LIMITED
+    - Provonova Consumer Goods Private Li
+  beat:
+    id_rule: Use Beat Code when present; otherwise use Beat Name.
+    examples:
+    - '990448'
+    - Mukundapur 2 F
+    - Lake Town & Kalindi
+  sales_representative:
+    id_rule: Use SR Code when present; otherwise use SR Name.
+    examples:
+    - EALSR14535
+    - Subhankar Saha
+    - Utpal Som
+  outlet:
+    id_rule: Use Outlet Code as the primary identifier.
+    examples:
+    - R246625
+    - R-0016059
+    - R442319
+  outlet_owner:
+    id_rule: Use the owner name as given; no separate owner ID is shown.
+    examples:
+    - Dulal Halder
+    - Raju roy choudhury
+    - Protap mondal
+  channel:
+    id_rule: Use the channel label as given.
+    examples:
+    - Direct
+  sub_channel:
+    id_rule: Use the sub-channel label as given.
+    examples:
+    - Grocer / Kirana
+    - Bakery / Sweet Shop
+    - General Store
+  retailer_class:
+    id_rule: Use the class label as given.
+    examples:
+    - A
+    - B
+    - C
+  contact_point:
+    id_rule: Use the contact value as given; phone numbers are numeric strings, email
+      follows standard email format.
+    examples:
+    - '9051377923'
+    - '8016639917'
+  postal_location:
+    id_rule: Use the postal code or place text as given.
+    examples:
+    - '700099'
+    - '700152'
+    - '734003'
+  address:
+    id_rule: Use the street/location text as given.
+    examples:
+    - Nayabad Minibus Stand
+    - Panchpota Ranabuthia opp engineering college
+    - Ashrampara,Panjabi Para, Anchal Road
+  administrative_location:
+    id_rule: Use the location text as given.
+    examples:
+    - South Kolkata
+    - Kolkata
+    - West Bengal
+  geo_coordinate:
+    id_rule: Use decimal coordinate strings as given.
+    examples:
+    - '22.4857772'
+    - '88.4123805'
+    - '25.00105811'
+  approval_status:
+    id_rule: Use the status text as given or blank if absent.
+    examples:
+    - Approved
+  verification_status:
+    id_rule: Use the status text or boolean-like value as given.
+    examples:
+    - 'Yes'
+    - 'No'
+  audit_user:
+    id_rule: Use the full name as given.
+    examples:
+    - H&T Admin
+    - Migration User
+    - Seva Stores
+  date_event:
+    id_rule: Use ISO-like date strings as given.
+    examples:
+    - '2024-07-20'
+    - '2026-09-10'
+    - '2026-03-24'
+allowed_triples:
+- - beat
+  - assigned_to_sales_representative
+  - sales_representative
+- - distributor
+  - manages_beat
+  - beat
+- - distributor
+  - supplies_outlet
+  - outlet
+- - outlet
+  - created_on
+  - date_event
+- - outlet
+  - has_address
+  - address
+- - outlet
+  - has_approval_status
+  - approval_status
+- - outlet
+  - has_channel
+  - channel
+- - outlet
+  - has_class
+  - retailer_class
+- - outlet
+  - has_contact_point
+  - contact_point
+- - outlet
+  - has_geo_coordinate
+  - geo_coordinate
+- - outlet
+  - has_owner
+  - outlet_owner
+- - outlet
+  - has_postal_location
+  - postal_location
+- - outlet
+  - has_sub_channel
+  - sub_channel
+- - outlet
+  - has_verification_status
+  - verification_status
+- - outlet
+  - last_modified_by
+  - audit_user
+- - outlet
+  - located_in
+  - administrative_location
+- - outlet
+  - otp_verified_on
+  - date_event
+- - retailer_region
+  - contains_distributor
+  - distributor
+- - sales_representative
+  - covers_outlet
+  - outlet
+open_relations: false
+normalization:
+  strip_type_prefixes: true
+  collapse_whitespace: true
+  id_transforms:
+  - pattern: ^R-0+
+    replace: R-
+    case: ''
+    note: Normalize outlet codes with leading zero padding after the R- prefix
+  - pattern: ^R0+
+    replace: R
+    case: ''
+    note: Normalize outlet codes with leading zero padding after R
+  - pattern: ^0+(\d+)$
+    replace: $1
+    case: ''
+    note: Normalize numeric postal codes written with leading zeros
+  - pattern: \s+
+    replace: ' '
+    case: ''
+    note: Collapse repeated whitespace in names and locations
+  rules_text:
+  - Treat blank cells as missing values, not empty entities.
+  - Preserve original casing for names and labels unless a transform is explicitly
+    defined.
+  - Do not split combined labels like 'Grocer / Kirana' or 'Bakery / Sweet Shop' into
+    separate values.
+  - Keep region, city, state, and town as separate location facets only when explicitly
+    present in the row.
+  - Use outlet code as the main outlet identifier even when outlet names repeat or
+    vary.
+  - 'Treat ''Distributor: IsActive'', ''Retailer: IsActive'', and ''OTP Verified''
+    as status-like fields rather than separate entities.'
+custom_prompt: ''
+actions: []

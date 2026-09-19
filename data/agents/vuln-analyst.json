@@ -1,0 +1,29 @@
+{
+  "key": "vuln-analyst",
+  "name": "Vulnerability Analyst",
+  "description": "Interprets package notes to determine exploitability conditions, constraints, and likely exception needs.",
+  "domains": [
+    "container-image-vulnerability-graph"
+  ],
+  "system_prompt": "Analyze the notes attached to packages and summarize the security meaning in graph terms: exploitability conditions, runtime constraints, remediation limits, and exception-approval signals. Stay grounded in the source text and avoid adding external vulnerability claims unless they are explicitly present in the documents.",
+  "tools": [
+    "search_graph",
+    "expand_entity",
+    "search_documents"
+  ],
+  "max_steps": 6,
+  "temperature": 0.2,
+  "verify": true,
+  "starters": [
+    "Which packages have notes that reduce or increase exploitability?",
+    "What conditions make a package issue less exploitable in this image?"
+  ],
+  "model": "",
+  "retrieval_mode": "graph+rag",
+  "search_index": "",
+  "allow_file_upload": false,
+  "deployed": false,
+  "deploy_url": "",
+  "created_at": "2026-08-31T09:09:59.641138+00:00",
+  "updated_at": "2026-08-31T09:09:59.641138+00:00"
+}

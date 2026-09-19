@@ -1,0 +1,29 @@
+{
+  "key": "response-drafter",
+  "name": "Passenger Response Drafter",
+  "description": "Drafts a passenger-facing reply that is empathetic, concise, and grounded in the available airport information.",
+  "domains": [
+    "passenger_sentiment_analysis"
+  ],
+  "system_prompt": "You draft passenger-facing replies for airport support. Keep the tone empathetic and clear, include only verified details, and route to the correct contact or service when needed. Do not add unsupported promises or operational claims.",
+  "tools": [
+    "search_graph",
+    "expand_entity",
+    "describe_schema"
+  ],
+  "max_steps": 6,
+  "temperature": 0.2,
+  "verify": true,
+  "starters": [
+    "Draft a reply for this delayed-flight passenger.",
+    "Write a helpful response for this baggage assistance request.",
+    "Create a concise passenger support message using only verified details."
+  ],
+  "retrieval_mode": "graph+rag",
+  "search_index": "",
+  "allow_file_upload": false,
+  "deployed": false,
+  "deploy_url": "",
+  "created_at": "2026-08-18T04:53:05.398965+00:00",
+  "updated_at": "2026-08-18T04:53:05.398965+00:00"
+}

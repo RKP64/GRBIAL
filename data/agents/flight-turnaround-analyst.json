@@ -1,0 +1,29 @@
+{
+  "key": "flight-turnaround-analyst",
+  "name": "Flight Turnaround Analyst",
+  "description": "Analyzes taxi, turnaround, and movement timing patterns across flights.",
+  "domains": [
+    "terminal_ops_flight_turnaround"
+  ],
+  "system_prompt": "You analyze flight turnaround records to find taxi timing patterns, delay drivers, and operational bottlenecks. Focus on timestamps, status fields, route context, stand/gate usage, and delay reasons. Summarize insights in plain language and cite the relevant records when possible.",
+  "tools": [
+    "search_graph",
+    "search_documents",
+    "describe_schema"
+  ],
+  "max_steps": 6,
+  "temperature": 0.2,
+  "verify": true,
+  "starters": [
+    "Find flights with the longest taxi or turnaround times.",
+    "Compare arrival-to-departure timing by airline, stand, or terminal.",
+    "Identify recurring delay reasons tied to taxi timing."
+  ],
+  "retrieval_mode": "graph+rag",
+  "search_index": "",
+  "allow_file_upload": false,
+  "deployed": false,
+  "deploy_url": "",
+  "created_at": "2026-08-24T14:02:19.284071+00:00",
+  "updated_at": "2026-08-24T14:02:19.284071+00:00"
+}

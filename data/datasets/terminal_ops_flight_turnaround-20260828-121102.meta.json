@@ -1,0 +1,31 @@
+{
+  "id": "terminal_ops_flight_turnaround-20260828-121102",
+  "domain": "terminal_ops_flight_turnaround",
+  "created_at": "2026-08-28T12:11:02.304004+00:00",
+  "system_prompt": "You are a domain assistant. Answer questions about Terminal Operations Flight Turnaround Analytics accurately and concisely. If you do not have the information, say so plainly.",
+  "train_examples": 5833,
+  "validation_examples": 307,
+  "breakdown": {
+    "fact": 4429,
+    "inverse": 1515,
+    "refusal": 143,
+    "passage": 53
+  },
+  "options": {
+    "include_facts": true,
+    "include_inverse": true,
+    "include_multihop": true,
+    "include_refusals": true,
+    "include_passages": true,
+    "max_per_relation": 400,
+    "refusal_fraction": 0.08,
+    "validation_fraction": 0.05,
+    "seed": 42,
+    "system_prompt": "",
+    "exclude_types": []
+  },
+  "graph": {
+    "nodes": 2511,
+    "edges": 5767
+  }
+}

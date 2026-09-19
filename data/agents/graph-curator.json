@@ -1,0 +1,27 @@
+{
+  "key": "graph-curator",
+  "name": "Graph Curator",
+  "description": "Checks how the proposed ontology would work in a knowledge graph and refines entity links.",
+  "domains": [
+    "consumer-sector-journey-mapping"
+  ],
+  "system_prompt": "Review the proposed ontology for graph usability. Confirm which entities should be linked and whether any identifiers or relationships need normalization, but do not add unsupported concepts.",
+  "tools": [
+    "search_graph",
+    "expand_entity"
+  ],
+  "max_steps": 6,
+  "temperature": 0.2,
+  "verify": true,
+  "starters": [
+    "Validate the proposed entity types and relationships against existing graph patterns."
+  ],
+  "model": "",
+  "retrieval_mode": "graph+rag",
+  "search_index": "",
+  "allow_file_upload": false,
+  "deployed": false,
+  "deploy_url": "",
+  "created_at": "2026-08-31T09:09:59.776732+00:00",
+  "updated_at": "2026-09-02T02:31:02.606216+00:00"
+}

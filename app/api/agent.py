@@ -86,22 +86,35 @@ class AskRequest(BaseModel):
 
 
 @router.post("/{key}/ask", summary="Ask a saved agent")
-async def ask_agent(key: str, body: AskRequest) -> dict:
+async def ask_agent(key: str, body: AskRequest,
+                    principal: Principal = Depends(current_principal)) -> dict:
     try:
         agent = get_registry().get(key)
     except KeyError as exc:
         raise HTTPException(status_code=404, detail=str(exc)) from exc
 
     domain = body.domain or agent.default_domain()
+
+    # Filter tools based on retrieval mode
+    tools = list(agent.tools)
+    mode = agent.retrieval_mode or "graph+rag"
+    if mode == "rag":
+        tools = [t for t in tools if t not in ("search_graph", "expand_entity")]
+    elif mode == "graph":
+        tools = [t for t in tools if t != "search_documents"]
+    # graph+rag and context keep all tools; context handled at prompt level
+
     try:
         result = await run_agent(
             domain, body.question,
             system_prompt=agent.system_prompt,
-            allowed_tools=agent.tools,
+            allowed_tools=tools or agent.tools,
             max_steps=body.max_steps or agent.max_steps,
             temperature=agent.temperature,
             verify=agent.verify if body.verify is None else body.verify,
             permitted_domains=agent.domains,
+            model=agent.model,
+            principal=principal,
         )
     except PermissionError as exc:
         raise HTTPException(status_code=403, detail=str(exc)) from exc
@@ -110,7 +123,9 @@ async def ask_agent(key: str, body: AskRequest) -> dict:
 
     payload = result.as_dict()
     payload.update(question=body.question, domain=domain,
-                   agent={"key": agent.key, "name": agent.name})
+                   agent={"key": agent.key, "name": agent.name,
+                          "retrieval_mode": mode,
+                          "model": agent.model or "platform default"})
     return payload
 
 
@@ -196,6 +211,42 @@ async def import_agents(file: UploadFile = File(...)) -> dict:
             result["skipped"].append({"key": spec.get("key", "?"),
                                       "reason": str(exc)})
     return result
+
+
+# ------------------------------------------------------------------ deploy / undeploy
+
+@router.post("/{key}/deploy", summary="Mark an agent as deployed")
+async def deploy_agent(key: str, body: dict = {}) -> dict:
+    try:
+        agent = get_registry().get(key)
+    except KeyError as exc:
+        raise HTTPException(status_code=404, detail=str(exc)) from exc
+
+    deploy_url = body.get("deploy_url", "").strip()
+    updated = agent.as_dict()
+    updated["deployed"] = True
+    if deploy_url:
+        updated["deploy_url"] = deploy_url
+    agent = get_registry().save(updated)
+    return {
+        "key": agent.key,
+        "deployed": True,
+        "deploy_url": agent.deploy_url,
+        "api_endpoint": f"/agents/{agent.key}/ask",
+    }
+
+
+@router.post("/{key}/undeploy", summary="Mark an agent as not deployed")
+async def undeploy_agent(key: str) -> dict:
+    try:
+        agent = get_registry().get(key)
+    except KeyError as exc:
+        raise HTTPException(status_code=404, detail=str(exc)) from exc
+
+    updated = agent.as_dict()
+    updated["deployed"] = False
+    agent = get_registry().save(updated)
+    return {"key": agent.key, "deployed": False}
 
 
 # ------------------------------------------------------------------ ad-hoc

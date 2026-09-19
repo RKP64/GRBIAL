@@ -34,14 +34,46 @@ from ..config import Settings
 log = logging.getLogger(__name__)
 
 
+def parse_models(spec: str) -> list[dict[str, str]]:
+    """Turn a configured model list into id/label pairs.
+
+    Written as "Label|provider/model-id" so the console can show a neutral
+    name while the API still receives the identifier the service expects.
+    A bare id falls back to showing itself, which keeps existing config valid.
+    """
+    out: list[dict[str, str]] = []
+    for item in (spec or "").split(","):
+        item = item.strip()
+        if not item:
+            continue
+        if "|" in item:
+            label, _, ident = item.partition("|")
+            out.append({"id": ident.strip(), "label": label.strip()})
+        else:
+            out.append({"id": item, "label": item})
+    return out
+
+
 @dataclass
 class TrainerCapabilities:
+    # What the console shows. Deliberately describes the arrangement rather
+    # than the supplier, so the platform can be presented without disclosing
+    # which services sit behind it.
+    label: str = ""
     can_train: bool = False
     can_deploy: bool = False
     hyperparameters: list[str] = field(default_factory=list)
-    base_models: list[str] = field(default_factory=list)
+    base_models: list[dict] = field(default_factory=list)
     note: str = ""
     requirements: list[str] = field(default_factory=list)
+    # Whether the produced artefact can be pulled down and kept. This is the
+    # difference between exclusive use of a hosted model and owning a file, and
+    # it decides whether a sovereignty claim survives scrutiny — so it is
+    # surfaced rather than left for someone to discover after training.
+    can_download_weights: bool = False
+    # Where the training data and the resulting weights sit, stated as a
+    # posture rather than a place: "In-region", "Offshore", "Your infrastructure".
+    data_residency: str = ""
 
 
 @dataclass
@@ -121,12 +153,15 @@ class OpenAICompatibleTrainer(Trainer):
             (self.settings.azure_openai_endpoint and self.settings.azure_openai_api_key)
             or self.settings.openai_api_key
         )
-        models = [m.strip() for m in self.settings.training_base_models.split(",") if m.strip()]
+        models = parse_models(self.settings.training_base_models)
         return TrainerCapabilities(
+            label="Managed service",
             can_train=configured,
             can_deploy=self.settings.training_provider_mode == "azure" and configured,
             hyperparameters=["epochs", "learning_rate_multiplier", "batch_size", "seed", "suffix"],
             base_models=models,
+            can_download_weights=False,
+            data_residency="Provider region",
             note="" if configured else "Add the credentials for this provider to enable training.",
             requirements=["A base model that the provider permits fine-tuning on"],
         )
@@ -235,12 +270,15 @@ class BedrockTrainer(Trainer):
             can_deploy=False,
             hyperparameters=["epochs", "learning_rate_multiplier", "batch_size"],
             base_models=models,
+            label="Managed service (object-store)",
+            can_download_weights=False,
+            data_residency="Provider region",
             note="" if ready else
-                 "Training on this provider needs an S3 location for the data and "
-                 "an IAM role the service can assume.",
+                 "Training on this provider needs an object-store location for the "
+                 "data and a role the service can assume.",
             requirements=[
-                "An S3 bucket for training data and job output",
-                "An IAM role the training service can assume",
+                "An object-store bucket for training data and job output",
+                "A role the training service can assume",
                 "Provisioned throughput before a customised model can serve traffic",
             ],
         )
@@ -310,6 +348,289 @@ class BedrockTrainer(Trainer):
         return await asyncio.to_thread(run)
 
 
+class TogetherTrainer(Trainer):
+    """Together AI hosted fine-tuning of open-weight base models.
+
+    The reason to reach for this rather than a hosted provider that keeps the
+    result: Together fine-tunes open-weight bases and lets you pull the
+    resulting adapter or merged checkpoint down and run it anywhere. What you
+    end up with is a file, not a deployment name.
+
+    The trade is jurisdictional. Together is US-incorporated, so the training
+    data leaves India. That is fine for a pilot on non-sensitive or synthetic
+    data and wrong for production BIAL material — which is why the residency is
+    reported here instead of being left implicit.
+    """
+
+    name = "together"
+    BASE = "https://api.together.xyz/v1"
+
+    def __init__(self, s: Settings) -> None:
+        self.settings = s
+        self.timeout = 120.0
+
+    def _headers(self) -> dict[str, str]:
+        return {"Authorization": f"Bearer {self.settings.together_api_key}"}
+
+    def capabilities(self) -> TrainerCapabilities:
+        configured = bool(self.settings.together_api_key)
+        models = parse_models(self.settings.together_base_models)
+        return TrainerCapabilities(
+            label="Portable open-weight",
+            can_train=configured,
+            can_deploy=configured,
+            hyperparameters=["epochs", "learning_rate", "batch_size", "suffix"],
+            base_models=models,
+            can_download_weights=True,
+            data_residency="Offshore",
+            note=("" if configured
+                  else "Add the credentials for this provider to enable training."),
+            requirements=[
+                "An open-weight base model this provider supports for fine-tuning",
+                "Training data leaves the region — suited to pilots, not regulated data",
+            ],
+        )
+
+    async def start(self, request: TrainingRequest) -> dict[str, Any]:
+        import httpx
+
+        async with httpx.AsyncClient(timeout=self.timeout) as client:
+            with open(request.train_file, "rb") as fh:
+                upload = await client.post(
+                    f"{self.BASE}/files",
+                    headers=self._headers(),
+                    files={"file": (Path(request.train_file).name, fh, "application/jsonl")},
+                    data={"purpose": "fine-tune"},
+                )
+            upload.raise_for_status()
+            train_id = upload.json().get("id")
+
+            validation_id = None
+            if request.validation_file and Path(request.validation_file).exists():
+                with open(request.validation_file, "rb") as fh:
+                    val = await client.post(
+                        f"{self.BASE}/files",
+                        headers=self._headers(),
+                        files={"file": (Path(request.validation_file).name, fh,
+                                        "application/jsonl")},
+                        data={"purpose": "fine-tune"},
+                    )
+                if val.is_success:
+                    validation_id = val.json().get("id")
+
+            payload: dict[str, Any] = {
+                "model": request.base_model,
+                "training_file": train_id,
+            }
+            if validation_id:
+                payload["validation_file"] = validation_id
+            if request.epochs:
+                payload["n_epochs"] = request.epochs
+            if request.learning_rate:
+                payload["learning_rate"] = request.learning_rate
+            if request.batch_size:
+                payload["batch_size"] = request.batch_size
+            if request.suffix:
+                payload["suffix"] = request.suffix
+            # LoRA keeps the artefact small and the cost low; a full fine-tune
+            # is available by setting adapter.method to "full".
+            adapter = request.adapter or {}
+            if adapter.get("method", "lora") == "lora":
+                payload["lora"] = True
+                if adapter.get("rank"):
+                    payload["lora_r"] = adapter["rank"]
+
+            job = await client.post(f"{self.BASE}/fine-tunes",
+                                    headers=self._headers(), json=payload)
+            job.raise_for_status()
+            body = job.json()
+
+        return {"job_ref": body.get("id"), "state": body.get("status", "queued"),
+                "base_model": request.base_model, "raw": body}
+
+    async def status(self, job_ref: str) -> dict[str, Any]:
+        import httpx
+
+        async with httpx.AsyncClient(timeout=self.timeout) as client:
+            response = await client.get(f"{self.BASE}/fine-tunes/{job_ref}",
+                                        headers=self._headers())
+            response.raise_for_status()
+            body = response.json()
+
+        state = str(body.get("status", "running")).lower()
+        # Together reports states such as "completed"; the registry treats
+        # "succeeded" as terminal, so the vocabulary is aligned here rather
+        # than special-cased in the registry.
+        if state in {"completed", "complete"}:
+            state = "succeeded"
+        elif state in {"error", "user_error"}:
+            state = "failed"
+        return {
+            "job_ref": job_ref,
+            "state": state,
+            "model_ref": body.get("output_name") or body.get("model_output_name"),
+            "error": body.get("error"),
+            "trained_tokens": body.get("total_price"),
+            "raw": body,
+        }
+
+    async def cancel(self, job_ref: str) -> dict[str, Any]:
+        import httpx
+
+        async with httpx.AsyncClient(timeout=self.timeout) as client:
+            response = await client.post(f"{self.BASE}/fine-tunes/{job_ref}/cancel",
+                                         headers=self._headers())
+            response.raise_for_status()
+        return {"job_ref": job_ref, "state": "cancelled"}
+
+    async def deploy(self, model_ref: str, deployment_name: str) -> dict[str, Any]:
+        """Together serves the tuned model directly by name.
+
+        The weights are also retrievable, which is the point of choosing this
+        provider, so the download route is reported alongside the endpoint.
+        """
+        return {
+            "deployment": deployment_name,
+            "model_ref": model_ref,
+            "state": "serving",
+            "endpoint": f"{self.BASE}/chat/completions",
+            "download": f"{self.BASE}/finetune/download?ft_id={model_ref}",
+            "manual_step": (
+                "Call the model by name against the provider endpoint, or pull the "
+                "weights with the download route and serve them yourself."
+            ),
+        }
+
+
+class ShaktiTrainer(Trainer):
+    """Yotta Shakti Studio fine-tuning.
+
+    Kept deliberately generic: Shakti Studio exposes fine-tuning for open bases
+    such as Llama and Qwen, and the endpoint is configured rather than hardcoded
+    so this works whether the tenant is given an OpenAI-compatible surface or a
+    dedicated one. Confirm the exact route with Yotta before relying on it in
+    production — SHAKTI_BASE_URL is the single place that changes.
+
+    The reason it is worth wiring at all: the compute and the data stay inside
+    Indian jurisdiction, which is the one thing Together cannot offer.
+    """
+
+    name = "shakti"
+
+    def __init__(self, s: Settings) -> None:
+        self.settings = s
+        self.timeout = 120.0
+
+    @property
+    def base_url(self) -> str:
+        return (self.settings.shakti_base_url or "").rstrip("/")
+
+    def _headers(self) -> dict[str, str]:
+        return {"Authorization": f"Bearer {self.settings.shakti_api_key}"}
+
+    def capabilities(self) -> TrainerCapabilities:
+        configured = bool(self.settings.shakti_api_key and self.base_url)
+        models = parse_models(self.settings.shakti_base_models)
+        return TrainerCapabilities(
+            label="In-region open-weight",
+            can_train=configured,
+            can_deploy=configured,
+            hyperparameters=["epochs", "learning_rate", "batch_size", "suffix"],
+            base_models=models,
+            # Bringing a fine-tuned model in is documented; exporting one out is
+            # not. Claimed as false until Yotta confirms it in writing, because
+            # the opposite error is the expensive one.
+            can_download_weights=False,
+            data_residency="In-region",
+            note=("" if configured
+                  else "Add the endpoint and credentials for this provider to enable training."),
+            requirements=[
+                "A tenant with fine-tuning enabled",
+                "Confirm with the provider whether trained weights can be exported",
+            ],
+        )
+
+    async def start(self, request: TrainingRequest) -> dict[str, Any]:
+        import httpx
+
+        async with httpx.AsyncClient(timeout=self.timeout) as client:
+            with open(request.train_file, "rb") as fh:
+                upload = await client.post(
+                    f"{self.base_url}/files",
+                    headers=self._headers(),
+                    files={"file": (Path(request.train_file).name, fh, "application/jsonl")},
+                    data={"purpose": "fine-tune"},
+                )
+            upload.raise_for_status()
+            train_id = upload.json().get("id")
+
+            payload: dict[str, Any] = {
+                "model": request.base_model,
+                "training_file": train_id,
+            }
+            if request.epochs:
+                payload["n_epochs"] = request.epochs
+            if request.learning_rate:
+                payload["learning_rate"] = request.learning_rate
+            if request.batch_size:
+                payload["batch_size"] = request.batch_size
+            if request.suffix:
+                payload["suffix"] = request.suffix
+
+            job = await client.post(f"{self.base_url}/fine-tunes",
+                                    headers=self._headers(), json=payload)
+            job.raise_for_status()
+            body = job.json()
+
+        return {"job_ref": body.get("id") or body.get("job_id"),
+                "state": body.get("status", "queued"),
+                "base_model": request.base_model, "raw": body}
+
+    async def status(self, job_ref: str) -> dict[str, Any]:
+        import httpx
+
+        async with httpx.AsyncClient(timeout=self.timeout) as client:
+            response = await client.get(f"{self.base_url}/fine-tunes/{job_ref}",
+                                        headers=self._headers())
+            response.raise_for_status()
+            body = response.json()
+
+        state = str(body.get("status", "running")).lower()
+        if state in {"completed", "complete"}:
+            state = "succeeded"
+        elif state in {"error", "user_error"}:
+            state = "failed"
+        return {
+            "job_ref": job_ref,
+            "state": state,
+            "model_ref": body.get("output_name") or body.get("fine_tuned_model"),
+            "error": body.get("error"),
+            "progress": body.get("progress"),
+            "raw": body,
+        }
+
+    async def cancel(self, job_ref: str) -> dict[str, Any]:
+        import httpx
+
+        async with httpx.AsyncClient(timeout=self.timeout) as client:
+            response = await client.post(f"{self.base_url}/fine-tunes/{job_ref}/cancel",
+                                         headers=self._headers())
+            response.raise_for_status()
+        return {"job_ref": job_ref, "state": "cancelled"}
+
+    async def deploy(self, model_ref: str, deployment_name: str) -> dict[str, Any]:
+        return {
+            "deployment": deployment_name,
+            "model_ref": model_ref,
+            "state": "registered",
+            "endpoint": f"{self.base_url}/chat/completions",
+            "manual_step": (
+                "Create the serverless endpoint for this model in the provider "
+                "console, then set it as the answering model here."
+            ),
+        }
+
+
 class InferenceOnlyTrainer(Trainer):
     """A provider that serves models but cannot train them.
 
@@ -325,8 +646,10 @@ class InferenceOnlyTrainer(Trainer):
     def capabilities(self) -> TrainerCapabilities:
         return TrainerCapabilities(
             can_train=False, can_deploy=False,
-            note=f"{self.label} serves models but does not run training. Train "
-                 f"elsewhere, then serve the result here.",
+            label="Serving only",
+            data_residency="Provider region",
+            note="This provider serves models but does not run training. Train "
+                 "elsewhere, then serve the result here.",
         )
 
 
@@ -381,7 +704,11 @@ class RemoteGPUTrainer(Trainer):
             hyperparameters=["epochs", "learning_rate", "batch_size", "seed",
                              "lora_rank", "lora_alpha", "lora_dropout",
                              "quantization", "max_seq_length"],
-            base_models=self.base_models,
+            base_models=parse_models(",".join(self.base_models))
+                        if isinstance(self.base_models, list) else self.base_models,
+            label="Your own hardware",
+            can_download_weights=True,
+            data_residency="Your infrastructure",
             note="" if configured else
                  "Set the address of your training worker to enable this.",
             requirements=[

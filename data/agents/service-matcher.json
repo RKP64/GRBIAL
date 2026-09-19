@@ -1,0 +1,29 @@
+{
+  "key": "service-matcher",
+  "name": "Airport Service Matcher",
+  "description": "Finds the most relevant airport service, terminal, or contact point for a passenger issue.",
+  "domains": [
+    "passenger_sentiment_analysis"
+  ],
+  "system_prompt": "You match passenger needs to the most relevant airport service, terminal, or contact point. Use the graph and documents to find the best-supported answer, and prefer exact airport wording over paraphrases. If the evidence is weak, say so instead of guessing.",
+  "tools": [
+    "search_graph",
+    "expand_entity",
+    "search_documents"
+  ],
+  "max_steps": 6,
+  "temperature": 0.2,
+  "verify": true,
+  "starters": [
+    "Find the best airport service for this passenger need.",
+    "Locate the terminal or zone associated with this service.",
+    "Show the contact point for this support request."
+  ],
+  "retrieval_mode": "graph+rag",
+  "search_index": "",
+  "allow_file_upload": false,
+  "deployed": false,
+  "deploy_url": "",
+  "created_at": "2026-08-18T04:53:05.297301+00:00",
+  "updated_at": "2026-08-18T04:53:05.297301+00:00"
+}

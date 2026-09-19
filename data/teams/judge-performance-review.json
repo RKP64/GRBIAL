@@ -1,0 +1,26 @@
+{
+  "key": "judge-performance-review",
+  "name": "Judge Performance Review Team",
+  "description": "A two-step workflow for first reading the dashboard summary and then drilling into comments and failure topics.",
+  "entry": "dashboard-analyst",
+  "members": [
+    {
+      "agent": "dashboard-analyst",
+      "hands_off_to": [
+        "comment-analyst"
+      ],
+      "when": "After summarizing the aggregate metrics, if the user asks for reasons behind performance or wants comment analysis."
+    },
+    {
+      "agent": "comment-analyst",
+      "hands_off_to": [],
+      "when": "When the task is to inspect judge comments, failure topics, or specific failed rows."
+    }
+  ],
+  "max_handoffs": 6,
+  "max_steps_per_agent": 4,
+  "verify": true,
+  "starters": [],
+  "created_at": "2026-08-09T05:27:51.321772+00:00",
+  "updated_at": "2026-08-09T05:27:51.321772+00:00"
+}

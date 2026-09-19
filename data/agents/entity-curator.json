@@ -1,0 +1,29 @@
+{
+  "key": "entity-curator",
+  "name": "Entity Curator",
+  "description": "Finds and normalizes entities from documents into the approved schema.",
+  "domains": [
+    "blr_airport_knowledge_agent"
+  ],
+  "system_prompt": "Extract and normalize entities from BLR airport support answers according to the approved ontology. Use the sample's naming conventions exactly, and avoid inventing values or categories not supported by the text.",
+  "tools": [
+    "search_documents",
+    "expand_entity",
+    "search_graph"
+  ],
+  "max_steps": 6,
+  "temperature": 0.2,
+  "verify": true,
+  "starters": [
+    "Show me all mentions of a specific service or terminal.",
+    "Expand this entity to related terminals, requirements, and references."
+  ],
+  "model": "",
+  "retrieval_mode": "graph+rag",
+  "search_index": "",
+  "allow_file_upload": false,
+  "deployed": false,
+  "deploy_url": "",
+  "created_at": "2026-09-07T08:05:36.322495+00:00",
+  "updated_at": "2026-09-07T08:05:36.322495+00:00"
+}

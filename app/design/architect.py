@@ -228,8 +228,16 @@ async def propose(uploads: list[tuple[str, bytes]], goal: str, *,
     agents = []
     for a in raw.get("agents", []) or []:
         agent_key = str(a.get("key", "")).strip().lower().replace(" ", "-")
+        # Strip characters that aren't lowercase, digits, hyphen, underscore
+        import re as _re
+        agent_key = _re.sub(r'[^a-z0-9_-]', '', agent_key).strip('-')
         if not KEY_RE.fullmatch(agent_key):
-            continue
+            # Derive from name instead
+            agent_name = str(a.get("name", "agent")).strip()
+            agent_key = _re.sub(r'[^a-z0-9_-]', '',
+                                agent_name.lower().replace(' ', '-')).strip('-')
+        if not KEY_RE.fullmatch(agent_key):
+            agent_key = f"{key}-agent-{len(agents) + 1}"
         tools = [t for t in (a.get("tools") or ALL_TOOLS) if t in ALL_TOOLS] or list(ALL_TOOLS)
         agents.append({
             "key": agent_key, "name": str(a.get("name") or agent_key).strip(),

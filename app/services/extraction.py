@@ -90,7 +90,28 @@ async def run_ingestion(job: Job, uploads: list[tuple[str, bytes]]) -> None:
                 return
 
             result = ontology.validate(raw)
-            added_n, added_e = await store.upsert(job.domain, result.nodes, result.edges)
+
+            nodes = result.nodes
+            if settings.resolve_entities and nodes:
+                from .resolution import resolve_batch
+                try:
+                    nodes, decisions = await resolve_batch(
+                        job.domain, nodes,
+                        adjudicate=settings.resolve_adjudicate)
+                    merged = sum(1 for d in decisions
+                                 if d.decision == "merge" and d.existing != d.incoming)
+                    review = sum(1 for d in decisions if d.decision == "review")
+                    if merged or review:
+                        job.emit("info",
+                                 f"Resolved {merged} into existing entities"
+                                 + (f", {review} need review" if review else ""),
+                                 merged=merged, review=review)
+                except Exception as exc:
+                    # Resolution is an improvement, not a gate. If it fails the
+                    # nodes still go in under their own names.
+                    log.warning("Entity resolution skipped for this chunk: %s", exc)
+
+            added_n, added_e = await store.upsert(job.domain, nodes, result.edges)
 
             if settings.capture_passages:
                 captured.append({"source": chunk.source, "text": chunk.text[:4000]})

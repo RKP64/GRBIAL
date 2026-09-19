@@ -1,0 +1,138 @@
+key: passenger_sentiment_analysis
+name: Passenger Sentiment Analysis
+description: A support-oriented airport passenger intent and sentiment domain centered
+  on traveler queries, airport services, flight status, terminal guidance, and assistance
+  requests. The sample shows conversational responses that acknowledge passenger issues,
+  provide service information, and route users to the right airport or airline contact.
+entity_types:
+  passenger_query:
+    id_rule: Use the raw query text as the identifier when no formal code exists.
+    examples:
+    - Delayed flight
+    - customer support
+    - why sg-205 delayed
+  support_response:
+    id_rule: Use the response text as the identifier when no formal code exists.
+    examples:
+    - Namaskara from Bangalore International Airport Limited. Thank you for reaching
+      out.
+    - Namaskara from Bangalore International Airport Limited, I am still learning,
+      so please reach out to customer support...
+    - Namaskara from Bangalore International Airport Limited. Thank you for contacting
+      us.
+  airport:
+    id_rule: Use the airport's official name as the identifier.
+    examples:
+    - Bangalore International Airport Limited
+    - BLR Airport
+    - Kempegowda International Airport Bengaluru
+  flight:
+    id_rule: Use the airline code and flight number when present; otherwise use the
+      flight mention text.
+    examples:
+    - SG205
+    - IX2718
+    - SpiceJet Flight SG205
+  airline:
+    id_rule: Use the airline name as the identifier.
+    examples:
+    - SpiceJet
+    - Lufthansa
+    - Air India Express
+  terminal:
+    id_rule: Use the terminal label as the identifier.
+    examples:
+    - Terminal 1
+    - Terminal 2
+    - T1
+  airport_service:
+    id_rule: Use the service name as the identifier.
+    examples:
+    - Porter Service
+    - EZPass by BLR
+    - 080 Transit Hotel
+  assistance_request:
+    id_rule: Use the request phrase as the identifier when no formal code exists.
+    examples:
+    - own electric wheelchair
+    - buggy service inside terminal
+    - visitor pass
+  contact_point:
+    id_rule: Use the contact value exactly as shown.
+    examples:
+    - +91-80-22012001
+    - feedback@bialairport.com
+    - +91-8884998888
+  location_zone:
+    id_rule: Use the location phrase as the identifier.
+    examples:
+    - Terminal 1 - Zone D
+    - Terminal 2 - International Departures
+    - Terminal 1 - Landside / Departure support
+allowed_triples:
+- - airport_service
+  - located_at
+  - location_zone
+- - airport_service
+  - located_in
+  - terminal
+- - assistance_request
+  - resolved_by
+  - airport_service
+- - flight
+  - assigned_to
+  - terminal
+- - flight
+  - operated_by
+  - airline
+- - passenger_query
+  - triggers
+  - support_response
+- - support_response
+  - describes
+  - airport_service
+- - support_response
+  - mentions
+  - airline
+- - support_response
+  - mentions
+  - airport
+- - support_response
+  - mentions
+  - flight
+- - support_response
+  - mentions
+  - terminal
+- - support_response
+  - routes_to
+  - contact_point
+open_relations: false
+normalization:
+  strip_type_prefixes: true
+  collapse_whitespace: true
+  id_transforms:
+  - pattern: \r\n|_x000D_
+    replace: ' '
+    case: ''
+    note: Normalizes Excel line-break artifacts into spaces.
+  - pattern: \s+
+    replace: ' '
+    case: ''
+    note: Collapses repeated whitespace after cleaning.
+  - pattern: \bSG\s*205\b
+    replace: SG205
+    case: upper
+    note: Normalizes spaced flight-code variants to a single flight identifier.
+  - pattern: \bIX\s*2718\b
+    replace: IX2718
+    case: upper
+    note: Normalizes spaced flight-code variants to a single flight identifier.
+  rules_text:
+  - Treat passenger queries and assistant responses as paired conversational records.
+  - Preserve airport names, terminal labels, and service names as distinct entities
+    even when they appear in the same response.
+  - Normalize flight codes to uppercase alphanumeric forms without spaces.
+  - Keep contact details exact, including country codes, punctuation, and email formatting.
+  - When a response lists multiple terminal-specific options, model each option as
+    the same service linked to different terminal or location_zone entities.
+custom_prompt: ''

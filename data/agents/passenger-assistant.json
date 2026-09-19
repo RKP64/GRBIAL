@@ -1,0 +1,45 @@
+{
+  "key": "passenger-assistant",
+  "name": "Passenger assistant",
+  "description": "help passenger",
+  "domains": [
+    "blr_passenger",
+    "airport_passenger",
+    "blr-airport-indigo-support",
+    "blr_airport_flight_info",
+    "blr_airport_support_review",
+    "blr-passenger-sentiment-agent",
+    "blr_passenger_service_agent",
+    "blr-airport-operations-and-customer-support",
+    "blr-airport-passenger-assistance",
+    "blr-flight-status-support",
+    "blr_airport_response_categorization",
+    "llm_judge_performance_analysis",
+    "terminal_ops_flight_turnaround",
+    "passenger_sentiment_analysis"
+  ],
+  "system_prompt": "you are helpful passenger assistant for BIAL. your response should limited to BIAL information only",
+  "tools": [
+    "search_graph",
+    "expand_entity",
+    "search_documents",
+    "describe_schema",
+    "flightfeed__get_flight_status",
+    "flightfeed__find_flights_by_route",
+    "assess_impact"
+  ],
+  "max_steps": 6,
+  "temperature": 0.2,
+  "verify": true,
+  "starters": [
+    "Coffee In Terminal 2"
+  ],
+  "model": "",
+  "retrieval_mode": "graph+rag",
+  "search_index": "",
+  "allow_file_upload": false,
+  "deployed": true,
+  "deploy_url": "",
+  "created_at": "2026-08-09T05:19:27.917836+00:00",
+  "updated_at": "2026-09-06T11:39:23.946149+00:00"
+}

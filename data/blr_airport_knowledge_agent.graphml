@@ -1,0 +1,3017 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+  <key id="d5" for="edge" attr.name="weight" attr.type="long" />
+  <key id="d4" for="edge" attr.name="label" attr.type="string" />
+  <key id="d3" for="node" attr.name="mentions" attr.type="long" />
+  <key id="d2" for="node" attr.name="evidence" attr.type="string" />
+  <key id="d1" for="node" attr.name="label" attr.type="string" />
+  <key id="d0" for="node" attr.name="type" attr.type="string" />
+  <graph edgedefault="directed">
+    <node id="Bangalore International Airport Limited">
+      <data key="d0">airport</data>
+      <data key="d1">Bangalore International Airport Limited</data>
+      <data key="d2">Bangalore International Airport Limited</data>
+      <data key="d3">3</data>
+    </node>
+    <node id="1">
+      <data key="d0">terminal</data>
+      <data key="d1">1</data>
+      <data key="d2">Terminal 1 Options</data>
+      <data key="d3">3</data>
+    </node>
+    <node id="2">
+      <data key="d0">terminal</data>
+      <data key="d1">2</data>
+      <data key="d2">Terminal 2 Options</data>
+      <data key="d3">3</data>
+    </node>
+    <node id="IndiGo">
+      <data key="d0">airline</data>
+      <data key="d1">IndiGo</data>
+      <data key="d2">IndiGo</data>
+      <data key="d3">3</data>
+    </node>
+    <node id="Akasa Air">
+      <data key="d0">airline</data>
+      <data key="d1">Akasa Air</data>
+      <data key="d2">Akasa Air</data>
+      <data key="d3">2</data>
+    </node>
+    <node id="SpiceJet">
+      <data key="d0">airline</data>
+      <data key="d1">SpiceJet</data>
+      <data key="d2">SpiceJet</data>
+      <data key="d3">3</data>
+    </node>
+    <node id="Alliance Air">
+      <data key="d0">airline</data>
+      <data key="d1">Alliance Air</data>
+      <data key="d2">Alliance Air</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="Air India Express">
+      <data key="d0">airline</data>
+      <data key="d1">Air India Express</data>
+      <data key="d2">Air India Express</data>
+      <data key="d3">2</data>
+    </node>
+    <node id="Air India">
+      <data key="d0">airline</data>
+      <data key="d1">Air India</data>
+      <data key="d2">Air India</data>
+      <data key="d3">3</data>
+    </node>
+    <node id="Lufthansa">
+      <data key="d0">airline</data>
+      <data key="d1">Lufthansa</data>
+      <data key="d2">Lufthansa</data>
+      <data key="d3">3</data>
+    </node>
+    <node id="Jazeera Airways">
+      <data key="d0">airline</data>
+      <data key="d1">Jazeera Airways</data>
+      <data key="d2">Jazeera Airways</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="Emirates">
+      <data key="d0">airline</data>
+      <data key="d1">Emirates</data>
+      <data key="d2">Emirates</data>
+      <data key="d3">3</data>
+    </node>
+    <node id="SalamAir">
+      <data key="d0">airline</data>
+      <data key="d1">SalamAir</data>
+      <data key="d2">SalamAir</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="Gulf Air">
+      <data key="d0">airline</data>
+      <data key="d1">Gulf Air</data>
+      <data key="d2">Gulf Air</data>
+      <data key="d3">2</data>
+    </node>
+    <node id="Cathay Pacific">
+      <data key="d0">airline</data>
+      <data key="d1">Cathay Pacific</data>
+      <data key="d2">Cathay Pacific</data>
+      <data key="d3">2</data>
+    </node>
+    <node id="British Airways">
+      <data key="d0">airline</data>
+      <data key="d1">British Airways</data>
+      <data key="d2">British Airways</data>
+      <data key="d3">2</data>
+    </node>
+    <node id="Saudi Arabian Airlines">
+      <data key="d0">airline</data>
+      <data key="d1">Saudi Arabian Airlines</data>
+      <data key="d2">Saudi Arabian Airlines</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="Sri Lankan Airlines">
+      <data key="d0">airline</data>
+      <data key="d1">Sri Lankan Airlines</data>
+      <data key="d2">Sri Lankan Airlines</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="Qatar Airways">
+      <data key="d0">airline</data>
+      <data key="d1">Qatar Airways</data>
+      <data key="d2">Qatar Airways</data>
+      <data key="d3">2</data>
+    </node>
+    <node id="Etihad Airways">
+      <data key="d0">airline</data>
+      <data key="d1">Etihad Airways</data>
+      <data key="d2">Etihad Airways</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="Air Arabia">
+      <data key="d0">airline</data>
+      <data key="d1">Air Arabia</data>
+      <data key="d2">Air Arabia</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="Star Air">
+      <data key="d0">airline</data>
+      <data key="d1">Star Air</data>
+      <data key="d2">Star Air</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="6E499">
+      <data key="d0">flight</data>
+      <data key="d1">6E499</data>
+      <data key="d2">6E499</data>
+      <data key="d3">2</data>
+    </node>
+    <node id="6E846">
+      <data key="d0">flight</data>
+      <data key="d1">6E846</data>
+      <data key="d2">6E846</data>
+      <data key="d3">2</data>
+    </node>
+    <node id="6E361">
+      <data key="d0">flight</data>
+      <data key="d1">6E361</data>
+      <data key="d2">6E361</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="6E6564">
+      <data key="d0">flight</data>
+      <data key="d1">6E6564</data>
+      <data key="d2">6E6564</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="6E996">
+      <data key="d0">flight</data>
+      <data key="d1">6E996</data>
+      <data key="d2">6E996</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="6E871">
+      <data key="d0">flight</data>
+      <data key="d1">6E871</data>
+      <data key="d2">6E871</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="6E5388">
+      <data key="d0">flight</data>
+      <data key="d1">6E5388</data>
+      <data key="d2">6E5388</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="6E573">
+      <data key="d0">flight</data>
+      <data key="d1">6E573</data>
+      <data key="d2">6E573</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="6E906">
+      <data key="d0">flight</data>
+      <data key="d1">6E906</data>
+      <data key="d2">6E906</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="6E6055">
+      <data key="d0">flight</data>
+      <data key="d1">6E6055</data>
+      <data key="d2">6E6055</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="6E820">
+      <data key="d0">flight</data>
+      <data key="d1">6E820</data>
+      <data key="d2">6E820</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="6E5294">
+      <data key="d0">flight</data>
+      <data key="d1">6E5294</data>
+      <data key="d2">6E5294</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="6E6877">
+      <data key="d0">flight</data>
+      <data key="d1">6E6877</data>
+      <data key="d2">6E6877</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="6E413">
+      <data key="d0">flight</data>
+      <data key="d1">6E413</data>
+      <data key="d2">6E413</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="QP1812">
+      <data key="d0">flight</data>
+      <data key="d1">QP1812</data>
+      <data key="d2">QP1812</data>
+      <data key="d3">2</data>
+    </node>
+    <node id="QP1350">
+      <data key="d0">flight</data>
+      <data key="d1">QP1350</data>
+      <data key="d2">QP1350</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="QP1516">
+      <data key="d0">flight</data>
+      <data key="d1">QP1516</data>
+      <data key="d2">QP1516</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="QP1901">
+      <data key="d0">flight</data>
+      <data key="d1">QP1901</data>
+      <data key="d2">QP1901</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="SG874">
+      <data key="d0">flight</data>
+      <data key="d1">SG874</data>
+      <data key="d2">SG874</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="IX1542">
+      <data key="d0">flight</data>
+      <data key="d1">IX1542</data>
+      <data key="d2">IX1542</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="IX5975">
+      <data key="d0">flight</data>
+      <data key="d1">IX5975</data>
+      <data key="d2">IX5975</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="IX5202">
+      <data key="d0">flight</data>
+      <data key="d1">IX5202</data>
+      <data key="d2">IX5202</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="IX2681">
+      <data key="d0">flight</data>
+      <data key="d1">IX2681</data>
+      <data key="d2">IX2681</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="IX932">
+      <data key="d0">flight</data>
+      <data key="d1">IX932</data>
+      <data key="d2">IX932</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="IX866">
+      <data key="d0">flight</data>
+      <data key="d1">IX866</data>
+      <data key="d2">IX866</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="IX2975">
+      <data key="d0">flight</data>
+      <data key="d1">IX2975</data>
+      <data key="d2">IX2975</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="AI2412">
+      <data key="d0">flight</data>
+      <data key="d1">AI2412</data>
+      <data key="d2">AI2412</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="AI2812">
+      <data key="d0">flight</data>
+      <data key="d1">AI2812</data>
+      <data key="d2">AI2812</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="AI2757">
+      <data key="d0">flight</data>
+      <data key="d1">AI2757</data>
+      <data key="d2">AI2757</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="AI2653">
+      <data key="d0">flight</data>
+      <data key="d1">AI2653</data>
+      <data key="d2">AI2653</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="9I548">
+      <data key="d0">flight</data>
+      <data key="d1">9I548</data>
+      <data key="d2">9I548</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="LH754">
+      <data key="d0">flight</data>
+      <data key="d1">LH754</data>
+      <data key="d2">LH754</data>
+      <data key="d3">3</data>
+    </node>
+    <node id="J9431">
+      <data key="d0">flight</data>
+      <data key="d1">J9431</data>
+      <data key="d2">J9431</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="EK568">
+      <data key="d0">flight</data>
+      <data key="d1">EK568</data>
+      <data key="d2">EK568</data>
+      <data key="d3">3</data>
+    </node>
+    <node id="OV783">
+      <data key="d0">flight</data>
+      <data key="d1">OV783</data>
+      <data key="d2">OV783</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="GF282">
+      <data key="d0">flight</data>
+      <data key="d1">GF282</data>
+      <data key="d2">GF282</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="CX623">
+      <data key="d0">flight</data>
+      <data key="d1">CX623</data>
+      <data key="d2">CX623</data>
+      <data key="d3">2</data>
+    </node>
+    <node id="BA131">
+      <data key="d0">flight</data>
+      <data key="d1">BA131</data>
+      <data key="d2">BA131</data>
+      <data key="d3">2</data>
+    </node>
+    <node id="BA119">
+      <data key="d0">flight</data>
+      <data key="d1">BA119</data>
+      <data key="d2">BA119</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="SV814">
+      <data key="d0">flight</data>
+      <data key="d1">SV814</data>
+      <data key="d2">SV814</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="UL173">
+      <data key="d0">flight</data>
+      <data key="d1">UL173</data>
+      <data key="d2">UL173</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="QR572">
+      <data key="d0">flight</data>
+      <data key="d1">QR572</data>
+      <data key="d2">QR572</data>
+      <data key="d3">2</data>
+    </node>
+    <node id="EY232">
+      <data key="d0">flight</data>
+      <data key="d1">EY232</data>
+      <data key="d2">EY232</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="G9496">
+      <data key="d0">flight</data>
+      <data key="d1">G9496</data>
+      <data key="d2">G9496</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="6E1486">
+      <data key="d0">flight</data>
+      <data key="d1">6E1486</data>
+      <data key="d2">6E1486</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="6E1409">
+      <data key="d0">flight</data>
+      <data key="d1">6E1409</data>
+      <data key="d2">6E1409</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="6E1248">
+      <data key="d0">flight</data>
+      <data key="d1">6E1248</data>
+      <data key="d2">6E1248</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="Wheelchair Assistance">
+      <data key="d0">service</data>
+      <data key="d1">Wheelchair Assistance</data>
+      <data key="d2">Wheelchair Assistance</data>
+      <data key="d3">3</data>
+    </node>
+    <node id="Mobility Assist">
+      <data key="d0">service</data>
+      <data key="d1">Mobility Assist</data>
+      <data key="d2">Mobility Assist</data>
+      <data key="d3">3</data>
+    </node>
+    <node id="Buggy Service">
+      <data key="d0">service</data>
+      <data key="d1">Buggy Service</data>
+      <data key="d2">Buggy Service</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="080 Transit Hotel">
+      <data key="d0">service</data>
+      <data key="d1">080 Transit Hotel</data>
+      <data key="d2">080 Transit Hotel</data>
+      <data key="d3">2</data>
+    </node>
+    <node id="Indoor Map">
+      <data key="d0">service</data>
+      <data key="d1">Indoor Map</data>
+      <data key="d2">Indoor Map</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="Third Wave Coffee">
+      <data key="d0">service</data>
+      <data key="d1">Third Wave Coffee</data>
+      <data key="d2">Third Wave Coffee</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="Third Wave Coffee DSHA">
+      <data key="d0">service</data>
+      <data key="d1">Third Wave Coffee DSHA</data>
+      <data key="d2">Third Wave Coffee DSHA</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="Starbucks G14">
+      <data key="d0">service</data>
+      <data key="d1">Starbucks G14</data>
+      <data key="d2">Starbucks G14</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="SMOOR T1">
+      <data key="d0">service</data>
+      <data key="d1">SMOOR T1</data>
+      <data key="d2">SMOOR T1</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="Jones The Grocer T1-G16">
+      <data key="d0">service</data>
+      <data key="d1">Jones The Grocer T1-G16</data>
+      <data key="d2">Jones The Grocer T1-G16</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="La Alta Vita-G12">
+      <data key="d0">service</data>
+      <data key="d1">La Alta Vita-G12</data>
+      <data key="d2">La Alta Vita-G12</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="Tiffin Express-G17">
+      <data key="d0">service</data>
+      <data key="d1">Tiffin Express-G17</data>
+      <data key="d2">Tiffin Express-G17</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="Baby Care Rooms">
+      <data key="d0">service</data>
+      <data key="d1">Baby Care Rooms</data>
+      <data key="d2">Baby Care Rooms</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="Lost &amp; Found">
+      <data key="d0">service</data>
+      <data key="d1">Lost &amp; Found</data>
+      <data key="d2">Lost &amp; Found</data>
+      <data key="d3">2</data>
+    </node>
+    <node id="BLR Airport Medical Centre (Manipal Clinic)">
+      <data key="d0">service</data>
+      <data key="d1">BLR Airport Medical Centre (Manipal Clin</data>
+      <data key="d2">BLR Airport Medical Centre (Manipal Clinic)</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="BLR Airport Medical Centre (Apollo Clinic)">
+      <data key="d0">service</data>
+      <data key="d1">BLR Airport Medical Centre (Apollo Clini</data>
+      <data key="d2">BLR Airport Medical Centre (Apollo Clinic)</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="WiFi Voucher Kiosk">
+      <data key="d0">service</data>
+      <data key="d1">WiFi Voucher Kiosk</data>
+      <data key="d2">WiFi Voucher Kiosk</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="Virtual Information Desk">
+      <data key="d0">service</data>
+      <data key="d1">Virtual Information Desk</data>
+      <data key="d2">Virtual Information Desk</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="ATM">
+      <data key="d0">service</data>
+      <data key="d1">ATM</data>
+      <data key="d2">ATM</data>
+      <data key="d3">2</data>
+    </node>
+    <node id="CXSOL (Connectivity/Customer Solutions)">
+      <data key="d0">service</data>
+      <data key="d1">CXSOL (Connectivity/Customer Solutions)</data>
+      <data key="d2">CXSOL (Connectivity/Customer Solutions)</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="Local Connectivity">
+      <data key="d0">service</data>
+      <data key="d1">Local Connectivity</data>
+      <data key="d2">Local Connectivity</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="080-66785555">
+      <data key="d0">support_channel</data>
+      <data key="d1">080-66785555</data>
+      <data key="d2">080-66785555</data>
+      <data key="d3">3</data>
+    </node>
+    <node id="080-47406666">
+      <data key="d0">support_channel</data>
+      <data key="d1">080-47406666</data>
+      <data key="d2">080-47406666</data>
+      <data key="d3">3</data>
+    </node>
+    <node id="+91-80-22012001">
+      <data key="d0">support_channel</data>
+      <data key="d1">+91-80-22012001</data>
+      <data key="d2">+91-80-22012001</data>
+      <data key="d3">3</data>
+    </node>
+    <node id="+91-80-66785555">
+      <data key="d0">support_channel</data>
+      <data key="d1">+91-80-66785555</data>
+      <data key="d2">+91-80-66785555</data>
+      <data key="d3">2</data>
+    </node>
+    <node id="+91-8884998888">
+      <data key="d0">support_channel</data>
+      <data key="d1">+91-8884998888</data>
+      <data key="d2">+91-8884998888</data>
+      <data key="d3">3</data>
+    </node>
+    <node id="feedback@bialairport.com">
+      <data key="d0">support_channel</data>
+      <data key="d1">feedback@bialairport.com</data>
+      <data key="d2">feedback@bialairport.com</data>
+      <data key="d3">3</data>
+    </node>
+    <node id="lostandfound@bialairport.com">
+      <data key="d0">support_channel</data>
+      <data key="d1">lostandfound@bialairport.com</data>
+      <data key="d2">lostandfound@bialairport.com</data>
+      <data key="d3">2</data>
+    </node>
+    <node id="+91-8047406666">
+      <data key="d0">support_channel</data>
+      <data key="d1">+91-8047406666</data>
+      <data key="d2">+91-8047406666</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="t2lostandfound@bialairport.com">
+      <data key="d0">support_channel</data>
+      <data key="d1">t2lostandfound@bialairport.com</data>
+      <data key="d2">t2lostandfound@bialairport.com</data>
+      <data key="d3">2</data>
+    </node>
+    <node id="+91-8066785555">
+      <data key="d0">support_channel</data>
+      <data key="d1">+91-8066785555</data>
+      <data key="d2">+91-8066785555</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="+91 9606954038">
+      <data key="d0">support_channel</data>
+      <data key="d1">+91 9606954038</data>
+      <data key="d2">+91 9606954038</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="+91 9606954037">
+      <data key="d0">support_channel</data>
+      <data key="d1">+91 9606954037</data>
+      <data key="d2">+91 9606954037</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="+91 8884122433">
+      <data key="d0">support_channel</data>
+      <data key="d1">+91 8884122433</data>
+      <data key="d2">+91 8884122433</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="https://www.bengaluruairport.com/travellers/services/special-assistance/wheelchair-assistance">
+      <data key="d0">reference_link</data>
+      <data key="d1">https://www.bengaluruairport.com/travell</data>
+      <data key="d2">https://www.bengaluruairport.com/travellers/services/special-assistance/wheelchair-assistance</data>
+      <data key="d3">3</data>
+    </node>
+    <node id="https://www.bengaluruairport.com/travellers/services/special-assistance/mobility-assist">
+      <data key="d0">reference_link</data>
+      <data key="d1">https://www.bengaluruairport.com/travell</data>
+      <data key="d2">https://www.bengaluruairport.com/travellers/services/special-assistance/mobility-assist</data>
+      <data key="d3">3</data>
+    </node>
+    <node id="https://www.bengaluruairport.com/travellers/services/special-assistance/buggy-service">
+      <data key="d0">reference_link</data>
+      <data key="d1">https://www.bengaluruairport.com/travell</data>
+      <data key="d2">https://www.bengaluruairport.com/travellers/services/special-assistance/buggy-service</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="https://www.bengaluruairport.com/travellers/services/all-facilities/baby-care-rooms">
+      <data key="d0">reference_link</data>
+      <data key="d1">https://www.bengaluruairport.com/travell</data>
+      <data key="d2">https://www.bengaluruairport.com/travellers/services/all-facilities/baby-care-rooms</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="https://www.bengaluruairport.com/travellers/passenger-services/lost-found">
+      <data key="d0">reference_link</data>
+      <data key="d1">https://www.bengaluruairport.com/travell</data>
+      <data key="d2">https://www.bengaluruairport.com/travellers/passenger-services/lost-found</data>
+      <data key="d3">2</data>
+    </node>
+    <node id="https://www.bengaluruairport.com/travellers/services/special-assistance/airport-medical-services">
+      <data key="d0">reference_link</data>
+      <data key="d1">https://www.bengaluruairport.com/travell</data>
+      <data key="d2">https://www.bengaluruairport.com/travellers/services/special-assistance/airport-medical-services</data>
+      <data key="d3">2</data>
+    </node>
+    <node id="https://www.bengaluruairport.com/travellers/services/all-facilities/wifi-services">
+      <data key="d0">reference_link</data>
+      <data key="d1">https://www.bengaluruairport.com/travell</data>
+      <data key="d2">https://www.bengaluruairport.com/travellers/services/all-facilities/wifi-services</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="https://www.bengaluruairport.com/corporate/media/news-press-releases/information-desk-at-blr-airport-goes-virtual">
+      <data key="d0">reference_link</data>
+      <data key="d1">https://www.bengaluruairport.com/corpora</data>
+      <data key="d2">https://www.bengaluruairport.com/corporate/media/news-press-releases/information-desk-at-blr-airport-goes-virtual</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="https://www.bengaluruairport.com/travellers/passenger-services/faqs-about-blr-airport-bial">
+      <data key="d0">reference_link</data>
+      <data key="d1">https://www.bengaluruairport.com/travell</data>
+      <data key="d2">https://www.bengaluruairport.com/travellers/passenger-services/faqs-about-blr-airport-bial</data>
+      <data key="d3">3</data>
+    </node>
+    <node id="https://www.bengaluruairport.com/travellers/at-the-airport/forex-atms">
+      <data key="d0">reference_link</data>
+      <data key="d1">https://www.bengaluruairport.com/travell</data>
+      <data key="d2">https://www.bengaluruairport.com/travellers/at-the-airport/forex-atms</data>
+      <data key="d3">2</data>
+    </node>
+    <node id="https://www.bengaluruairport.com/travellers/services/all-facilities/local-connectivity">
+      <data key="d0">reference_link</data>
+      <data key="d1">https://www.bengaluruairport.com/travell</data>
+      <data key="d2">https://www.bengaluruairport.com/travellers/services/all-facilities/local-connectivity</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="https://www.bengaluruairport.com/map">
+      <data key="d0">reference_link</data>
+      <data key="d1">https://www.bengaluruairport.com/map</data>
+      <data key="d2">https://www.bengaluruairport.com/map</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="complimentary buggy assistance">
+      <data key="d0">amenity</data>
+      <data key="d1">complimentary buggy assistance</data>
+      <data key="d2">complimentary buggy assistance</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="air conditioning">
+      <data key="d0">amenity</data>
+      <data key="d1">air conditioning</data>
+      <data key="d2">air conditioning</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="cable TV">
+      <data key="d0">amenity</data>
+      <data key="d1">cable TV</data>
+      <data key="d2">cable TV</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="minibar">
+      <data key="d0">amenity</data>
+      <data key="d1">minibar</data>
+      <data key="d2">minibar</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="free Wi-Fi">
+      <data key="d0">amenity</data>
+      <data key="d1">free Wi-Fi</data>
+      <data key="d2">free Wi‑Fi</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="restaurant">
+      <data key="d0">amenity</data>
+      <data key="d1">restaurant</data>
+      <data key="d2">a restaurant</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="24/7 service">
+      <data key="d0">amenity</data>
+      <data key="d1">24/7 service</data>
+      <data key="d2">24/7 service</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="changing tables">
+      <data key="d0">amenity</data>
+      <data key="d1">changing tables</data>
+      <data key="d2">changing tables</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="comfortable seating">
+      <data key="d0">amenity</data>
+      <data key="d1">comfortable seating</data>
+      <data key="d2">comfortable seating</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="sanitary facilities">
+      <data key="d0">amenity</data>
+      <data key="d1">sanitary facilities</data>
+      <data key="d2">sanitary facilities</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="microwave">
+      <data key="d0">amenity</data>
+      <data key="d1">microwave</data>
+      <data key="d2">microwave and more</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="SG205">
+      <data key="d0">flight</data>
+      <data key="d1">SG205</data>
+      <data key="d2">SpiceJet Flight SG205</data>
+      <data key="d3">2</data>
+    </node>
+    <node id="T1">
+      <data key="d0">terminal</data>
+      <data key="d1">T1</data>
+      <data key="d2">Terminal T1</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="Porter Service">
+      <data key="d0">service</data>
+      <data key="d1">Porter Service</data>
+      <data key="d2">Porter Service at BLR Airport</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="1 - Kerbside / Check-in / Baggage Claim support">
+      <data key="d0">location_zone</data>
+      <data key="d1">1 - Kerbside / Check-in / Baggage Claim </data>
+      <data key="d2">Terminal 1 - Kerbside / Check-in / Baggage Claim support</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="2 - Kerbside / Check-in / Baggage Claim support">
+      <data key="d0">location_zone</data>
+      <data key="d1">2 - Kerbside / Check-in / Baggage Claim </data>
+      <data key="d2">Terminal 2 - Kerbside / Check-in / Baggage Claim support</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="EZPass by BLR">
+      <data key="d0">service</data>
+      <data key="d1">EZPass by BLR</data>
+      <data key="d2">EZPass by BLR</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="PreSecure Lane - EZPass by BLR">
+      <data key="d0">service</data>
+      <data key="d1">PreSecure Lane - EZPass by BLR</data>
+      <data key="d2">PreSecure Lane - EZPass by BLR</data>
+      <data key="d3">2</data>
+    </node>
+    <node id="1 - Zone D">
+      <data key="d0">location_zone</data>
+      <data key="d1">1 - Zone D</data>
+      <data key="d2">Terminal 1 - Zone D</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="1 - Zone D security checkpoint, Level 0">
+      <data key="d0">location_zone</data>
+      <data key="d1">1 - Zone D security checkpoint, Level 0</data>
+      <data key="d2">Terminal 1 - Zone D security checkpoint, Level 0</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="IX2718">
+      <data key="d0">flight</data>
+      <data key="d1">IX2718</data>
+      <data key="d2">Air India Express Flight IX2718</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="Vayu Vajra Airport Bus">
+      <data key="d0">service</data>
+      <data key="d1">Vayu Vajra Airport Bus</data>
+      <data key="d2">Vayu Vajra Airport Bus</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="BLR Airport Taxi">
+      <data key="d0">service</data>
+      <data key="d1">BLR Airport Taxi</data>
+      <data key="d2">BLR Airport Taxi</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="App-Based Taxis">
+      <data key="d0">service</data>
+      <data key="d1">App-Based Taxis</data>
+      <data key="d2">App-Based Taxis</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="KSTDC Taxis">
+      <data key="d0">service</data>
+      <data key="d1">KSTDC Taxis</data>
+      <data key="d2">KSTDC Taxis</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="Taj Bangalore">
+      <data key="d0">service</data>
+      <data key="d1">Taj Bangalore</data>
+      <data key="d2">Taj Bangalore</data>
+      <data key="d3">2</data>
+    </node>
+    <node id="Virgin Atlantic Airways">
+      <data key="d0">airline</data>
+      <data key="d1">Virgin Atlantic Airways</data>
+      <data key="d2">Virgin Atlantic Airways Flight VS316</data>
+      <data key="d3">2</data>
+    </node>
+    <node id="VS316">
+      <data key="d0">flight</data>
+      <data key="d1">VS316</data>
+      <data key="d2">Virgin Atlantic Airways Flight VS316</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="AI132">
+      <data key="d0">flight</data>
+      <data key="d1">AI132</data>
+      <data key="d2">Air India Flight AI132</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="6E941">
+      <data key="d0">flight</data>
+      <data key="d1">6E941</data>
+      <data key="d2">IndiGo Flight 6E941</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="Flynas">
+      <data key="d0">airline</data>
+      <data key="d1">Flynas</data>
+      <data key="d2">Flynas Flight XY9100</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="XY9100">
+      <data key="d0">flight</data>
+      <data key="d1">XY9100</data>
+      <data key="d2">Flynas Flight XY9100</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="XY9134">
+      <data key="d0">flight</data>
+      <data key="d1">XY9134</data>
+      <data key="d2">Flynas Flight XY9134</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="EK569">
+      <data key="d0">flight</data>
+      <data key="d1">EK569</data>
+      <data key="d2">Emirates Flight EK569</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="6E1485">
+      <data key="d0">flight</data>
+      <data key="d1">6E1485</data>
+      <data key="d2">IndiGo Flight 6E1485</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="IX923">
+      <data key="d0">flight</data>
+      <data key="d1">IX923</data>
+      <data key="d2">Air India Express Flight IX923</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="IX920">
+      <data key="d0">flight</data>
+      <data key="d1">IX920</data>
+      <data key="d2">Air India Express Flight IX920</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="LH755">
+      <data key="d0">flight</data>
+      <data key="d1">LH755</data>
+      <data key="d2">Lufthansa Flight LH755</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="Fly91">
+      <data key="d0">airline</data>
+      <data key="d1">Fly91</data>
+      <data key="d2">Fly91 Departures From Bengaluru</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="IC5302">
+      <data key="d0">flight</data>
+      <data key="d1">IC5302</data>
+      <data key="d2">Fly91 Flight IC5302</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="IC3412">
+      <data key="d0">flight</data>
+      <data key="d1">IC3412</data>
+      <data key="d2">Fly91 Flight IC3412</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="6E817">
+      <data key="d0">flight</data>
+      <data key="d1">6E817</data>
+      <data key="d2">IndiGo Flight 6E817</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="IX1379">
+      <data key="d0">flight</data>
+      <data key="d1">IX1379</data>
+      <data key="d2">Air India Express Flight IX1379</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="6E6864">
+      <data key="d0">flight</data>
+      <data key="d1">6E6864</data>
+      <data key="d2">IndiGo Flight 6E6864</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="6E909">
+      <data key="d0">flight</data>
+      <data key="d1">6E909</data>
+      <data key="d2">IndiGo Flight 6E909</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="6E6432">
+      <data key="d0">flight</data>
+      <data key="d1">6E6432</data>
+      <data key="d2">IndiGo Flight 6E6432</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="IX2097">
+      <data key="d0">flight</data>
+      <data key="d1">IX2097</data>
+      <data key="d2">Air India Express Flight IX2097</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="IX2793">
+      <data key="d0">flight</data>
+      <data key="d1">IX2793</data>
+      <data key="d2">Air India Express Flight IX2793</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="IX1543">
+      <data key="d0">flight</data>
+      <data key="d1">IX1543</data>
+      <data key="d2">Air India Express Flight IX1543</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="6E6891">
+      <data key="d0">flight</data>
+      <data key="d1">6E6891</data>
+      <data key="d2">IndiGo Flight 6E6891</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="6E6003">
+      <data key="d0">flight</data>
+      <data key="d1">6E6003</data>
+      <data key="d2">IndiGo Flight 6E6003</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="6E6863">
+      <data key="d0">flight</data>
+      <data key="d1">6E6863</data>
+      <data key="d2">IndiGo Flight 6E6863</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="IX1373">
+      <data key="d0">flight</data>
+      <data key="d1">IX1373</data>
+      <data key="d2">Air India Express Flight IX1373</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="IX5060">
+      <data key="d0">flight</data>
+      <data key="d1">IX5060</data>
+      <data key="d2">Air India Express Flight IX5060</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="SG369">
+      <data key="d0">flight</data>
+      <data key="d1">SG369</data>
+      <data key="d2">SpiceJet Flight SG369</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="Haveli Salon &amp; Spa">
+      <data key="d0">service</data>
+      <data key="d1">Haveli Salon &amp; Spa</data>
+      <data key="d2">Haveli Salon &amp; Spa</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="Raya Salon &amp; Spa">
+      <data key="d0">service</data>
+      <data key="d1">Raya Salon &amp; Spa</data>
+      <data key="d2">Raya Salon &amp; Spa</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="Complimentary Inter-Terminal Shuttle">
+      <data key="d0">service</data>
+      <data key="d1">Complimentary Inter-Terminal Shuttle</data>
+      <data key="d2">Complimentary Inter-Terminal Shuttle</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="Inter-Terminal Shuttle">
+      <data key="d0">service</data>
+      <data key="d1">Inter-Terminal Shuttle</data>
+      <data key="d2">Inter-Terminal Shuttle</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="Car Valet">
+      <data key="d0">service</data>
+      <data key="d1">Car Valet</data>
+      <data key="d2">Car Valet is available at BLR Airport</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="Uber">
+      <data key="d0">service</data>
+      <data key="d1">Uber</data>
+      <data key="d2">Uber pickup details at BLR Airport</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="Uber Black">
+      <data key="d0">service</data>
+      <data key="d1">Uber Black</data>
+      <data key="d2">Uber Black and Uber Comfort</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="080-66785566">
+      <data key="d0">support_channel</data>
+      <data key="d1">080-66785566</data>
+      <data key="d2">080-66785566</data>
+      <data key="d3">2</data>
+    </node>
+    <node id="customer.service@carebyblr.com">
+      <data key="d0">support_channel</data>
+      <data key="d1">customer.service@carebyblr.com</data>
+      <data key="d2">customer.service@carebyblr.com</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="https://www.bengaluruairport.com/travellers/contact-us">
+      <data key="d0">reference_link</data>
+      <data key="d1">https://www.bengaluruairport.com/travell</data>
+      <data key="d2">https://www.bengaluruairport.com/travellers/contact-us</data>
+      <data key="d3">2</data>
+    </node>
+    <node id="https://www.bengaluruairport.com/travellers/flights/airline-partners-information">
+      <data key="d0">reference_link</data>
+      <data key="d1">https://www.bengaluruairport.com/travell</data>
+      <data key="d2">https://www.bengaluruairport.com/travellers/flights/airline-partners-information</data>
+      <data key="d3">2</data>
+    </node>
+    <node id="https://www.bengaluruairport.com/travellers/flights/flight-information?flight=SG205">
+      <data key="d0">reference_link</data>
+      <data key="d1">https://www.bengaluruairport.com/travell</data>
+      <data key="d2">flight=SG205</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="https://www.bengaluruairport.com/cbb-services-listing">
+      <data key="d0">reference_link</data>
+      <data key="d1">https://www.bengaluruairport.com/cbb-ser</data>
+      <data key="d2">https://www.bengaluruairport.com/cbb-services-listing</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="https://www.bengaluruairport.com/care-by-blr/porter">
+      <data key="d0">reference_link</data>
+      <data key="d1">https://www.bengaluruairport.com/care-by</data>
+      <data key="d2">https://www.bengaluruairport.com/care-by-blr/porter</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="https://www.bengaluruairport.com/travellers/terms-of-use">
+      <data key="d0">reference_link</data>
+      <data key="d1">https://www.bengaluruairport.com/travell</data>
+      <data key="d2">https://www.bengaluruairport.com/travellers/terms-of-use</data>
+      <data key="d3">2</data>
+    </node>
+    <node id="https://www.bengaluruairport.com/ezpass">
+      <data key="d0">reference_link</data>
+      <data key="d1">https://www.bengaluruairport.com/ezpass</data>
+      <data key="d2">https://www.bengaluruairport.com/ezpass</data>
+      <data key="d3">2</data>
+    </node>
+    <node id="https://www.bengaluruairport.com/travellers/flights/flight-information?flight=IX2718">
+      <data key="d0">reference_link</data>
+      <data key="d1">https://www.bengaluruairport.com/travell</data>
+      <data key="d2">flight=IX2718</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="https://www.bengaluruairport.com/travellers/transport-parking/airport-VayuVajra">
+      <data key="d0">reference_link</data>
+      <data key="d1">https://www.bengaluruairport.com/travell</data>
+      <data key="d2">airport-VayuVajra</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="https://www.bengaluruairport.com/travellers/flights/flight-information?flight=BA131">
+      <data key="d0">reference_link</data>
+      <data key="d1">https://www.bengaluruairport.com/travell</data>
+      <data key="d2">flight=BA131</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="https://www.bengaluruairport.com/travellers/flights/flight-information?flight=VS316">
+      <data key="d0">reference_link</data>
+      <data key="d1">https://www.bengaluruairport.com/travell</data>
+      <data key="d2">flight=VS316</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="https://www.bengaluruairport.com/travellers/flights/flight-information?flight=AI132">
+      <data key="d0">reference_link</data>
+      <data key="d1">https://www.bengaluruairport.com/travell</data>
+      <data key="d2">flight=AI132</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="https://www.bengaluruairport.com/travellers/flights/flight-information?flight=6E941">
+      <data key="d0">reference_link</data>
+      <data key="d1">https://www.bengaluruairport.com/travell</data>
+      <data key="d2">flight=6E941</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="https://www.bengaluruairport.com/travellers/flights/flight-information?flight=XY9100">
+      <data key="d0">reference_link</data>
+      <data key="d1">https://www.bengaluruairport.com/travell</data>
+      <data key="d2">flight=XY9100</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="https://www.bengaluruairport.com/travellers/flights/flight-information?flight=XY9134">
+      <data key="d0">reference_link</data>
+      <data key="d1">https://www.bengaluruairport.com/travell</data>
+      <data key="d2">flight=XY9134</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="https://www.bengaluruairport.com/travellers/flights/flight-information?flight=EK569">
+      <data key="d0">reference_link</data>
+      <data key="d1">https://www.bengaluruairport.com/travell</data>
+      <data key="d2">flight=EK569</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="https://www.bengaluruairport.com/travellers/flights/flight-information?flight=EK568">
+      <data key="d0">reference_link</data>
+      <data key="d1">https://www.bengaluruairport.com/travell</data>
+      <data key="d2">flight=EK568</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="https://www.bengaluruairport.com/travellers/flights/flight-information?flight=6E1485">
+      <data key="d0">reference_link</data>
+      <data key="d1">https://www.bengaluruairport.com/travell</data>
+      <data key="d2">flight=6E1485</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="https://www.bengaluruairport.com/travellers/flights/flight-information?flight=IX923">
+      <data key="d0">reference_link</data>
+      <data key="d1">https://www.bengaluruairport.com/travell</data>
+      <data key="d2">flight=IX923</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="https://www.bengaluruairport.com/travellers/flights/flight-information?flight=IX920">
+      <data key="d0">reference_link</data>
+      <data key="d1">https://www.bengaluruairport.com/travell</data>
+      <data key="d2">flight=IX920</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="https://www.bengaluruairport.com/travellers/flights/flight-information?flight=LH754">
+      <data key="d0">reference_link</data>
+      <data key="d1">https://www.bengaluruairport.com/travell</data>
+      <data key="d2">flight=LH754</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="https://www.bengaluruairport.com/travellers/flights/flight-information?flight=LH755">
+      <data key="d0">reference_link</data>
+      <data key="d1">https://www.bengaluruairport.com/travell</data>
+      <data key="d2">flight=LH755</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="https://www.bengaluruairport.com/travellers/flights/flight-information?flight=IC5302">
+      <data key="d0">reference_link</data>
+      <data key="d1">https://www.bengaluruairport.com/travell</data>
+      <data key="d2">flight=IC5302</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="https://www.bengaluruairport.com/travellers/flights/flight-information?flight=IC3412">
+      <data key="d0">reference_link</data>
+      <data key="d1">https://www.bengaluruairport.com/travell</data>
+      <data key="d2">flight=IC3412</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="https://www.bengaluruairport.com/travellers/flights/flight-information?flight=6E817">
+      <data key="d0">reference_link</data>
+      <data key="d1">https://www.bengaluruairport.com/travell</data>
+      <data key="d2">flight=6E817</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="https://www.bengaluruairport.com/travellers/flights/flight-information?flight=IX1379">
+      <data key="d0">reference_link</data>
+      <data key="d1">https://www.bengaluruairport.com/travell</data>
+      <data key="d2">flight=IX1379</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="https://www.bengaluruairport.com/travellers/flights/flight-information?flight=6E6864">
+      <data key="d0">reference_link</data>
+      <data key="d1">https://www.bengaluruairport.com/travell</data>
+      <data key="d2">flight=6E6864</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="https://www.bengaluruairport.com/travellers/flights/flight-information?flight=6E909">
+      <data key="d0">reference_link</data>
+      <data key="d1">https://www.bengaluruairport.com/travell</data>
+      <data key="d2">flight=6E909</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="https://www.bengaluruairport.com/travellers/flights/flight-information?flight=6E6432">
+      <data key="d0">reference_link</data>
+      <data key="d1">https://www.bengaluruairport.com/travell</data>
+      <data key="d2">flight=6E6432</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="https://www.bengaluruairport.com/travellers/flights/flight-information?flight=IX2097">
+      <data key="d0">reference_link</data>
+      <data key="d1">https://www.bengaluruairport.com/travell</data>
+      <data key="d2">flight=IX2097</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="https://www.bengaluruairport.com/travellers/flights/flight-information?flight=IX2793">
+      <data key="d0">reference_link</data>
+      <data key="d1">https://www.bengaluruairport.com/travell</data>
+      <data key="d2">flight=IX2793</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="https://www.bengaluruairport.com/travellers/flights/flight-information?flight=IX1543">
+      <data key="d0">reference_link</data>
+      <data key="d1">https://www.bengaluruairport.com/travell</data>
+      <data key="d2">flight=IX1543</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="https://www.bengaluruairport.com/travellers/flights/flight-information?flight=6E6891">
+      <data key="d0">reference_link</data>
+      <data key="d1">https://www.bengaluruairport.com/travell</data>
+      <data key="d2">flight=6E6891</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="https://www.bengaluruairport.com/travellers/flights/flight-information?flight=6E6003">
+      <data key="d0">reference_link</data>
+      <data key="d1">https://www.bengaluruairport.com/travell</data>
+      <data key="d2">flight=6E6003</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="https://www.bengaluruairport.com/travellers/flights/flight-information?flight=6E6863">
+      <data key="d0">reference_link</data>
+      <data key="d1">https://www.bengaluruairport.com/travell</data>
+      <data key="d2">flight=6E6863</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="https://www.bengaluruairport.com/travellers/flights/flight-information?flight=IX1373">
+      <data key="d0">reference_link</data>
+      <data key="d1">https://www.bengaluruairport.com/travell</data>
+      <data key="d2">flight=IX1373</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="https://www.bengaluruairport.com/travellers/flights/flight-information?flight=IX5060">
+      <data key="d0">reference_link</data>
+      <data key="d1">https://www.bengaluruairport.com/travell</data>
+      <data key="d2">flight=IX5060</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="https://www.bengaluruairport.com/travellers/flights/flight-information?flight=SG369">
+      <data key="d0">reference_link</data>
+      <data key="d1">https://www.bengaluruairport.com/travell</data>
+      <data key="d2">flight=SG369</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="https://www.bengaluruairport.com/travellers/at-the-airport/relax/taj-by-blr-at-bengaluru-airport">
+      <data key="d0">reference_link</data>
+      <data key="d1">https://www.bengaluruairport.com/travell</data>
+      <data key="d2">taj-by-blr-at-bengaluru-airport</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="https://www.bengaluruairport.com/travellers/transport-parking">
+      <data key="d0">reference_link</data>
+      <data key="d1">https://www.bengaluruairport.com/travell</data>
+      <data key="d2">https://www.bengaluruairport.com/travellers/transport-parking</data>
+      <data key="d3">2</data>
+    </node>
+    <node id="https://www.bengaluruairport.com/travellers/transport-parking/app-taxis">
+      <data key="d0">reference_link</data>
+      <data key="d1">https://www.bengaluruairport.com/travell</data>
+      <data key="d2">app-taxis</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="https://www.bengaluruairport.com/feedback-form">
+      <data key="d0">reference_link</data>
+      <data key="d1">https://www.bengaluruairport.com/feedbac</data>
+      <data key="d2">https://www.bengaluruairport.com/feedback-form</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="https://www.bengaluruairport.com/travellers/transport-parking/parking">
+      <data key="d0">reference_link</data>
+      <data key="d1">https://www.bengaluruairport.com/travell</data>
+      <data key="d2">parking</data>
+      <data key="d3">2</data>
+    </node>
+    <node id="https://www.bengaluruairport.com/travellers/services/all-facilities/workstations">
+      <data key="d0">reference_link</data>
+      <data key="d1">https://www.bengaluruairport.com/travell</data>
+      <data key="d2">workstations</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="https://www.bengaluruairport.com/care-by-blr/arrival-lounge">
+      <data key="d0">reference_link</data>
+      <data key="d1">https://www.bengaluruairport.com/care-by</data>
+      <data key="d2">arrival-lounge</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="https://www.bengaluruairport.com/travellers/passenger-services/meet-assist">
+      <data key="d0">reference_link</data>
+      <data key="d1">https://www.bengaluruairport.com/travell</data>
+      <data key="d2">meet-assist</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="https://www.bengaluruairport.com/care-by-blr/meet-and-assist">
+      <data key="d0">reference_link</data>
+      <data key="d1">https://www.bengaluruairport.com/care-by</data>
+      <data key="d2">meet-and-assist</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="https://www.bengaluruairport.com/travellers/services/all-facilities/multi-faith-room">
+      <data key="d0">reference_link</data>
+      <data key="d1">https://www.bengaluruairport.com/travell</data>
+      <data key="d2">multi-faith-room</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="https://www.bengaluruairport.com/carebyblr/car-valet">
+      <data key="d0">reference_link</data>
+      <data key="d1">https://www.bengaluruairport.com/carebyb</data>
+      <data key="d2">car-valet</data>
+      <data key="d3">2</data>
+    </node>
+    <node id="careers@bialairport.com">
+      <data key="d0">support_channel</data>
+      <data key="d1">careers@bialairport.com</data>
+      <data key="d2">careers@bialairport.com</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="appellateauthority@bialairport.com">
+      <data key="d0">support_channel</data>
+      <data key="d1">appellateauthority@bialairport.com</data>
+      <data key="d2">appellateauthority@bialairport.com</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="080-66787505">
+      <data key="d0">support_channel</data>
+      <data key="d1">080-66787505</data>
+      <data key="d2">080-66787505</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="080-8066782325">
+      <data key="d0">support_channel</data>
+      <data key="d1">080-8066782325</data>
+      <data key="d2">+91-8066782325</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="080-9606954038">
+      <data key="d0">support_channel</data>
+      <data key="d1">080-9606954038</data>
+      <data key="d2">+91 9606954038</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="080-9606954037">
+      <data key="d0">support_channel</data>
+      <data key="d1">080-9606954037</data>
+      <data key="d2">+91 9606954037</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="080-8884122433">
+      <data key="d0">support_channel</data>
+      <data key="d1">080-8884122433</data>
+      <data key="d2">+91 8884122433</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="Parking - T1">
+      <data key="d0">service</data>
+      <data key="d1">Parking - T1</data>
+      <data key="d2">Parking - T1</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="P3 T1 Car Parking">
+      <data key="d0">service</data>
+      <data key="d1">P3 T1 Car Parking</data>
+      <data key="d2">P3 T1 Car Parking</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="P4 T1 Car Parking">
+      <data key="d0">service</data>
+      <data key="d1">P4 T1 Car Parking</data>
+      <data key="d2">P4 T1 Car Parking</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="T1 Kerbside Arrival Pick-up 4W">
+      <data key="d0">service</data>
+      <data key="d1">T1 Kerbside Arrival Pick-up 4W</data>
+      <data key="d2">T1 Kerbside Arrival Pick-up 4W</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="T1 Electric Car Parking">
+      <data key="d0">service</data>
+      <data key="d1">T1 Electric Car Parking</data>
+      <data key="d2">T1 Electric Car Parking</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="P2 T2 Car Parking">
+      <data key="d0">service</data>
+      <data key="d1">P2 T2 Car Parking</data>
+      <data key="d2">P2 T2 Car Parking</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="T2 Kerbside Arrival Pick-up 4W">
+      <data key="d0">service</data>
+      <data key="d1">T2 Kerbside Arrival Pick-up 4W</data>
+      <data key="d2">T2 Kerbside Arrival Pick-up 4W</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="T2 Electric Car Parking">
+      <data key="d0">service</data>
+      <data key="d1">T2 Electric Car Parking</data>
+      <data key="d2">T2 Electric Car Parking</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="Dewar’s Double Double 26 Year Old Travel Exclusive">
+      <data key="d0">service</data>
+      <data key="d1">Dewar’s Double Double 26 Year Old Travel</data>
+      <data key="d2">Dewar’s Double Double 26 Year Old Travel Exclusive</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="Dewar’s 12 Years">
+      <data key="d0">service</data>
+      <data key="d1">Dewar’s 12 Years</data>
+      <data key="d2">Dewar’s 12 Years</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="Dewar’s White Label">
+      <data key="d0">service</data>
+      <data key="d1">Dewar’s White Label</data>
+      <data key="d2">Dewar’s White Label</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="12 Year Old Twin Pack">
+      <data key="d0">service</data>
+      <data key="d1">12 Year Old Twin Pack</data>
+      <data key="d2">12 Year Old Twin Pack</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="080 Domestic Lounge">
+      <data key="d0">service</data>
+      <data key="d1">080 Domestic Lounge</data>
+      <data key="d2">080 Domestic Lounge</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="Care by BLR – Lounge, Terminal 1">
+      <data key="d0">service</data>
+      <data key="d1">Care by BLR – Lounge, Terminal 1</data>
+      <data key="d2">Care by BLR – Lounge, Terminal 1</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="080 International Lounge">
+      <data key="d0">service</data>
+      <data key="d1">080 International Lounge</data>
+      <data key="d2">080 International Lounge</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="080 Arrival Lounge">
+      <data key="d0">service</data>
+      <data key="d1">080 Arrival Lounge</data>
+      <data key="d2">080 Arrival Lounge</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="Care By BLR Valet Parking">
+      <data key="d0">service</data>
+      <data key="d1">Care By BLR Valet Parking</data>
+      <data key="d2">Care By BLR Valet Parking</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="Your Assured Cab">
+      <data key="d0">service</data>
+      <data key="d1">Your Assured Cab</data>
+      <data key="d2">Your Assured Cab</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="Apollo Pharmacy">
+      <data key="d0">service</data>
+      <data key="d1">Apollo Pharmacy</data>
+      <data key="d2">Apollo Pharmacy</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="BLR Airport Medical Centre - Manipal Clinic">
+      <data key="d0">service</data>
+      <data key="d1">BLR Airport Medical Centre - Manipal Cli</data>
+      <data key="d2">Airport Medical Centre - Manipal Clinic</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="BLR Airport Medical Centre - Apollo Clinic">
+      <data key="d0">service</data>
+      <data key="d1">BLR Airport Medical Centre - Apollo Clin</data>
+      <data key="d2">Airport Medical Centre - Apollo Clinic</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="BIAL Careers">
+      <data key="d0">service</data>
+      <data key="d1">BIAL Careers</data>
+      <data key="d2">BIAL Careers</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="Chai Point">
+      <data key="d0">service</data>
+      <data key="d1">Chai Point</data>
+      <data key="d2">Chai Point</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="Chaayos">
+      <data key="d0">service</data>
+      <data key="d1">Chaayos</data>
+      <data key="d2">Chaayos</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="KFC-G28">
+      <data key="d0">service</data>
+      <data key="d1">KFC-G28</data>
+      <data key="d2">KFC-G28</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="KFC T2">
+      <data key="d0">service</data>
+      <data key="d1">KFC T2</data>
+      <data key="d2">KFC T2</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="The Mithai Box">
+      <data key="d0">service</data>
+      <data key="d1">The Mithai Box</data>
+      <data key="d2">The Mithai Box</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="Anand">
+      <data key="d0">service</data>
+      <data key="d1">Anand</data>
+      <data key="d2">Anand</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="Bhartiya Jalpan">
+      <data key="d0">service</data>
+      <data key="d1">Bhartiya Jalpan</data>
+      <data key="d2">Bhartiya Jalpan</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="6E172">
+      <data key="d0">flight</data>
+      <data key="d1">6E172</data>
+      <data key="d2">IndiGo Flight 6E172</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="6E6801">
+      <data key="d0">flight</data>
+      <data key="d1">6E6801</data>
+      <data key="d2">IndiGo Flight 6E6801</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="AI2632">
+      <data key="d0">flight</data>
+      <data key="d1">AI2632</data>
+      <data key="d2">Air India Flight AI2632</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="VS346">
+      <data key="d0">flight</data>
+      <data key="d1">VS346</data>
+      <data key="d2">Virgin Atlantic Airways Flight VS346</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="ET3432">
+      <data key="d0">flight</data>
+      <data key="d1">ET3432</data>
+      <data key="d2">Ethiopian Airlines Flight ET3432</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="Ethiopian Airlines">
+      <data key="d0">airline</data>
+      <data key="d1">Ethiopian Airlines</data>
+      <data key="d2">Ethiopian Airlines Flight ET3432</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="https://www.bengaluruairport.com/corporate/careers">
+      <data key="d0">reference_link</data>
+      <data key="d1">https://www.bengaluruairport.com/corpora</data>
+      <data key="d2">https://www.bengaluruairport.com/corporate/careers</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="https://bialtalent.peoplestrong.com/home">
+      <data key="d0">reference_link</data>
+      <data key="d1">https://bialtalent.peoplestrong.com/home</data>
+      <data key="d2">https://bialtalent.peoplestrong.com/home</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="https://www.bengaluruairport.com/cabs">
+      <data key="d0">reference_link</data>
+      <data key="d1">https://www.bengaluruairport.com/cabs</data>
+      <data key="d2">https://www.bengaluruairport.com/cabs</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="https://www.bengaluruairport.com/travellers/at-the-airport/relax/080-Transit-Hotel">
+      <data key="d0">reference_link</data>
+      <data key="d1">https://www.bengaluruairport.com/travell</data>
+      <data key="d2">https://www.bengaluruairport.com/travellers/at-the-airport/relax/080-Transit-Hotel</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="https://www.bengaluruairport.com/travellers/at-the-airport/relax/lounges/know-more-lounge-blr-terminal1">
+      <data key="d0">reference_link</data>
+      <data key="d1">https://www.bengaluruairport.com/travell</data>
+      <data key="d2">https://www.bengaluruairport.com/travellers/at-the-airport/relax/lounges/know-more-lounge-blr-terminal1</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="https://www.bengaluruairport.com/travellers/at-the-airport/relax/lounges/know-more-lounge-blr-terminal2">
+      <data key="d0">reference_link</data>
+      <data key="d1">https://www.bengaluruairport.com/travell</data>
+      <data key="d2">https://www.bengaluruairport.com/travellers/at-the-airport/relax/lounges/know-more-lounge-blr-terminal2</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="https://www.bengaluruairport.com/travellers/at-the-airport/experience">
+      <data key="d0">reference_link</data>
+      <data key="d1">https://www.bengaluruairport.com/travell</data>
+      <data key="d2">https://www.bengaluruairport.com/travellers/at-the-airport/experience</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="https://www.bengaluruairport.com/travellers/at-the-airport/experience/retail-store">
+      <data key="d0">reference_link</data>
+      <data key="d1">https://www.bengaluruairport.com/travell</data>
+      <data key="d2">https://www.bengaluruairport.com/travellers/at-the-airport/experience/retail-store</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="https://www.bengaluruairport.com/travellers/at-the-airport/experience/culinary-experience">
+      <data key="d0">reference_link</data>
+      <data key="d1">https://www.bengaluruairport.com/travell</data>
+      <data key="d2">https://www.bengaluruairport.com/travellers/at-the-airport/experience/culinary-experience</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="https://www.bengaluruairport.com/travellers/privacy-policy">
+      <data key="d0">reference_link</data>
+      <data key="d1">https://www.bengaluruairport.com/travell</data>
+      <data key="d2">https://www.bengaluruairport.com/travellers/privacy-policy</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="https://www.bengaluruairport.com/storefront/60ed76aca8258362b0e5d1232a?QueryProp1=Paneer%20Tikka%20Wrap">
+      <data key="d0">reference_link</data>
+      <data key="d1">https://www.bengaluruairport.com/storefr</data>
+      <data key="d2">https://www.bengaluruairport.com/storefront/60ed76aca8258362b0e5d1232a?QueryProp1=Paneer%20Tikka%20Wrap</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="https://www.bengaluruairport.com/storefront/60ed76aca8258362b0e5d121a?QueryProp1=Quick%20Bites">
+      <data key="d0">reference_link</data>
+      <data key="d1">https://www.bengaluruairport.com/storefr</data>
+      <data key="d2">https://www.bengaluruairport.com/storefront/60ed76aca8258362b0e5d121a?QueryProp1=Quick%20Bites</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="https://www.bengaluruairport.com/storefront/64d09a82d3be5d5cec44b290?QueryProp1=Chai%20Kulahd">
+      <data key="d0">reference_link</data>
+      <data key="d1">https://www.bengaluruairport.com/storefr</data>
+      <data key="d2">https://www.bengaluruairport.com/storefront/64d09a82d3be5d5cec44b290?QueryProp1=Chai%20Kulahd</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="https://www.bengaluruairport.com/storefront/60ed76aca8258362b0e5d144a?QueryProp1=Double%20Double%2026%20Year%20Old%20Travel%20Exclusive">
+      <data key="d0">reference_link</data>
+      <data key="d1">https://www.bengaluruairport.com/storefr</data>
+      <data key="d2">https://www.bengaluruairport.com/storefront/60ed76aca8258362b0e5d144a?QueryProp1=Double%20Double%2026%20Year%20Old%20Travel%20Exclusive</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="https://www.bengaluruairport.com/storefront/60ed76aca8258362b0e5d1038a?QueryProp1=Dewar%27s%2012%20years">
+      <data key="d0">reference_link</data>
+      <data key="d1">https://www.bengaluruairport.com/storefr</data>
+      <data key="d2">https://www.bengaluruairport.com/storefront/60ed76aca8258362b0e5d1038a?QueryProp1=Dewar%27s%2012%20years</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="https://www.bengaluruairport.com/storefront/64d09a82d3be5d5cec40la690dut1?QueryProp1=12%20Year%20Old%20Twin%20Pack">
+      <data key="d0">reference_link</data>
+      <data key="d1">https://www.bengaluruairport.com/storefr</data>
+      <data key="d2">https://www.bengaluruairport.com/storefront/64d09a82d3be5d5cec40la690dut1?QueryProp1=12%20Year%20Old%20Twin%20Pack</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="https://www.bengaluruairport.com/storefront/60ed76aca8258362b0e5d115a?QueryProp1=Food%20%26%20Drink">
+      <data key="d0">reference_link</data>
+      <data key="d1">https://www.bengaluruairport.com/storefr</data>
+      <data key="d2">https://www.bengaluruairport.com/storefront/60ed76aca8258362b0e5d115a?QueryProp1=Food%20%26%20Drink</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="https://www.bengaluruairport.com/storefront/60ed76aca8258362b0e5d120a?QueryProp1=Food%20%26%20Drink">
+      <data key="d0">reference_link</data>
+      <data key="d1">https://www.bengaluruairport.com/storefr</data>
+      <data key="d2">https://www.bengaluruairport.com/storefront/60ed76aca8258362b0e5d120a?QueryProp1=Food%20%26%20Drink</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="https://www.bengaluruairport.com/storefront/60ed76aca8258362b0e5d133a?QueryProp1=Food%20%26%20Drinks">
+      <data key="d0">reference_link</data>
+      <data key="d1">https://www.bengaluruairport.com/storefr</data>
+      <data key="d2">https://www.bengaluruairport.com/storefront/60ed76aca8258362b0e5d133a?QueryProp1=Food%20%26%20Drinks</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="https://www.bengaluruairport.com/storefront/60ed76aca8258362b0e5d179a?QueryProp1=Food%20%26%20Drinks">
+      <data key="d0">reference_link</data>
+      <data key="d1">https://www.bengaluruairport.com/storefr</data>
+      <data key="d2">https://www.bengaluruairport.com/storefront/60ed76aca8258362b0e5d179a?QueryProp1=Food%20%26%20Drinks</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="https://www.bengaluruairport.com/storefront/60ed76aca8258362b0e5d1au1?QueryProp1=Italian%20Veg%20Calzone">
+      <data key="d0">reference_link</data>
+      <data key="d1">https://www.bengaluruairport.com/storefr</data>
+      <data key="d2">https://www.bengaluruairport.com/storefront/60ed76aca8258362b0e5d1au1?QueryProp1=Italian%20Veg%20Calzone</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="https://www.bengaluruairport.com/storefront/60ed76afa8259252b0e5d110c?QueryProp1=Hawaiian%20Veg%20Club%20Sandwich">
+      <data key="d0">reference_link</data>
+      <data key="d1">https://www.bengaluruairport.com/storefr</data>
+      <data key="d2">https://www.bengaluruairport.com/storefront/60ed76afa8259252b0e5d110c?QueryProp1=Hawaiian%20Veg%20Club%20Sandwich</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="https://www.bengaluruairport.com/storefront/651d0723de3efc67709d0ae1?QueryProp1=Cafe%20Mocha">
+      <data key="d0">reference_link</data>
+      <data key="d1">https://www.bengaluruairport.com/storefr</data>
+      <data key="d2">https://www.bengaluruairport.com/storefront/651d0723de3efc67709d0ae1?QueryProp1=Cafe%20Mocha</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="https://www.bengaluruairport.com/storefront/60ed76aca8258362b0e5d132a?QueryProp1=Gulabjamun">
+      <data key="d0">reference_link</data>
+      <data key="d1">https://www.bengaluruairport.com/storefr</data>
+      <data key="d2">https://www.bengaluruairport.com/storefront/60ed76aca8258362b0e5d132a?QueryProp1=Gulabjamun</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="https://www.bengaluruairport.com/storefront/60ed76aca8258362b0e5d125abj?QueryProp1=Gulab%20Jamun%20%282%20Pcs%20%29">
+      <data key="d0">reference_link</data>
+      <data key="d1">https://www.bengaluruairport.com/storefr</data>
+      <data key="d2">https://www.bengaluruairport.com/storefront/60ed76aca8258362b0e5d125abj?QueryProp1=Gulab%20Jamun%20%282%20Pcs%20%29</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="https://www.bengaluruairport.com/storefront/60ed76aca8258362b0e5d115a?QueryProp1=Gulabjamun">
+      <data key="d0">reference_link</data>
+      <data key="d1">https://www.bengaluruairport.com/storefr</data>
+      <data key="d2">https://www.bengaluruairport.com/storefront/60ed76aca8258362b0e5d115a?QueryProp1=Gulabjamun</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="https://www.bengaluruairport.com/storefront/60ed76aca8258362b0e5d144a?QueryProp1=Assorted%20Chocolates">
+      <data key="d0">reference_link</data>
+      <data key="d1">https://www.bengaluruairport.com/storefr</data>
+      <data key="d2">https://www.bengaluruairport.com/storefront/60ed76aca8258362b0e5d144a?QueryProp1=Assorted%20Chocolates</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="https://www.bengaluruairport.com/storefront/655892a313cd7e350c5de2ba?QueryProp1=Tart%20Chocolate">
+      <data key="d0">reference_link</data>
+      <data key="d1">https://www.bengaluruairport.com/storefr</data>
+      <data key="d2">https://www.bengaluruairport.com/storefront/655892a313cd7e350c5de2ba?QueryProp1=Tart%20Chocolate</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="https://www.bengaluruairport.com/storefront/60ed76aca8258362b0e5d1038a?QueryProp1=Moet%20%26%20Chandon%20Brut%28BOT%29">
+      <data key="d0">reference_link</data>
+      <data key="d1">https://www.bengaluruairport.com/storefr</data>
+      <data key="d2">https://www.bengaluruairport.com/storefront/60ed76aca8258362b0e5d1038a?QueryProp1=Moet%20%26%20Chandon%20Brut%28BOT%29</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="https://www.bengaluruairport.com/storefront/T2DomHardrockcafe?QueryProp1=SULA%20BRUT%2C%20India%20%28375ML%29">
+      <data key="d0">reference_link</data>
+      <data key="d1">https://www.bengaluruairport.com/storefr</data>
+      <data key="d2">https://www.bengaluruairport.com/storefront/T2DomHardrockcafe?QueryProp1=SULA%20BRUT%2C%20India%20%28375ML%29</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="https://www.bengaluruairport.com/storefront/60ed76aca8258362b0e5d141a?QueryProp1=Veg%20Pizza%20Puff">
+      <data key="d0">reference_link</data>
+      <data key="d1">https://www.bengaluruairport.com/storefr</data>
+      <data key="d2">https://www.bengaluruairport.com/storefront/60ed76aca8258362b0e5d141a?QueryProp1=Veg%20Pizza%20Puff</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="https://www.bengaluruairport.com/storefront/lakjshdlhqwepouiijaisdqadad7?QueryProp1=CORN%20N%20CHEESE%20WRAP">
+      <data key="d0">reference_link</data>
+      <data key="d1">https://www.bengaluruairport.com/storefr</data>
+      <data key="d2">https://www.bengaluruairport.com/storefront/lakjshdlhqwepouiijaisdqadad7?QueryProp1=CORN%20N%20CHEESE%20WRAP</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="https://www.bengaluruairport.com/storefront/64d09a82d3be5d5cec40co490?QueryProp1=Wrap%20Breakfast">
+      <data key="d0">reference_link</data>
+      <data key="d1">https://www.bengaluruairport.com/storefr</data>
+      <data key="d2">https://www.bengaluruairport.com/storefront/64d09a82d3be5d5cec40co490?QueryProp1=Wrap%20Breakfast</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="https://www.bengaluruairport.com/storefront/655892a313cd7e450vv5de2b4?QueryProp1=Wrap%20CHX%20Tikka">
+      <data key="d0">reference_link</data>
+      <data key="d1">https://www.bengaluruairport.com/storefr</data>
+      <data key="d2">https://www.bengaluruairport.com/storefront/655892a313cd7e450vv5de2b4?QueryProp1=Wrap%20CHX%20Tikka</data>
+      <data key="d3">1</data>
+    </node>
+    <node id="https://www.bengaluruairport.com/storefront/60ed76aca8258362b0e5d1042a?QueryProp1=Wrap%20Chicken%20Caesar">
+      <data key="d0">reference_link</data>
+      <data key="d1">https://www.bengaluruairport.com/storefr</data>
+      <data key="d2">https://www.bengaluruairport.com/storefront/60ed76aca8258362b0e5d1042a?QueryProp1=Wrap%20Chicken%20Caesar</data>
+      <data key="d3">1</data>
+    </node>
+    <edge source="Bangalore International Airport Limited" target="080-66785555" id="provides_support_channel">
+      <data key="d4">provides_support_channel</data>
+      <data key="d5">2</data>
+    </edge>
+    <edge source="Bangalore International Airport Limited" target="080-47406666" id="provides_support_channel">
+      <data key="d4">provides_support_channel</data>
+      <data key="d5">2</data>
+    </edge>
+    <edge source="Bangalore International Airport Limited" target="+91-80-22012001" id="provides_support_channel">
+      <data key="d4">provides_support_channel</data>
+      <data key="d5">2</data>
+    </edge>
+    <edge source="Bangalore International Airport Limited" target="+91-8884998888" id="provides_support_channel">
+      <data key="d4">provides_support_channel</data>
+      <data key="d5">2</data>
+    </edge>
+    <edge source="Bangalore International Airport Limited" target="feedback@bialairport.com" id="provides_support_channel">
+      <data key="d4">provides_support_channel</data>
+      <data key="d5">2</data>
+    </edge>
+    <edge source="Bangalore International Airport Limited" target="080-66785566" id="provides_support_channel">
+      <data key="d4">provides_support_channel</data>
+      <data key="d5">2</data>
+    </edge>
+    <edge source="Bangalore International Airport Limited" target="customer.service@carebyblr.com" id="provides_support_channel">
+      <data key="d4">provides_support_channel</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="Bangalore International Airport Limited" target="+91-80-66785555" id="provides_support_channel">
+      <data key="d4">provides_support_channel</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="Bangalore International Airport Limited" target="careers@bialairport.com" id="provides_support_channel">
+      <data key="d4">provides_support_channel</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="Bangalore International Airport Limited" target="appellateauthority@bialairport.com" id="provides_support_channel">
+      <data key="d4">provides_support_channel</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="Bangalore International Airport Limited" target="lostandfound@bialairport.com" id="provides_support_channel">
+      <data key="d4">provides_support_channel</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="Bangalore International Airport Limited" target="t2lostandfound@bialairport.com" id="provides_support_channel">
+      <data key="d4">provides_support_channel</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="Bangalore International Airport Limited" target="080-66787505" id="provides_support_channel">
+      <data key="d4">provides_support_channel</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="Bangalore International Airport Limited" target="080-8066782325" id="provides_support_channel">
+      <data key="d4">provides_support_channel</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="Bangalore International Airport Limited" target="080-9606954038" id="provides_support_channel">
+      <data key="d4">provides_support_channel</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="Bangalore International Airport Limited" target="080-9606954037" id="provides_support_channel">
+      <data key="d4">provides_support_channel</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="Bangalore International Airport Limited" target="080-8884122433" id="provides_support_channel">
+      <data key="d4">provides_support_channel</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="Bangalore International Airport Limited" target="1" id="operates_terminal">
+      <data key="d4">operates_terminal</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="Bangalore International Airport Limited" target="2" id="operates_terminal">
+      <data key="d4">operates_terminal</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="Bangalore International Airport Limited" target="080 Transit Hotel" id="offers_service">
+      <data key="d4">offers_service</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="Bangalore International Airport Limited" target="Taj Bangalore" id="offers_service">
+      <data key="d4">offers_service</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="Bangalore International Airport Limited" target="Parking - T1" id="offers_service">
+      <data key="d4">offers_service</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="Bangalore International Airport Limited" target="Lost &amp; Found" id="offers_service">
+      <data key="d4">offers_service</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="Bangalore International Airport Limited" target="Care By BLR Valet Parking" id="offers_service">
+      <data key="d4">offers_service</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="Bangalore International Airport Limited" target="Your Assured Cab" id="offers_service">
+      <data key="d4">offers_service</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="Bangalore International Airport Limited" target="PreSecure Lane - EZPass by BLR" id="offers_service">
+      <data key="d4">offers_service</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="Bangalore International Airport Limited" target="Wheelchair Assistance" id="offers_service">
+      <data key="d4">offers_service</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="Bangalore International Airport Limited" target="Mobility Assist" id="offers_service">
+      <data key="d4">offers_service</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="Bangalore International Airport Limited" target="Apollo Pharmacy" id="offers_service">
+      <data key="d4">offers_service</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="Bangalore International Airport Limited" target="BLR Airport Medical Centre - Manipal Clinic" id="offers_service">
+      <data key="d4">offers_service</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="Bangalore International Airport Limited" target="BLR Airport Medical Centre - Apollo Clinic" id="offers_service">
+      <data key="d4">offers_service</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="Bangalore International Airport Limited" target="BIAL Careers" id="offers_service">
+      <data key="d4">offers_service</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="Bangalore International Airport Limited" target="Chai Point" id="offers_service">
+      <data key="d4">offers_service</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="Bangalore International Airport Limited" target="Chaayos" id="offers_service">
+      <data key="d4">offers_service</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="Bangalore International Airport Limited" target="KFC-G28" id="offers_service">
+      <data key="d4">offers_service</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="Bangalore International Airport Limited" target="KFC T2" id="offers_service">
+      <data key="d4">offers_service</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="Bangalore International Airport Limited" target="The Mithai Box" id="offers_service">
+      <data key="d4">offers_service</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="Bangalore International Airport Limited" target="Anand" id="offers_service">
+      <data key="d4">offers_service</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="Bangalore International Airport Limited" target="Bhartiya Jalpan" id="offers_service">
+      <data key="d4">offers_service</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="1" target="Porter Service" id="contains_service">
+      <data key="d4">contains_service</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="1" target="EZPass by BLR" id="contains_service">
+      <data key="d4">contains_service</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="1" target="PreSecure Lane - EZPass by BLR" id="contains_service">
+      <data key="d4">contains_service</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="1" target="Vayu Vajra Airport Bus" id="contains_service">
+      <data key="d4">contains_service</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="1" target="BLR Airport Taxi" id="contains_service">
+      <data key="d4">contains_service</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="1" target="App-Based Taxis" id="contains_service">
+      <data key="d4">contains_service</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="1" target="KSTDC Taxis" id="contains_service">
+      <data key="d4">contains_service</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="1" target="Complimentary Inter-Terminal Shuttle" id="contains_service">
+      <data key="d4">contains_service</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="1" target="Inter-Terminal Shuttle" id="contains_service">
+      <data key="d4">contains_service</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="1" target="Car Valet" id="contains_service">
+      <data key="d4">contains_service</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="1" target="ATM" id="contains_service">
+      <data key="d4">contains_service</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="1" target="Uber" id="contains_service">
+      <data key="d4">contains_service</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="1" target="Wheelchair Assistance" id="contains_service">
+      <data key="d4">contains_service</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="1" target="Mobility Assist" id="contains_service">
+      <data key="d4">contains_service</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="2" target="Porter Service" id="contains_service">
+      <data key="d4">contains_service</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="2" target="Vayu Vajra Airport Bus" id="contains_service">
+      <data key="d4">contains_service</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="2" target="BLR Airport Taxi" id="contains_service">
+      <data key="d4">contains_service</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="2" target="App-Based Taxis" id="contains_service">
+      <data key="d4">contains_service</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="2" target="KSTDC Taxis" id="contains_service">
+      <data key="d4">contains_service</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="2" target="Haveli Salon &amp; Spa" id="contains_service">
+      <data key="d4">contains_service</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="2" target="Raya Salon &amp; Spa" id="contains_service">
+      <data key="d4">contains_service</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="2" target="Complimentary Inter-Terminal Shuttle" id="contains_service">
+      <data key="d4">contains_service</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="2" target="Inter-Terminal Shuttle" id="contains_service">
+      <data key="d4">contains_service</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="2" target="Car Valet" id="contains_service">
+      <data key="d4">contains_service</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="2" target="ATM" id="contains_service">
+      <data key="d4">contains_service</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="2" target="Uber" id="contains_service">
+      <data key="d4">contains_service</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="2" target="Uber Black" id="contains_service">
+      <data key="d4">contains_service</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="2" target="Wheelchair Assistance" id="contains_service">
+      <data key="d4">contains_service</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="2" target="Mobility Assist" id="contains_service">
+      <data key="d4">contains_service</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="IndiGo" target="1" id="operates_from">
+      <data key="d4">operates_from</data>
+      <data key="d5">3</data>
+    </edge>
+    <edge source="Akasa Air" target="1" id="operates_from">
+      <data key="d4">operates_from</data>
+      <data key="d5">2</data>
+    </edge>
+    <edge source="SpiceJet" target="1" id="operates_from">
+      <data key="d4">operates_from</data>
+      <data key="d5">3</data>
+    </edge>
+    <edge source="SpiceJet" target="T1" id="operates_from">
+      <data key="d4">operates_from</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="Alliance Air" target="1" id="operates_from">
+      <data key="d4">operates_from</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="Alliance Air" target="2" id="operates_from">
+      <data key="d4">operates_from</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="Air India Express" target="2" id="operates_from">
+      <data key="d4">operates_from</data>
+      <data key="d5">2</data>
+    </edge>
+    <edge source="Air India" target="2" id="operates_from">
+      <data key="d4">operates_from</data>
+      <data key="d5">3</data>
+    </edge>
+    <edge source="Lufthansa" target="2" id="operates_from">
+      <data key="d4">operates_from</data>
+      <data key="d5">3</data>
+    </edge>
+    <edge source="Jazeera Airways" target="2" id="operates_from">
+      <data key="d4">operates_from</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="Emirates" target="2" id="operates_from">
+      <data key="d4">operates_from</data>
+      <data key="d5">3</data>
+    </edge>
+    <edge source="SalamAir" target="2" id="operates_from">
+      <data key="d4">operates_from</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="Gulf Air" target="2" id="operates_from">
+      <data key="d4">operates_from</data>
+      <data key="d5">2</data>
+    </edge>
+    <edge source="Cathay Pacific" target="2" id="operates_from">
+      <data key="d4">operates_from</data>
+      <data key="d5">2</data>
+    </edge>
+    <edge source="British Airways" target="2" id="operates_from">
+      <data key="d4">operates_from</data>
+      <data key="d5">2</data>
+    </edge>
+    <edge source="Saudi Arabian Airlines" target="2" id="operates_from">
+      <data key="d4">operates_from</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="Sri Lankan Airlines" target="2" id="operates_from">
+      <data key="d4">operates_from</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="Qatar Airways" target="2" id="operates_from">
+      <data key="d4">operates_from</data>
+      <data key="d5">2</data>
+    </edge>
+    <edge source="Etihad Airways" target="2" id="operates_from">
+      <data key="d4">operates_from</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="Air Arabia" target="2" id="operates_from">
+      <data key="d4">operates_from</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="Star Air" target="2" id="operates_from">
+      <data key="d4">operates_from</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="6E499" target="IndiGo" id="operated_by">
+      <data key="d4">operated_by</data>
+      <data key="d5">2</data>
+    </edge>
+    <edge source="6E846" target="IndiGo" id="operated_by">
+      <data key="d4">operated_by</data>
+      <data key="d5">2</data>
+    </edge>
+    <edge source="6E361" target="IndiGo" id="operated_by">
+      <data key="d4">operated_by</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="6E6564" target="IndiGo" id="operated_by">
+      <data key="d4">operated_by</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="6E996" target="IndiGo" id="operated_by">
+      <data key="d4">operated_by</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="6E871" target="IndiGo" id="operated_by">
+      <data key="d4">operated_by</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="6E5388" target="IndiGo" id="operated_by">
+      <data key="d4">operated_by</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="6E573" target="IndiGo" id="operated_by">
+      <data key="d4">operated_by</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="6E906" target="IndiGo" id="operated_by">
+      <data key="d4">operated_by</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="6E6055" target="IndiGo" id="operated_by">
+      <data key="d4">operated_by</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="6E820" target="IndiGo" id="operated_by">
+      <data key="d4">operated_by</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="6E5294" target="IndiGo" id="operated_by">
+      <data key="d4">operated_by</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="6E6877" target="IndiGo" id="operated_by">
+      <data key="d4">operated_by</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="6E413" target="IndiGo" id="operated_by">
+      <data key="d4">operated_by</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="QP1812" target="Akasa Air" id="operated_by">
+      <data key="d4">operated_by</data>
+      <data key="d5">2</data>
+    </edge>
+    <edge source="QP1350" target="Akasa Air" id="operated_by">
+      <data key="d4">operated_by</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="QP1516" target="Akasa Air" id="operated_by">
+      <data key="d4">operated_by</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="QP1901" target="Akasa Air" id="operated_by">
+      <data key="d4">operated_by</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="SG874" target="SpiceJet" id="operated_by">
+      <data key="d4">operated_by</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="IX1542" target="Air India Express" id="operated_by">
+      <data key="d4">operated_by</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="IX5975" target="Air India Express" id="operated_by">
+      <data key="d4">operated_by</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="IX5202" target="Air India Express" id="operated_by">
+      <data key="d4">operated_by</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="IX2681" target="Air India Express" id="operated_by">
+      <data key="d4">operated_by</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="IX932" target="Air India Express" id="operated_by">
+      <data key="d4">operated_by</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="IX866" target="Air India Express" id="operated_by">
+      <data key="d4">operated_by</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="IX2975" target="Air India Express" id="operated_by">
+      <data key="d4">operated_by</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="AI2412" target="Air India" id="operated_by">
+      <data key="d4">operated_by</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="AI2812" target="Air India" id="operated_by">
+      <data key="d4">operated_by</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="AI2757" target="Air India" id="operated_by">
+      <data key="d4">operated_by</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="AI2653" target="Air India" id="operated_by">
+      <data key="d4">operated_by</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="9I548" target="Alliance Air" id="operated_by">
+      <data key="d4">operated_by</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="LH754" target="Lufthansa" id="operated_by">
+      <data key="d4">operated_by</data>
+      <data key="d5">3</data>
+    </edge>
+    <edge source="J9431" target="Jazeera Airways" id="operated_by">
+      <data key="d4">operated_by</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="EK568" target="Emirates" id="operated_by">
+      <data key="d4">operated_by</data>
+      <data key="d5">3</data>
+    </edge>
+    <edge source="OV783" target="SalamAir" id="operated_by">
+      <data key="d4">operated_by</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="GF282" target="Gulf Air" id="operated_by">
+      <data key="d4">operated_by</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="CX623" target="Cathay Pacific" id="operated_by">
+      <data key="d4">operated_by</data>
+      <data key="d5">2</data>
+    </edge>
+    <edge source="BA131" target="British Airways" id="operated_by">
+      <data key="d4">operated_by</data>
+      <data key="d5">2</data>
+    </edge>
+    <edge source="BA119" target="British Airways" id="operated_by">
+      <data key="d4">operated_by</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="SV814" target="Saudi Arabian Airlines" id="operated_by">
+      <data key="d4">operated_by</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="UL173" target="Sri Lankan Airlines" id="operated_by">
+      <data key="d4">operated_by</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="QR572" target="Qatar Airways" id="operated_by">
+      <data key="d4">operated_by</data>
+      <data key="d5">2</data>
+    </edge>
+    <edge source="EY232" target="Etihad Airways" id="operated_by">
+      <data key="d4">operated_by</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="G9496" target="Air Arabia" id="operated_by">
+      <data key="d4">operated_by</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="6E1486" target="IndiGo" id="operated_by">
+      <data key="d4">operated_by</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="6E1409" target="IndiGo" id="operated_by">
+      <data key="d4">operated_by</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="6E1248" target="IndiGo" id="operated_by">
+      <data key="d4">operated_by</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="Wheelchair Assistance" target="1" id="located_in">
+      <data key="d4">located_in</data>
+      <data key="d5">2</data>
+    </edge>
+    <edge source="Wheelchair Assistance" target="https://www.bengaluruairport.com/travellers/services/special-assistance/wheelchair-assistance" id="has_reference">
+      <data key="d4">has_reference</data>
+      <data key="d5">2</data>
+    </edge>
+    <edge source="Wheelchair Assistance" target="2" id="located_in">
+      <data key="d4">located_in</data>
+      <data key="d5">2</data>
+    </edge>
+    <edge source="Mobility Assist" target="https://www.bengaluruairport.com/travellers/services/special-assistance/mobility-assist" id="has_reference">
+      <data key="d4">has_reference</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="Mobility Assist" target="1" id="located_in">
+      <data key="d4">located_in</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="Mobility Assist" target="2" id="located_in">
+      <data key="d4">located_in</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="Buggy Service" target="1" id="located_in">
+      <data key="d4">located_in</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="Buggy Service" target="2" id="located_in">
+      <data key="d4">located_in</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="Buggy Service" target="https://www.bengaluruairport.com/travellers/services/special-assistance/buggy-service" id="has_reference">
+      <data key="d4">has_reference</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="080 Transit Hotel" target="2" id="located_in">
+      <data key="d4">located_in</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="080 Transit Hotel" target="air conditioning" id="has_amenity">
+      <data key="d4">has_amenity</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="080 Transit Hotel" target="cable TV" id="has_amenity">
+      <data key="d4">has_amenity</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="080 Transit Hotel" target="minibar" id="has_amenity">
+      <data key="d4">has_amenity</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="080 Transit Hotel" target="free Wi-Fi" id="has_amenity">
+      <data key="d4">has_amenity</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="080 Transit Hotel" target="restaurant" id="has_amenity">
+      <data key="d4">has_amenity</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="080 Transit Hotel" target="24/7 service" id="has_amenity">
+      <data key="d4">has_amenity</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="080 Transit Hotel" target="https://www.bengaluruairport.com/travellers/services/special-assistance/buggy-service" id="has_reference">
+      <data key="d4">has_reference</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="080 Transit Hotel" target="1" id="located_in">
+      <data key="d4">located_in</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="Indoor Map" target="1" id="located_in">
+      <data key="d4">located_in</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="Indoor Map" target="2" id="located_in">
+      <data key="d4">located_in</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="Indoor Map" target="https://www.bengaluruairport.com/map" id="has_reference">
+      <data key="d4">has_reference</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="Third Wave Coffee" target="1" id="located_in">
+      <data key="d4">located_in</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="Third Wave Coffee DSHA" target="1" id="located_in">
+      <data key="d4">located_in</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="Starbucks G14" target="1" id="located_in">
+      <data key="d4">located_in</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="SMOOR T1" target="1" id="located_in">
+      <data key="d4">located_in</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="Jones The Grocer T1-G16" target="1" id="located_in">
+      <data key="d4">located_in</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="La Alta Vita-G12" target="1" id="located_in">
+      <data key="d4">located_in</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="Tiffin Express-G17" target="1" id="located_in">
+      <data key="d4">located_in</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="Baby Care Rooms" target="1" id="located_in">
+      <data key="d4">located_in</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="Baby Care Rooms" target="2" id="located_in">
+      <data key="d4">located_in</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="Baby Care Rooms" target="https://www.bengaluruairport.com/travellers/services/all-facilities/baby-care-rooms" id="has_reference">
+      <data key="d4">has_reference</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="Lost &amp; Found" target="1" id="located_in">
+      <data key="d4">located_in</data>
+      <data key="d5">2</data>
+    </edge>
+    <edge source="Lost &amp; Found" target="2" id="located_in">
+      <data key="d4">located_in</data>
+      <data key="d5">2</data>
+    </edge>
+    <edge source="Lost &amp; Found" target="https://www.bengaluruairport.com/travellers/passenger-services/lost-found" id="has_reference">
+      <data key="d4">has_reference</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="BLR Airport Medical Centre (Manipal Clinic)" target="1" id="located_in">
+      <data key="d4">located_in</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="BLR Airport Medical Centre (Manipal Clinic)" target="https://www.bengaluruairport.com/travellers/services/special-assistance/airport-medical-services" id="has_reference">
+      <data key="d4">has_reference</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="BLR Airport Medical Centre (Apollo Clinic)" target="2" id="located_in">
+      <data key="d4">located_in</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="BLR Airport Medical Centre (Apollo Clinic)" target="https://www.bengaluruairport.com/travellers/services/special-assistance/airport-medical-services" id="has_reference">
+      <data key="d4">has_reference</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="WiFi Voucher Kiosk" target="2" id="located_in">
+      <data key="d4">located_in</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="WiFi Voucher Kiosk" target="https://www.bengaluruairport.com/travellers/services/all-facilities/wifi-services" id="has_reference">
+      <data key="d4">has_reference</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="Virtual Information Desk" target="2" id="located_in">
+      <data key="d4">located_in</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="Virtual Information Desk" target="https://www.bengaluruairport.com/corporate/media/news-press-releases/information-desk-at-blr-airport-goes-virtual" id="has_reference">
+      <data key="d4">has_reference</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="ATM" target="1" id="located_in">
+      <data key="d4">located_in</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="ATM" target="2" id="located_in">
+      <data key="d4">located_in</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="ATM" target="https://www.bengaluruairport.com/travellers/passenger-services/faqs-about-blr-airport-bial" id="has_reference">
+      <data key="d4">has_reference</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="ATM" target="https://www.bengaluruairport.com/travellers/at-the-airport/forex-atms" id="has_reference">
+      <data key="d4">has_reference</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="CXSOL (Connectivity/Customer Solutions)" target="2" id="located_in">
+      <data key="d4">located_in</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="CXSOL (Connectivity/Customer Solutions)" target="https://www.bengaluruairport.com/travellers/services/all-facilities/local-connectivity" id="has_reference">
+      <data key="d4">has_reference</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="Local Connectivity" target="2" id="located_in">
+      <data key="d4">located_in</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="Local Connectivity" target="https://www.bengaluruairport.com/travellers/passenger-services/faqs-about-blr-airport-bial" id="has_reference">
+      <data key="d4">has_reference</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="080-66785555" target="Bangalore International Airport Limited" id="supports">
+      <data key="d4">supports</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="080-66785555" target="Lost &amp; Found" id="supports">
+      <data key="d4">supports</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="080-47406666" target="Bangalore International Airport Limited" id="supports">
+      <data key="d4">supports</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="080-47406666" target="Lost &amp; Found" id="supports">
+      <data key="d4">supports</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="+91-80-22012001" target="Bangalore International Airport Limited" id="supports">
+      <data key="d4">supports</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="+91-80-22012001" target="Lost &amp; Found" id="supports">
+      <data key="d4">supports</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="+91-80-66785555" target="Bangalore International Airport Limited" id="supports">
+      <data key="d4">supports</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="+91-80-66785555" target="Lost &amp; Found" id="supports">
+      <data key="d4">supports</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="+91-8884998888" target="Bangalore International Airport Limited" id="supports">
+      <data key="d4">supports</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="+91-8884998888" target="Lost &amp; Found" id="supports">
+      <data key="d4">supports</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="feedback@bialairport.com" target="Bangalore International Airport Limited" id="supports">
+      <data key="d4">supports</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="feedback@bialairport.com" target="Lost &amp; Found" id="supports">
+      <data key="d4">supports</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="lostandfound@bialairport.com" target="Bangalore International Airport Limited" id="supports">
+      <data key="d4">supports</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="lostandfound@bialairport.com" target="Lost &amp; Found" id="supports">
+      <data key="d4">supports</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="+91-8047406666" target="Bangalore International Airport Limited" id="supports">
+      <data key="d4">supports</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="+91-8047406666" target="Lost &amp; Found" id="supports">
+      <data key="d4">supports</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="t2lostandfound@bialairport.com" target="Bangalore International Airport Limited" id="supports">
+      <data key="d4">supports</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="t2lostandfound@bialairport.com" target="Lost &amp; Found" id="supports">
+      <data key="d4">supports</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="+91-8066785555" target="Bangalore International Airport Limited" id="supports">
+      <data key="d4">supports</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="+91-8066785555" target="Lost &amp; Found" id="supports">
+      <data key="d4">supports</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="+91 9606954038" target="Bangalore International Airport Limited" id="supports">
+      <data key="d4">supports</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="+91 9606954038" target="BLR Airport Medical Centre (Manipal Clinic)" id="supports">
+      <data key="d4">supports</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="+91 9606954037" target="Bangalore International Airport Limited" id="supports">
+      <data key="d4">supports</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="+91 9606954037" target="BLR Airport Medical Centre (Manipal Clinic)" id="supports">
+      <data key="d4">supports</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="+91 8884122433" target="Bangalore International Airport Limited" id="supports">
+      <data key="d4">supports</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="+91 8884122433" target="BLR Airport Medical Centre (Apollo Clinic)" id="supports">
+      <data key="d4">supports</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="SG205" target="SpiceJet" id="operated_by">
+      <data key="d4">operated_by</data>
+      <data key="d5">2</data>
+    </edge>
+    <edge source="Porter Service" target="1 - Kerbside / Check-in / Baggage Claim support" id="available_in_zone">
+      <data key="d4">available_in_zone</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="Porter Service" target="2 - Kerbside / Check-in / Baggage Claim support" id="available_in_zone">
+      <data key="d4">available_in_zone</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="Porter Service" target="https://www.bengaluruairport.com/cbb-services-listing" id="has_reference">
+      <data key="d4">has_reference</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="Porter Service" target="https://www.bengaluruairport.com/care-by-blr/porter" id="has_reference">
+      <data key="d4">has_reference</data>
+      <data key="d5">2</data>
+    </edge>
+    <edge source="EZPass by BLR" target="1 - Zone D" id="available_in_zone">
+      <data key="d4">available_in_zone</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="EZPass by BLR" target="https://www.bengaluruairport.com/travellers/terms-of-use" id="has_reference">
+      <data key="d4">has_reference</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="PreSecure Lane - EZPass by BLR" target="1 - Zone D security checkpoint, Level 0" id="available_in_zone">
+      <data key="d4">available_in_zone</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="PreSecure Lane - EZPass by BLR" target="https://www.bengaluruairport.com/ezpass" id="has_reference">
+      <data key="d4">has_reference</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="PreSecure Lane - EZPass by BLR" target="1" id="located_in">
+      <data key="d4">located_in</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="IX2718" target="Air India Express" id="operated_by">
+      <data key="d4">operated_by</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="Vayu Vajra Airport Bus" target="https://www.bengaluruairport.com/travellers/transport-parking/airport-VayuVajra" id="has_reference">
+      <data key="d4">has_reference</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="Taj Bangalore" target="1" id="located_in">
+      <data key="d4">located_in</data>
+      <data key="d5">2</data>
+    </edge>
+    <edge source="Virgin Atlantic Airways" target="2" id="operates_from">
+      <data key="d4">operates_from</data>
+      <data key="d5">2</data>
+    </edge>
+    <edge source="VS316" target="Virgin Atlantic Airways" id="operated_by">
+      <data key="d4">operated_by</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="AI132" target="Air India" id="operated_by">
+      <data key="d4">operated_by</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="6E941" target="IndiGo" id="operated_by">
+      <data key="d4">operated_by</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="Flynas" target="2" id="operates_from">
+      <data key="d4">operates_from</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="XY9100" target="Flynas" id="operated_by">
+      <data key="d4">operated_by</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="XY9134" target="Flynas" id="operated_by">
+      <data key="d4">operated_by</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="EK569" target="Emirates" id="operated_by">
+      <data key="d4">operated_by</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="6E1485" target="IndiGo" id="operated_by">
+      <data key="d4">operated_by</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="IX923" target="Air India Express" id="operated_by">
+      <data key="d4">operated_by</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="IX920" target="Air India Express" id="operated_by">
+      <data key="d4">operated_by</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="LH755" target="Lufthansa" id="operated_by">
+      <data key="d4">operated_by</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="Fly91" target="1" id="operates_from">
+      <data key="d4">operates_from</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="IC5302" target="Fly91" id="operated_by">
+      <data key="d4">operated_by</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="IC3412" target="Fly91" id="operated_by">
+      <data key="d4">operated_by</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="6E817" target="IndiGo" id="operated_by">
+      <data key="d4">operated_by</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="IX1379" target="Air India Express" id="operated_by">
+      <data key="d4">operated_by</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="6E6864" target="IndiGo" id="operated_by">
+      <data key="d4">operated_by</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="6E909" target="IndiGo" id="operated_by">
+      <data key="d4">operated_by</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="6E6432" target="IndiGo" id="operated_by">
+      <data key="d4">operated_by</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="IX2097" target="Air India Express" id="operated_by">
+      <data key="d4">operated_by</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="IX2793" target="Air India Express" id="operated_by">
+      <data key="d4">operated_by</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="IX1543" target="Air India Express" id="operated_by">
+      <data key="d4">operated_by</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="6E6891" target="IndiGo" id="operated_by">
+      <data key="d4">operated_by</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="6E6003" target="IndiGo" id="operated_by">
+      <data key="d4">operated_by</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="6E6863" target="IndiGo" id="operated_by">
+      <data key="d4">operated_by</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="IX1373" target="Air India Express" id="operated_by">
+      <data key="d4">operated_by</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="IX5060" target="Air India Express" id="operated_by">
+      <data key="d4">operated_by</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="SG369" target="SpiceJet" id="operated_by">
+      <data key="d4">operated_by</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="Parking - T1" target="1" id="located_in">
+      <data key="d4">located_in</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="P3 T1 Car Parking" target="1" id="located_in">
+      <data key="d4">located_in</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="P4 T1 Car Parking" target="1" id="located_in">
+      <data key="d4">located_in</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="T1 Kerbside Arrival Pick-up 4W" target="1" id="located_in">
+      <data key="d4">located_in</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="T1 Electric Car Parking" target="1" id="located_in">
+      <data key="d4">located_in</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="P2 T2 Car Parking" target="2" id="located_in">
+      <data key="d4">located_in</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="T2 Kerbside Arrival Pick-up 4W" target="2" id="located_in">
+      <data key="d4">located_in</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="T2 Electric Car Parking" target="2" id="located_in">
+      <data key="d4">located_in</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="Dewar’s Double Double 26 Year Old Travel Exclusive" target="2" id="located_in">
+      <data key="d4">located_in</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="Dewar’s 12 Years" target="2" id="located_in">
+      <data key="d4">located_in</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="Dewar’s White Label" target="2" id="located_in">
+      <data key="d4">located_in</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="12 Year Old Twin Pack" target="2" id="located_in">
+      <data key="d4">located_in</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="080 Domestic Lounge" target="1" id="located_in">
+      <data key="d4">located_in</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="080 Domestic Lounge" target="2" id="located_in">
+      <data key="d4">located_in</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="Care by BLR – Lounge, Terminal 1" target="1" id="located_in">
+      <data key="d4">located_in</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="080 International Lounge" target="2" id="located_in">
+      <data key="d4">located_in</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="080 Arrival Lounge" target="2" id="located_in">
+      <data key="d4">located_in</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="Care By BLR Valet Parking" target="1" id="located_in">
+      <data key="d4">located_in</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="Care By BLR Valet Parking" target="2" id="located_in">
+      <data key="d4">located_in</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="Your Assured Cab" target="1" id="located_in">
+      <data key="d4">located_in</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="Your Assured Cab" target="2" id="located_in">
+      <data key="d4">located_in</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="Apollo Pharmacy" target="1" id="located_in">
+      <data key="d4">located_in</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="Apollo Pharmacy" target="2" id="located_in">
+      <data key="d4">located_in</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="BLR Airport Medical Centre - Manipal Clinic" target="1" id="located_in">
+      <data key="d4">located_in</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="BLR Airport Medical Centre - Apollo Clinic" target="2" id="located_in">
+      <data key="d4">located_in</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="BIAL Careers" target="1" id="located_in">
+      <data key="d4">located_in</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="BIAL Careers" target="2" id="located_in">
+      <data key="d4">located_in</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="Chai Point" target="1" id="located_in">
+      <data key="d4">located_in</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="Chaayos" target="2" id="located_in">
+      <data key="d4">located_in</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="KFC-G28" target="1" id="located_in">
+      <data key="d4">located_in</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="KFC T2" target="2" id="located_in">
+      <data key="d4">located_in</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="The Mithai Box" target="2" id="located_in">
+      <data key="d4">located_in</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="Anand" target="2" id="located_in">
+      <data key="d4">located_in</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="Bhartiya Jalpan" target="2" id="located_in">
+      <data key="d4">located_in</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="6E172" target="IndiGo" id="operated_by">
+      <data key="d4">operated_by</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="6E6801" target="IndiGo" id="operated_by">
+      <data key="d4">operated_by</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="AI2632" target="Air India" id="operated_by">
+      <data key="d4">operated_by</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="VS346" target="Virgin Atlantic Airways" id="operated_by">
+      <data key="d4">operated_by</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="ET3432" target="Ethiopian Airlines" id="operated_by">
+      <data key="d4">operated_by</data>
+      <data key="d5">1</data>
+    </edge>
+    <edge source="Ethiopian Airlines" target="1" id="operates_from">
+      <data key="d4">operates_from</data>
+      <data key="d5">1</data>
+    </edge>
+  </graph>
+</graphml>

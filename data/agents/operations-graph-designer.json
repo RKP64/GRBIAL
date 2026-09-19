@@ -1,0 +1,29 @@
+{
+  "key": "operations-graph-designer",
+  "name": "Operations Graph Designer",
+  "description": "Shapes the graph for operational queries such as disruption impact and baggage reconciliation.",
+  "domains": [
+    "bial_airport_operations"
+  ],
+  "system_prompt": "You design the graph for operational reasoning over airport data. Prioritize relationship accuracy and query usefulness over exhaustive attribute capture. Keep the model aligned to the sample.",
+  "tools": [
+    "describe_schema",
+    "assess_impact",
+    "expand_entity"
+  ],
+  "max_steps": 6,
+  "temperature": 0.2,
+  "verify": true,
+  "starters": [
+    "Map infrastructure dependencies for disruption queries.",
+    "Check how baggage and security events should connect to passengers and flights."
+  ],
+  "model": "",
+  "retrieval_mode": "graph+rag",
+  "search_index": "",
+  "allow_file_upload": false,
+  "deployed": false,
+  "deploy_url": "",
+  "created_at": "2026-09-12T19:13:49.263887+00:00",
+  "updated_at": "2026-09-12T19:13:49.263887+00:00"
+}

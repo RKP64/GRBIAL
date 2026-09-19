@@ -16,16 +16,38 @@ def _cloud_store() -> GraphStore:
     )
 
 
+def _neo4j_store() -> GraphStore:
+    s = get_settings()
+    from .neo4j_store import Neo4jStore
+
+    return Neo4jStore(s.neo4j_uri, s.neo4j_user, s.neo4j_password, s.neo4j_database)
+
+
+def _remote_store() -> GraphStore:
+    """The non-local backend for this deployment.
+
+    Neo4j wins when it is configured, because a deployment that has set a
+    Neo4j URI has chosen it deliberately; Cosmos Gremlin remains the fallback
+    so existing deployments keep working with no configuration change.
+    """
+    s = get_settings()
+    if s.neo4j_uri:
+        return _neo4j_store()
+    return _cloud_store()
+
+
 @lru_cache
 def get_store() -> GraphStore:
     """Select the storage mode.
 
     local — file-backed graph on this host; portable and dependency-free.
-    cloud — the shared managed graph service.
-    dual  — write to both; read locally for speed, mirror to the shared graph.
+    cloud — the shared managed graph service (Cosmos DB Gremlin).
+    neo4j — Neo4j over Bolt; a virtual machine inside the VNet in production,
+            or AuraDB for development and demonstration.
+    dual  — write to both; read locally for speed, mirror to the remote graph.
 
-    If cloud is requested but unreachable, the platform falls back to local
-    rather than refusing to start, and says so on the status endpoint.
+    If a remote graph is requested but unreachable, the platform falls back to
+    local rather than refusing to start, and says so on the status endpoint.
     """
     s = get_settings()
     local = NetworkXStore(s.data_dir)
@@ -33,17 +55,25 @@ def get_store() -> GraphStore:
 
     if mode == "local":
         return local
+
     try:
-        cloud = _cloud_store()
+        if mode == "neo4j":
+            remote = _neo4j_store()
+        elif mode == "cloud":
+            remote = _cloud_store()
+        else:
+            remote = _remote_store()
     except Exception as exc:
         import logging
 
         logging.getLogger(__name__).warning(
-            "Cloud graph unavailable (%s); using local storage.", exc
+            "Remote graph unavailable (%s); using local storage.", exc
         )
         return local
-    if mode == "cloud":
-        return cloud
+
+    if mode in {"cloud", "neo4j"}:
+        return remote
+
     from .composite import CompositeStore
 
-    return CompositeStore(local, cloud)
+    return CompositeStore(local, remote)

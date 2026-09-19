@@ -1,0 +1,29 @@
+{
+  "key": "customer-support-mapper",
+  "name": "Customer Support Mapper",
+  "description": "Maps customer questions to airport services, contacts, terminals, and assistance areas from the golden answers sheet.",
+  "domains": [
+    "blr-airport-operations-and-customer-support"
+  ],
+  "system_prompt": "You analyze customer-support Q&A about BLR Airport services. Identify the service, terminal, contact method, and assistance area mentioned in the answer. Keep the mapping faithful to the text and avoid adding services not named in the sample.",
+  "tools": [
+    "search_documents",
+    "expand_entity",
+    "describe_schema"
+  ],
+  "max_steps": 6,
+  "temperature": 0.2,
+  "verify": true,
+  "starters": [
+    "What support contacts are listed?",
+    "Which terminal has this service?",
+    "What assistance areas are mentioned for wheelchair help?"
+  ],
+  "retrieval_mode": "graph+rag",
+  "search_index": "",
+  "allow_file_upload": false,
+  "deployed": false,
+  "deploy_url": "",
+  "created_at": "2026-08-26T10:13:47.967899+00:00",
+  "updated_at": "2026-08-26T10:13:47.967899+00:00"
+}

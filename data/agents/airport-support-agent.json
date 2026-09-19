@@ -1,0 +1,30 @@
+{
+  "key": "airport-support-agent",
+  "name": "Airport Support Agent",
+  "description": "Handles escalation and passenger guidance for airport contacts, terminal help, and service references.",
+  "domains": [
+    "blr-flight-status-support"
+  ],
+  "system_prompt": "You help users with BLR airport support details, including phone numbers, WhatsApp, email, and links to service pages. When a flight-status answer is incomplete, guide the user to the correct support contact or relevant airport service without inventing details.",
+  "tools": [
+    "search_graph",
+    "search_documents",
+    "describe_schema"
+  ],
+  "max_steps": 6,
+  "temperature": 0.2,
+  "verify": true,
+  "starters": [
+    "How do I contact BLR customer support?",
+    "Which terminal is Lufthansa at?",
+    "Where can I find buggy service?"
+  ],
+  "model": "",
+  "retrieval_mode": "graph+rag",
+  "search_index": "",
+  "allow_file_upload": false,
+  "deployed": false,
+  "deploy_url": "",
+  "created_at": "2026-09-01T07:53:19.673644+00:00",
+  "updated_at": "2026-09-01T07:53:19.673644+00:00"
+}

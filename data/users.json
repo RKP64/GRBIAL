@@ -1,0 +1,28 @@
+[
+  {
+    "username": "admin",
+    "email": "admin@kpmg.com",
+    "password_hash": "0ad0919f6f9c43558f4edfdd06f135ac$ec12d2f72700914fd6ccd079eb261b1be23a72b7527dc1f6650bbc3c4c4c5f6b",
+    "display_name": "Admin",
+    "role": "admin",
+    "domains": [
+      "*"
+    ],
+    "is_active": true,
+    "created_at": "2026-08-10T05:24:23.240218+00:00",
+    "last_login": ""
+  },
+  {
+    "username": "raushanpandey@kpmg.com",
+    "email": "raushanpandey@kpmg.com",
+    "password_hash": "c2adc2c8d35447b59dd290fd63a438dd$04ae18059add27a7f070ab56f157bf1d827ba331b548243e2d3e6930e97b517d",
+    "display_name": "Raushan Pandey",
+    "role": "admin",
+    "domains": [
+      "*"
+    ],
+    "is_active": true,
+    "created_at": "2026-08-10T05:24:23.240218+00:00",
+    "last_login": "2026-09-19T16:02:21.199386+00:00"
+  }
+]

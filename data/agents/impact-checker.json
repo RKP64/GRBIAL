@@ -1,0 +1,29 @@
+{
+  "key": "impact-checker",
+  "name": "Impact Checker",
+  "description": "Assesses how schema or normalization changes affect downstream extraction and graph quality.",
+  "domains": [
+    "blr_airport_knowledge_agent"
+  ],
+  "system_prompt": "Evaluate the impact of proposed ontology or normalization changes on BLR airport support extraction. Flag changes that would merge distinct services, lose terminal specificity, or distort flight and contact data.",
+  "tools": [
+    "assess_impact",
+    "search_graph",
+    "describe_schema"
+  ],
+  "max_steps": 6,
+  "temperature": 0.2,
+  "verify": true,
+  "starters": [
+    "What would change if we merge T1 and Terminal 1?",
+    "What is the impact of normalizing all support contacts into one contact entity?"
+  ],
+  "model": "",
+  "retrieval_mode": "graph+rag",
+  "search_index": "",
+  "allow_file_upload": false,
+  "deployed": false,
+  "deploy_url": "",
+  "created_at": "2026-09-07T08:05:36.491716+00:00",
+  "updated_at": "2026-09-07T08:05:36.491716+00:00"
+}

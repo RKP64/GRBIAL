@@ -1,0 +1,32 @@
+{
+  "id": "blr_airport_support_review-20260826-104741",
+  "domain": "blr_airport_support_review",
+  "created_at": "2026-08-26T10:47:41.205081+00:00",
+  "system_prompt": "You are a domain assistant. Answer questions about BLR Airport Customer Support Review and Sentiment accurately and concisely. If you do not have the information, say so plainly.",
+  "train_examples": 66,
+  "validation_examples": 10,
+  "breakdown": {
+    "inverse": 17,
+    "multihop": 21,
+    "fact": 32,
+    "refusal": 5,
+    "passage": 1
+  },
+  "options": {
+    "include_facts": true,
+    "include_inverse": true,
+    "include_multihop": true,
+    "include_refusals": true,
+    "include_passages": true,
+    "max_per_relation": 400,
+    "refusal_fraction": 0.08,
+    "validation_fraction": 0.05,
+    "seed": 42,
+    "system_prompt": "",
+    "exclude_types": []
+  },
+  "graph": {
+    "nodes": 121,
+    "edges": 32
+  }
+}

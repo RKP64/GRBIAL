@@ -1,0 +1,30 @@
+{
+  "key": "special-assistance-agent",
+  "name": "Special Assistance Agent",
+  "description": "Guides passengers needing wheelchair, mobility, buggy, or porter assistance through terminal-specific options.",
+  "domains": [
+    "blr-flight-status-support"
+  ],
+  "system_prompt": "You help passengers find special-assistance and mobility services at BLR, including wheelchair assistance, mobility assist, buggy service, and porter service. Use terminal-specific locations and references from the graph, and ask clarifying questions when the terminal is not known.",
+  "tools": [
+    "search_graph",
+    "expand_entity",
+    "search_documents"
+  ],
+  "max_steps": 6,
+  "temperature": 0.2,
+  "verify": true,
+  "starters": [
+    "I need wheelchair assistance.",
+    "Is buggy service available in T2?",
+    "Where is porter service located?"
+  ],
+  "model": "",
+  "retrieval_mode": "graph+rag",
+  "search_index": "",
+  "allow_file_upload": false,
+  "deployed": false,
+  "deploy_url": "",
+  "created_at": "2026-09-01T07:53:19.818222+00:00",
+  "updated_at": "2026-09-01T07:53:19.818222+00:00"
+}

@@ -57,6 +57,20 @@ class Settings(BaseSettings):
     bedrock_training_role_arn: str = ""
     bedrock_training_s3_uri: str = ""
     groq_api_key: str = ""
+    # Together AI — open-weight fine-tuning, weights are retrievable.
+    # US-hosted, so training data leaves India: pilots and synthetic data only.
+    together_api_key: str = ""
+    # Written as "Label|model-id" so the console shows the label only.
+    together_base_models: str = (
+        "Compact 8B|meta-llama/Meta-Llama-3.1-8B-Instruct-Reference,"
+        "Standard 14B|Qwen/Qwen2.5-14B-Instruct,"
+        "Code 32B|Qwen/Qwen2.5-Coder-32B-Instruct")
+    # Yotta Shakti Studio — Indian jurisdiction, Tier IV Mumbai / Greater Noida.
+    # Base URL is configurable because the tenant surface is not fixed.
+    shakti_api_key: str = ""
+    shakti_base_url: str = ""
+    shakti_base_models: str = ("Compact 8B|meta-llama/Llama-3.1-8B-Instruct,"
+                               "Standard 14B|Qwen/Qwen2.5-14B-Instruct")
     # Training on hardware you control
     training_worker_url: str = ""
     training_worker_token: str = ""
@@ -77,12 +91,39 @@ class Settings(BaseSettings):
     chunk_overlap: int = 200
 
     # Storage
-    graph_backend: str = "local"      # local | cloud | dual
+    graph_backend: str = "local"      # local | cloud | neo4j | dual
     data_dir: Path = Path("./data")
+
+    # Sign-in. Set JWT_SECRET in any deployment where sessions must survive a
+    # restart or span more than one replica.
+    jwt_secret: str = ""
+
+    # Entity resolution. Off by default: it adds a pass over every extracted
+    # node, and on a domain with clean identifiers it earns nothing.
+    resolve_entities: bool = False
+    # Whether the narrow ambiguous band is put to a model. With this off those
+    # pairs go straight to the review queue instead.
+    resolve_adjudicate: bool = True
+
+    # Users and audit go to MongoDB when this is set, files when it is not.
+    mongo_connection_string: str = ""
+    mongo_database: str = "KGPlatform"
+    mongo_users_collection: str = "Users"
+    mongo_audit_collection: str = "AuditLog"
     cosmos_gremlin_endpoint: str = ""
     cosmos_key: str = ""
     cosmos_database: str = "GraphDatabase"
     cosmos_collection: str = "KnowledgeGraph"
+
+    # Neo4j. The same settings serve both deployment options — only the URI
+    # differs. bolt://host:7687 for Neo4j on a virtual machine inside the
+    # VNet (the production shape, since graph data never leaves the tenant),
+    # neo4j+s://<id>.databases.neo4j.io for AuraDB (development and demo
+    # only, as the data sits outside the tenant).
+    neo4j_uri: str = ""
+    neo4j_user: str = "neo4j"
+    neo4j_password: str = ""
+    neo4j_database: str = "neo4j"
 
     # Retrieval
     retriever: str = "keyword"

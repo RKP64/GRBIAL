@@ -185,16 +185,34 @@ def get_store() -> AccessStore:
 
 
 # ------------------------------------------------------------------ dependency
-async def current_principal(x_api_key: str | None = Header(default=None)) -> Principal:
-    """Resolve the caller.
+async def current_principal(
+    x_api_key: str | None = Header(default=None),
+    authorization: str | None = Header(default=None),
+) -> Principal:
+    """Resolve the caller from a signed-in session or an API key.
+
+    Both are accepted so that people signing in and integrations built against
+    the keys work against the same routes. Every endpoint depends on this, so
+    adding sign-in here covers the whole surface rather than a subset.
 
     Keys listed in configuration are treated as administrators, so a deployment
     works before anyone has been added and cannot lock itself out by deleting
     the wrong record.
     """
+    if authorization and authorization.startswith("Bearer "):
+        # Imported here: auth imports from this module, and a module-level
+        # import would be circular.
+        from .auth import principal_from_token
+        try:
+            return principal_from_token(authorization[7:])
+        except ValueError as exc:
+            raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED,
+                                detail=str(exc)) from exc
+
     if not x_api_key:
-        raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED,
-                            detail="Provide an X-API-Key header.")
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="Sign in, or provide an X-API-Key header.")
     settings = get_settings()
     if x_api_key in settings.api_key_set:
         return Principal(key=x_api_key, name="Configured key", role=Role.ADMIN,

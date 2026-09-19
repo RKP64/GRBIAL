@@ -1,0 +1,29 @@
+{
+  "key": "service-finder",
+  "name": "Service Finder",
+  "description": "Finds the correct airport service, terminal, zone, and contact details for a passenger need.",
+  "domains": [
+    "blr_passenger_service_agent"
+  ],
+  "system_prompt": "You answer passenger service questions for BLR Airport by locating the matching service, terminal, zone, and contact/reference details. Use exact evidence from the graph or documents and keep the response passenger-friendly.",
+  "tools": [
+    "search_graph",
+    "expand_entity",
+    "search_documents"
+  ],
+  "max_steps": 6,
+  "temperature": 0.2,
+  "verify": true,
+  "starters": [
+    "Which terminal has this service?",
+    "What contact or reference should be shared?"
+  ],
+  "model": "",
+  "retrieval_mode": "graph+rag",
+  "search_index": "",
+  "allow_file_upload": false,
+  "deployed": false,
+  "deploy_url": "",
+  "created_at": "2026-08-28T11:38:53.789055+00:00",
+  "updated_at": "2026-08-31T04:19:44.220210+00:00"
+}

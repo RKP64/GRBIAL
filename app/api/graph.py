@@ -105,3 +105,83 @@ async def export_json(domain: str) -> Response:
         media_type="application/json",
         headers={"Content-Disposition": f'attachment; filename="{domain}.json"'},
     )
+
+
+@router.get("/{domain}/impact", summary="What connects to an entity")
+async def impact_report(domain: str, entity: str, hops: int = 2,
+                        principal: Principal = Depends(current_principal)) -> dict:
+    """Reachability from one entity, grouped by distance.
+
+    Deliberately named impact rather than simulation: it reports what is
+    connected, not what would happen. The graph carries no numeric properties to
+    predict consequences from.
+    """
+    if not principal.may_read(domain):
+        raise HTTPException(status_code=403,
+                            detail=f"You do not have access to '{domain}'.")
+    from ..services.impact import impact
+    return await impact(domain, entity, hops=hops)
+
+
+# ------------------------------------------------------------------ resolution
+
+@router.get("/{domain}/resolution", summary="Entity merges awaiting a decision")
+async def pending_merges(domain: str,
+                         principal: Principal = Depends(current_principal)) -> list[dict]:
+    if not principal.may_read(domain):
+        raise HTTPException(status_code=403,
+                            detail=f"You do not have access to '{domain}'.")
+    from ..services.resolution import Resolver
+    return Resolver(domain).pending()
+
+
+@router.post("/{domain}/resolution/{merge_id}", summary="Accept or reject a merge",
+             dependencies=[Depends(editor)])
+async def decide_merge(domain: str, merge_id: str, accept: bool = True) -> dict:
+    """Apply a proposed merge, or dismiss it.
+
+    Accepting rewrites every edge on the incoming node onto the existing one and
+    removes the duplicate. There is no undo, which is why the ambiguous band
+    reaches a person rather than being decided automatically.
+    """
+    from ..services.resolution import Resolver
+
+    resolver = Resolver(domain)
+    match = next((r for r in resolver.pending() if r["id"] == merge_id), None)
+    if match is None:
+        raise HTTPException(status_code=404, detail="No such pending merge.")
+
+    if not accept:
+        resolver.dismiss(merge_id)
+        return {"merge_id": merge_id, "applied": False}
+
+    store = get_store()
+    graph = await store.export_json(domain)
+    incoming, existing = match["incoming"], match["existing"]
+    types = {n["id"]: n.get("type") for n in graph.get("nodes", [])}
+    if incoming not in types or existing not in types:
+        resolver.dismiss(merge_id)
+        raise HTTPException(status_code=409,
+                            detail="One of those entities is no longer in the graph.")
+
+    from ..ontology.models import EdgeIn, NodeIn
+    edges = []
+    for e in graph.get("edges", []):
+        source, target = e.get("source"), e.get("target")
+        relation = e.get("relation") or e.get("type") or ""
+        if incoming not in (source, target):
+            continue
+        edges.append(EdgeIn(
+            source=existing if source == incoming else source,
+            relation=relation,
+            target=existing if target == incoming else target))
+
+    await store.upsert(domain,
+                       [NodeIn(id=existing, type=types[existing] or "",
+                               metadata={"also_seen_as": incoming})],
+                       edges)
+    resolver.dismiss(merge_id)
+    return {"merge_id": merge_id, "applied": True,
+            "merged_into": existing, "edges_moved": len(edges),
+            "note": "The duplicate node remains until the domain is rebuilt; "
+                    "its relationships now also exist on the surviving entity."}

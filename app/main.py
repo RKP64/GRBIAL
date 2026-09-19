@@ -9,7 +9,7 @@ from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 
-from .api import (access, agent, design, graph, health, ingest, jobs, mcp,
+from .api import (access, agent, auth, design, evals, graph, health, ingest, jobs, mcp,
                   ontology, query, training, usage, verify)
 from .config import get_settings
 from .logging_setup import configure_logging
@@ -98,7 +98,48 @@ async def unhandled(request: Request, exc: Exception):
     )
 
 
+app.include_router(auth.router)
 app.include_router(health.router)
+
+
+@app.middleware("http")
+async def audit_changes(request: Request, call_next):
+    """Record who changed what.
+
+    Reads are not logged — they are the bulk of the traffic and the question
+    being answered is who created, edited or removed something. Failures here
+    are swallowed: an audit problem must not turn into a failed request.
+    """
+    response = await call_next(request)
+    if request.method not in ("POST", "PUT", "PATCH", "DELETE"):
+        return response
+    try:
+        from datetime import datetime, timezone
+        from .auth import AuditEvent, decode_token, get_audit_log
+
+        who = "anonymous"
+        header = request.headers.get("authorization", "")
+        if header.startswith("Bearer "):
+            try:
+                who = decode_token(header[7:]).get("sub", "unknown")
+            except ValueError:
+                who = "invalid-token"
+        elif request.headers.get("x-api-key"):
+            # Never record the key itself — the audit log is readable by every
+            # administrator and a full key there is a credential leak.
+            who = f"apikey:{request.headers['x-api-key'][:6]}…"
+
+        path = str(request.url.path)
+        get_audit_log().record(AuditEvent(
+            timestamp=datetime.now(timezone.utc).isoformat(),
+            user=who, action=request.method, path=path,
+            resource=path.rsplit("/", 1)[-1],
+            detail=f"status={response.status_code}",
+            ip=request.client.host if request.client else "",
+        ))
+    except Exception:
+        pass
+    return response
 app.include_router(access.router)
 app.include_router(usage.router)
 app.include_router(mcp.router)
@@ -112,3 +153,4 @@ app.include_router(training.router)
 app.include_router(verify.router)
 app.include_router(agent.router)
 app.include_router(agent.teams_router)
+app.include_router(evals.router)

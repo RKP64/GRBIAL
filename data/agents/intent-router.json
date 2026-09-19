@@ -1,0 +1,27 @@
+{
+  "key": "intent-router",
+  "name": "Intent Router",
+  "description": "Classifies the passenger message into a service, flight, terminal, or support intent and identifies the main entity to look up.",
+  "domains": [
+    "blr-passenger-sentiment-agent"
+  ],
+  "system_prompt": "You classify incoming passenger messages for BLR Airport. Determine the primary intent, identify the likely airport service, flight, terminal, or support channel involved, and keep the response grounded in the provided knowledge graph.",
+  "tools": [
+    "search_graph",
+    "describe_schema"
+  ],
+  "max_steps": 6,
+  "temperature": 0.2,
+  "verify": true,
+  "starters": [
+    "What is the passenger asking about?",
+    "Which service, flight, or terminal is mentioned?"
+  ],
+  "retrieval_mode": "graph+rag",
+  "search_index": "",
+  "allow_file_upload": false,
+  "deployed": false,
+  "deploy_url": "",
+  "created_at": "2026-08-28T11:38:53.543204+00:00",
+  "updated_at": "2026-08-28T11:38:53.543204+00:00"
+}

@@ -1,0 +1,345 @@
+{
+  "key": "direct-tax",
+  "name": "KPMG Direct Tax",
+  "description": "Indian direct tax knowledge graph \u2014 Income-tax Act 1961/2025, case law, CBDT circulars, rules, notifications, and KPMG firm positions. Covers statutory provisions, judicial interpretations, legal principles, and binding scope hierarchy.",
+  "entity_types": {
+    "Act": {
+      "id_rule": "",
+      "examples": [
+        "Income-tax Act, 1961",
+        "Income-tax Act, 2025"
+      ]
+    },
+    "Section": {
+      "id_rule": "",
+      "examples": [
+        "Section 2",
+        "Section 9",
+        "Section 45",
+        "Section 47",
+        "Section 56(2)(x)",
+        "Section 115BAA"
+      ]
+    },
+    "Definition": {
+      "id_rule": "",
+      "examples": [
+        "capital asset",
+        "transfer",
+        "amalgamation",
+        "demerger",
+        "income",
+        "person"
+      ]
+    },
+    "CaseLaw": {
+      "id_rule": "",
+      "examples": [
+        "CIT v. Grace Collis (2001)",
+        "Vodafone International Holdings BV v. UOI (2012)",
+        "Azadi Bachao Andolan (2003)"
+      ]
+    },
+    "Issue": {
+      "id_rule": "",
+      "examples": [
+        "Taxability of liquidation distribution to shareholders",
+        "Capital gains on transfer of shares in amalgamation",
+        "Applicability of GAAR provisions"
+      ]
+    },
+    "LegalPrinciple": {
+      "id_rule": "",
+      "examples": [
+        "Tax neutrality in corporate reorganization",
+        "Substance over form",
+        "Look through vs look at"
+      ]
+    },
+    "FirmPosition": {
+      "id_rule": "",
+      "examples": [
+        "DPP-Tax-2024-001",
+        "DPP-Tax-2024-002"
+      ]
+    },
+    "Domain": {
+      "id_rule": "",
+      "examples": [
+        "Corporate Reorganization",
+        "International Tax",
+        "Transfer Pricing",
+        "Capital Gains"
+      ]
+    },
+    "Concept": {
+      "id_rule": "",
+      "examples": [
+        "Tax Neutrality",
+        "Avoidance vs Evasion",
+        "Permanent Establishment"
+      ]
+    },
+    "Circular": {
+      "id_rule": "",
+      "examples": [
+        "Circular 495/2007",
+        "Circular 4/2015",
+        "Circular 17/2020"
+      ]
+    },
+    "Notification": {
+      "id_rule": "",
+      "examples": [
+        "Notification 94/2023",
+        "Notification SO 3912(E)"
+      ]
+    },
+    "Rule": {
+      "id_rule": "",
+      "examples": [
+        "Rule 11UA",
+        "Rule 8D",
+        "Rule 10B",
+        "Rule 114F"
+      ]
+    },
+    "FinanceAct": {
+      "id_rule": "",
+      "examples": [
+        "Finance Act 2023",
+        "Finance Act 2024",
+        "Finance (No.2) Act 2024"
+      ]
+    },
+    "Court": {
+      "id_rule": "",
+      "examples": [
+        "Supreme Court of India",
+        "Bombay High Court",
+        "Delhi High Court",
+        "ITAT Mumbai"
+      ]
+    },
+    "TreatyArticle": {
+      "id_rule": "",
+      "examples": [
+        "India-Mauritius DTAA Article 13",
+        "India-Singapore DTAA Article 7"
+      ]
+    },
+    "Jurisdiction": {
+      "id_rule": "",
+      "examples": [
+        "India",
+        "Mauritius",
+        "Singapore",
+        "UAE"
+      ]
+    },
+    "TaxpayerType": {
+      "id_rule": "",
+      "examples": [
+        "Non-resident",
+        "Domestic company",
+        "Foreign company",
+        "Individual HUF"
+      ]
+    },
+    "TransactionType": {
+      "id_rule": "",
+      "examples": [
+        "Amalgamation",
+        "Demerger",
+        "Slump sale",
+        "Liquidation",
+        "Share buyback"
+      ]
+    },
+    "ExternalProvision": {
+      "id_rule": "",
+      "examples": [
+        "Companies Act 2013 Section 233",
+        "SEBI LODR Regulation 37",
+        "FEMA Section 6"
+      ]
+    }
+  },
+  "allowed_triples": [
+    {
+      "source": "Section",
+      "relation": "part_of",
+      "target": "Act"
+    },
+    {
+      "source": "Definition",
+      "relation": "defined_in",
+      "target": "Section"
+    },
+    {
+      "source": "Section",
+      "relation": "defines",
+      "target": "Definition"
+    },
+    {
+      "source": "Section",
+      "relation": "refers_to",
+      "target": "Section"
+    },
+    {
+      "source": "Section",
+      "relation": "corresponds_to",
+      "target": "Section"
+    },
+    {
+      "source": "CaseLaw",
+      "relation": "interprets",
+      "target": "Section"
+    },
+    {
+      "source": "CaseLaw",
+      "relation": "applies",
+      "target": "Section"
+    },
+    {
+      "source": "CaseLaw",
+      "relation": "refers_to_section",
+      "target": "Section"
+    },
+    {
+      "source": "CaseLaw",
+      "relation": "decides_issue",
+      "target": "Issue"
+    },
+    {
+      "source": "CaseLaw",
+      "relation": "establishes",
+      "target": "LegalPrinciple"
+    },
+    {
+      "source": "CaseLaw",
+      "relation": "follows",
+      "target": "CaseLaw"
+    },
+    {
+      "source": "CaseLaw",
+      "relation": "distinguishes",
+      "target": "CaseLaw"
+    },
+    {
+      "source": "CaseLaw",
+      "relation": "refers_to_case",
+      "target": "CaseLaw"
+    },
+    {
+      "source": "CaseLaw",
+      "relation": "decided_by",
+      "target": "Court"
+    },
+    {
+      "source": "Section",
+      "relation": "addresses_issue",
+      "target": "Issue"
+    },
+    {
+      "source": "FirmPosition",
+      "relation": "addresses_issue",
+      "target": "Issue"
+    },
+    {
+      "source": "Issue",
+      "relation": "belongs_to_domain",
+      "target": "Domain"
+    },
+    {
+      "source": "Section",
+      "relation": "instantiates_concept",
+      "target": "Concept"
+    },
+    {
+      "source": "CaseLaw",
+      "relation": "instantiates_concept",
+      "target": "Concept"
+    },
+    {
+      "source": "FirmPosition",
+      "relation": "cites",
+      "target": "CaseLaw"
+    },
+    {
+      "source": "FirmPosition",
+      "relation": "cites",
+      "target": "Section"
+    },
+    {
+      "source": "FirmPosition",
+      "relation": "supersedes",
+      "target": "FirmPosition"
+    },
+    {
+      "source": "Circular",
+      "relation": "clarifies",
+      "target": "Section"
+    },
+    {
+      "source": "Circular",
+      "relation": "issued_under",
+      "target": "Section"
+    },
+    {
+      "source": "Notification",
+      "relation": "supersedes",
+      "target": "Notification"
+    },
+    {
+      "source": "FinanceAct",
+      "relation": "amends",
+      "target": "Section"
+    },
+    {
+      "source": "Rule",
+      "relation": "implements",
+      "target": "Section"
+    },
+    {
+      "source": "TreatyArticle",
+      "relation": "overrides",
+      "target": "Section"
+    },
+    {
+      "source": "Section",
+      "relation": "applies_to",
+      "target": "Jurisdiction"
+    },
+    {
+      "source": "Section",
+      "relation": "applies_to",
+      "target": "TaxpayerType"
+    },
+    {
+      "source": "Section",
+      "relation": "applies_to",
+      "target": "TransactionType"
+    },
+    {
+      "source": "Section",
+      "relation": "references",
+      "target": "ExternalProvision"
+    },
+    {
+      "source": "CaseLaw",
+      "relation": "refers_to_statute",
+      "target": "ExternalProvision"
+    }
+  ],
+  "normalization_rules": [
+    "Normalize section numbers: '2(14)' \u2192 'Section 2(14)'",
+    "Normalize case citations: strip extra whitespace, standardize court abbreviations",
+    "Normalize act references: 'IT Act' \u2192 'Income-tax Act, 1961'"
+  ],
+  "id_transforms": [],
+  "strip_type_prefixes": true,
+  "collapse_whitespace": true,
+  "open_relations": false,
+  "custom_prompt": ""
+}

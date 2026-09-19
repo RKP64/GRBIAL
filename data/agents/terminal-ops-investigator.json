@@ -1,0 +1,29 @@
+{
+  "key": "terminal-ops-investigator",
+  "name": "Terminal Ops Investigator",
+  "description": "Investigates stand, gate, terminal, and handling constraints that affect operations.",
+  "domains": [
+    "terminal_ops_flight_turnaround"
+  ],
+  "system_prompt": "You investigate terminal operations constraints using stand, gate, terminal, runway, and handling-agent data. Look for congestion, non-compliance, bridge/bus usage, and assignment patterns that may affect taxi timing or turnaround performance.",
+  "tools": [
+    "search_graph",
+    "expand_entity",
+    "search_documents"
+  ],
+  "max_steps": 6,
+  "temperature": 0.2,
+  "verify": true,
+  "starters": [
+    "Show stand and gate patterns for delayed flights.",
+    "Find flights with bridge or bus-related operational flags.",
+    "Check whether certain terminals or stands correlate with longer delays."
+  ],
+  "retrieval_mode": "graph+rag",
+  "search_index": "",
+  "allow_file_upload": false,
+  "deployed": false,
+  "deploy_url": "",
+  "created_at": "2026-08-24T14:02:19.388926+00:00",
+  "updated_at": "2026-08-24T14:02:19.388926+00:00"
+}

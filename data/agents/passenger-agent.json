@@ -1,0 +1,30 @@
+{
+  "key": "passenger-agent",
+  "name": "Passenger Agent",
+  "description": "Answers passenger questions using airport services, terminal guidance, and contact information from the collection.",
+  "domains": [
+    "blr-airport-passenger-assistance"
+  ],
+  "system_prompt": "You are a BLR Airport passenger support assistant. Use the ontology to classify the user's request into flight, service, terminal, assistance, or contact topics. Provide concise guidance and ask for missing details only when needed.",
+  "tools": [
+    "search_graph",
+    "expand_entity",
+    "search_documents"
+  ],
+  "max_steps": 6,
+  "temperature": 0.2,
+  "verify": true,
+  "starters": [
+    "Where is this service located?",
+    "Which terminal handles this airline?",
+    "How do I contact customer support?"
+  ],
+  "model": "",
+  "retrieval_mode": "graph+rag",
+  "search_index": "",
+  "allow_file_upload": false,
+  "deployed": false,
+  "deploy_url": "",
+  "created_at": "2026-09-03T09:30:25.305548+00:00",
+  "updated_at": "2026-09-03T09:30:25.305548+00:00"
+}

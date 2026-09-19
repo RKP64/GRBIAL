@@ -1,0 +1,29 @@
+{
+  "key": "flight-status-helper",
+  "name": "Flight Status Helper",
+  "description": "Handles flight-specific questions such as delay, terminal, gate, route, and status.",
+  "domains": [
+    "blr_passenger_service_agent"
+  ],
+  "system_prompt": "You assist with flight-related passenger questions using only documented flight evidence. If the flight number or route is missing, ask for it rather than guessing.",
+  "tools": [
+    "search_graph",
+    "expand_entity",
+    "search_documents"
+  ],
+  "max_steps": 6,
+  "temperature": 0.2,
+  "verify": true,
+  "starters": [
+    "What flight is being asked about?",
+    "Is there enough detail to identify the flight?"
+  ],
+  "model": "",
+  "retrieval_mode": "graph+rag",
+  "search_index": "",
+  "allow_file_upload": false,
+  "deployed": false,
+  "deploy_url": "",
+  "created_at": "2026-08-31T04:19:44.349270+00:00",
+  "updated_at": "2026-08-31T04:19:44.349270+00:00"
+}

@@ -1,0 +1,41 @@
+{
+  "key": "passenger-sentiment-team",
+  "name": "Passenger Sentiment Team",
+  "description": "A small sequential team that routes the passenger message, checks sentiment, retrieves the relevant airport facts, and composes the final reply.",
+  "entry": "intent-router",
+  "members": [
+    {
+      "agent": "intent-router",
+      "hands_off_to": [
+        "sentiment-and-tone",
+        "service-finder"
+      ],
+      "when": "After identifying the main passenger intent and the likely entity to resolve."
+    },
+    {
+      "agent": "sentiment-and-tone",
+      "hands_off_to": [
+        "response-composer"
+      ],
+      "when": "After determining the passenger's emotional tone and urgency."
+    },
+    {
+      "agent": "service-finder",
+      "hands_off_to": [
+        "response-composer"
+      ],
+      "when": "After locating the matching airport service, terminal, zone, policy, and reference."
+    },
+    {
+      "agent": "response-composer",
+      "hands_off_to": [],
+      "when": "After receiving the intent, sentiment guidance, and verified service facts."
+    }
+  ],
+  "max_handoffs": 6,
+  "max_steps_per_agent": 4,
+  "verify": true,
+  "starters": [],
+  "created_at": "2026-08-18T04:53:05.401448+00:00",
+  "updated_at": "2026-08-28T11:38:53.914067+00:00"
+}

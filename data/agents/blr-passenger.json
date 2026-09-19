@@ -1,0 +1,31 @@
+{
+  "key": "blr-passenger",
+  "name": "blr passenger",
+  "description": "pasenger",
+  "domains": [
+    "blr-flight-status-support",
+    "blr-airport-operations-and-customer-support",
+    "blr-passenger-sentiment-agent"
+  ],
+  "system_prompt": "you are a bial passenger agent",
+  "tools": [
+    "search_graph",
+    "expand_entity",
+    "search_documents",
+    "describe_schema",
+    "flightfeed__get_flight_status",
+    "flightfeed__find_flights_by_route"
+  ],
+  "max_steps": 6,
+  "temperature": 0.2,
+  "verify": true,
+  "starters": [],
+  "model": "",
+  "retrieval_mode": "graph+rag",
+  "search_index": "",
+  "allow_file_upload": false,
+  "deployed": false,
+  "deploy_url": "",
+  "created_at": "2026-09-01T08:29:19.989921+00:00",
+  "updated_at": "2026-09-01T08:29:19.989921+00:00"
+}

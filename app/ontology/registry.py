@@ -68,6 +68,11 @@ class IdTransform:
                 "case": self.case, "note": self.note}
 
 
+def _actions_to_spec(actions) -> list:
+    from .actions import as_spec
+    return as_spec(actions)
+
+
 class Ontology:
     """A closed schema for one domain.
 
@@ -97,6 +102,9 @@ class Ontology:
         # A non-empty custom prompt replaces the generated one verbatim.
         self.custom_prompt: str = (spec.get("custom_prompt") or "").strip()
         self.open_relations: bool = bool(spec.get("open_relations", False))
+        # What may be done in this domain, not just what exists in it.
+        from .actions import parse_actions
+        self.actions = parse_actions(spec.get("actions"))
         self._rebuild_prefix_re()
 
     def _rebuild_prefix_re(self) -> None:
@@ -119,6 +127,9 @@ class Ontology:
                 "rules_text": self.normalization_rules,
             },
             "custom_prompt": self.custom_prompt,
+            # Without this, every save through the console would silently drop
+            # the domain's declared actions.
+            "actions": _actions_to_spec(self.actions),
         }
 
     def summary(self) -> dict[str, Any]:

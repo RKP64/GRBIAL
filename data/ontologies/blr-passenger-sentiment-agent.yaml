@@ -1,0 +1,142 @@
+key: blr-passenger-sentiment-agent
+name: BLR Passenger Sentiment Agent
+description: A passenger-facing airport assistant for Bangalore International Airport
+  Limited (BLR) that handles travel queries, airport services, terminal guidance,
+  and support contacts, with responses that can be adapted based on passenger intent
+  and likely sentiment.
+entity_types:
+  passenger_query:
+    id_rule: Use the exact query text when available; otherwise a normalized intent
+      label.
+    examples:
+    - Delayed flight
+    - customer support
+    - Visitor pass
+  chatbot_response:
+    id_rule: Use the exact response text or a stable response identifier if one is
+      assigned externally.
+    examples:
+    - Namaskara from Bangalore International Airport Limited. Thank you for reaching
+      out.
+    - Namaskara from Bangalore International Airport Limited, I am still learning,
+      so please reach out to customer support...
+    - If you are travelling with your own electric wheelchair, please inform your
+      respective airline in advance...
+  airport_service:
+    id_rule: Use the service name as written in the sample.
+    examples:
+    - 080 Transit Hotel
+    - Porter Service
+    - EZPass by BLR
+  terminal:
+    id_rule: Use the terminal label as written, such as Terminal 1 or Terminal 2.
+    examples:
+    - Terminal 1
+    - Terminal 2
+    - T1
+  airline:
+    id_rule: Use the airline name as written in the sample.
+    examples:
+    - Lufthansa
+    - SpiceJet
+    - Air India Express
+  flight:
+    id_rule: Use the flight number as the identifier.
+    examples:
+    - SG205
+    - IX2718
+    - flight number
+  support_channel:
+    id_rule: Use the channel value as written, including phone number or email address.
+    examples:
+    - 080-66785555
+    - +91-8884998888
+    - feedback@bialairport.com
+  service_zone:
+    id_rule: Use the zone text as written, including terminal and area details.
+    examples:
+    - Terminal 1 - Zone D
+    - Terminal 2 - International Departures
+    - Terminal 1 - Kerbside / Check-in / Baggage Claim support
+  assistance_category:
+    id_rule: Use the category name as written in the sample.
+    examples:
+    - Wheelchair Assistance
+    - Mobility Assist
+    - Buggy Service
+  reference_link:
+    id_rule: Use the URL as the identifier.
+    examples:
+    - https://www.bengaluruairport.com/travellers/contact-us
+    - https://www.bengaluruairport.com/travellers/flights/airline-partners-information
+    - https://www.bengaluruairport.com/travellers/services/special-assistance/buggy-service
+  airport_policy:
+    id_rule: Use the policy phrase as written in the sample.
+    examples:
+    - Visitors are not allowed inside the terminal
+    - valid boarding pass and a valid QR code
+    - booking is available only after web check-in
+allowed_triples:
+- - airline
+  - operates_from
+  - terminal
+- - airport_service
+  - available_in
+  - service_zone
+- - airport_service
+  - available_in
+  - terminal
+- - airport_service
+  - described_by
+  - reference_link
+- - airport_service
+  - requires
+  - airport_policy
+- - assistance_category
+  - uses
+  - airport_service
+- - flight
+  - has_status
+  - airport_policy
+- - flight
+  - operates_from
+  - terminal
+- - passenger_query
+  - asks_about
+  - airport_service
+- - passenger_query
+  - asks_about
+  - flight
+- - passenger_query
+  - elicits
+  - chatbot_response
+- - support_channel
+  - supports
+  - passenger_query
+open_relations: false
+normalization:
+  strip_type_prefixes: true
+  collapse_whitespace: true
+  id_transforms:
+  - pattern: \s+
+    replace: ' '
+    case: lower
+    note: Normalize extra whitespace in queries, service names, and zone labels.
+  - pattern: ^\*\*(.+?)\*\*$
+    replace: $1
+    case: ''
+    note: Remove markdown bold markers from extracted labels.
+  - pattern: _x000D_
+    replace: ''
+    case: ''
+    note: Remove spreadsheet line-break artifacts.
+  rules_text:
+  - Preserve exact flight numbers, phone numbers, emails, and URLs as canonical identifiers.
+  - Treat Terminal 1, T1, and Terminal 1 references as the same terminal when the
+    context clearly matches.
+  - Keep service names distinct from service zones; a service may appear in multiple
+    terminals or zones.
+  - Model passenger sentiment as part of the query/response workflow rather than as
+    a standalone entity type, because the sample does not explicitly label sentiment
+    values.
+custom_prompt: ''

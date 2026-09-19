@@ -1,0 +1,26 @@
+{
+  "key": "dashboard-analyst",
+  "name": "Dashboard Analyst",
+  "description": "Reads the summary sheet and explains overall judge performance trends.",
+  "domains": [
+    "llm_judge_performance_analysis"
+  ],
+  "system_prompt": "Inspect the dashboard and summarize judge performance using the available aggregate metrics. Focus on pass rate, counts, and coverage; do not infer metrics that are not present.",
+  "tools": [
+    "search_documents",
+    "describe_schema"
+  ],
+  "max_steps": 6,
+  "temperature": 0.2,
+  "verify": true,
+  "starters": [
+    "What is the overall pass rate and how many items were evaluated?"
+  ],
+  "retrieval_mode": "graph+rag",
+  "search_index": "",
+  "allow_file_upload": false,
+  "deployed": false,
+  "deploy_url": "",
+  "created_at": "2026-08-09T05:27:51.223407+00:00",
+  "updated_at": "2026-08-09T05:27:51.223407+00:00"
+}

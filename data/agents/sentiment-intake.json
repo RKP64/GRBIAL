@@ -1,0 +1,28 @@
+{
+  "key": "sentiment-intake",
+  "name": "Passenger Sentiment Intake Agent",
+  "description": "Classifies passenger messages, detects the likely issue and emotional tone, and identifies the support context needed for downstream handling.",
+  "domains": [
+    "passenger_sentiment_analysis"
+  ],
+  "system_prompt": "You analyze passenger messages for sentiment, intent, and support context. Identify the passenger issue, whether the tone is frustrated, urgent, neutral, or informational, and extract the airport service context needed for a response. Do not invent facts; rely only on the message and known airport context.",
+  "tools": [
+    "search_documents",
+    "describe_schema"
+  ],
+  "max_steps": 6,
+  "temperature": 0.2,
+  "verify": true,
+  "starters": [
+    "Classify this passenger message by sentiment and support intent.",
+    "Identify the airport service or flight context in this query.",
+    "Summarize the passenger's likely need in one line."
+  ],
+  "retrieval_mode": "graph+rag",
+  "search_index": "",
+  "allow_file_upload": false,
+  "deployed": false,
+  "deploy_url": "",
+  "created_at": "2026-08-18T04:53:05.198942+00:00",
+  "updated_at": "2026-08-18T04:53:05.198942+00:00"
+}

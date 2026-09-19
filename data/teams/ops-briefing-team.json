@@ -1,0 +1,33 @@
+{
+  "key": "ops-briefing-team",
+  "name": "Operations Briefing Team",
+  "description": "A simple sequence that first extracts flight operations facts and then merges them with customer-support service information for an operations-manager view.",
+  "entry": "flight-ops-analyst",
+  "members": [
+    {
+      "agent": "flight-ops-analyst",
+      "hands_off_to": [
+        "operations-manager-briefing"
+      ],
+      "when": "After identifying flight delays, terminals, gates, and timing fields from the flight sheet."
+    },
+    {
+      "agent": "customer-support-mapper",
+      "hands_off_to": [
+        "operations-manager-briefing"
+      ],
+      "when": "After identifying support contacts, services, terminals, and assistance areas from the Q&A sheet."
+    },
+    {
+      "agent": "operations-manager-briefing",
+      "hands_off_to": [],
+      "when": "After receiving both operational flight facts and customer-support mappings."
+    }
+  ],
+  "max_handoffs": 6,
+  "max_steps_per_agent": 4,
+  "verify": true,
+  "starters": [],
+  "created_at": "2026-08-26T10:13:48.084280+00:00",
+  "updated_at": "2026-08-26T10:13:48.084280+00:00"
+}

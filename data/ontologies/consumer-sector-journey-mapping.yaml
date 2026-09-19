@@ -1,0 +1,134 @@
+key: consumer-sector-journey-mapping
+name: Consumer Sector Journey Mapping and Retail Ecosystems
+description: A lightweight ontology for consumer-sector transformation content covering
+  journey mapping guides, personas, pain points, business processes, and retail ecosystem
+  participants.
+entity_types:
+  document:
+    id_rule: Use the document title as the identifier; if needed, preserve the filename
+      stem.
+    examples:
+    - Velocity_Current State Journey Mapping Guide
+    - Velocity_Function_Value Stream Transformation_Customer Journey Pain Points Analysis
+      Guide
+    - From commerce to platform _ Reimagining retail as an intelligent ecosystem
+  guide:
+    id_rule: Use the guide title; no special code pattern is evident.
+    examples:
+    - Current State Journey Mapping Guide
+    - Customer Journey Pain Points Analysis Guide
+  article:
+    id_rule: Use the article title as the identifier.
+    examples:
+    - From commerce to platform _ Reimagining retail as an intelligent ecosystem
+  journey_mapping_method:
+    id_rule: Use the named method phrase from the document.
+    examples:
+    - Backstage Mapping
+    - Journey Mapping
+  process:
+    id_rule: Use the process name as stated in the source.
+    examples:
+    - underlying process
+    - business process
+  persona:
+    id_rule: Use the persona name if given; otherwise use the persona label from the
+      page.
+    examples:
+    - Oscar
+    - Persona on a Page
+  role:
+    id_rule: Use the role label as written in the document.
+    examples:
+    - internal claims and recoveries team
+    - senior stakeholders
+  pain_point:
+    id_rule: Use the pain point phrase as written.
+    examples:
+    - manual data entry
+    - emails are overlooked
+    - manual monitoring
+  need:
+    id_rule: Use the need phrase as written.
+    examples:
+    - Know and access all information relevant to a claim
+    - Have oversight of claim progress
+    - Report to senior stakeholders
+  customer_experience:
+    id_rule: Use the experience phrase as written.
+    examples:
+    - customer experience
+    - user experience
+  technology_system:
+    id_rule: Use the system or technology name as written.
+    examples:
+    - enterprise solutions
+    - systems and technology
+  ecosystem_participant:
+    id_rule: Use the participant label as written.
+    examples:
+    - consumers
+    - brands
+    - logistics providers
+  business_capability:
+    id_rule: Use the capability phrase as written.
+    examples:
+    - retail media
+    - digital advertising
+    - embedded financial services
+allowed_triples:
+- - document
+  - describes
+  - journey_mapping_method
+- - document
+  - describes
+  - need
+- - document
+  - describes
+  - pain_point
+- - document
+  - describes
+  - persona
+- - ecosystem_participant
+  - participates_in
+  - business_capability
+- - journey_mapping_method
+  - analyzes
+  - process
+- - persona
+  - has_need
+  - need
+- - persona
+  - has_pain_point
+  - pain_point
+- - process
+  - delivers
+  - customer_experience
+- - process
+  - supported_by
+  - technology_system
+open_relations: false
+normalization:
+  strip_type_prefixes: true
+  collapse_whitespace: true
+  id_transforms:
+  - pattern: \s+_\s+
+    replace: ' '
+    case: ''
+    note: Normalizes titles that use spaced underscores in filenames or article titles
+  - pattern: \s+
+    replace: ' '
+    case: ''
+    note: Collapses repeated whitespace in extracted titles and labels
+  rules_text:
+  - Treat guide titles and article titles as document identifiers unless a stronger
+    naming convention is present.
+  - Keep persona names distinct from roles; a named persona like Oscar is not the
+    same as the internal claims and recoveries team.
+  - Normalize pain points and needs as short phrases, preserving the original wording
+    where possible.
+  - Model retail ecosystem actors broadly as participants rather than forcing separate
+    types for each participant class.
+  - Do not infer additional journey stages, systems, or metrics beyond what is explicitly
+    stated in the sample.
+custom_prompt: ''

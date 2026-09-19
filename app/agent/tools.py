@@ -88,10 +88,40 @@ TOOL_SCHEMAS: list[dict[str, Any]] = [
         ),
         "input_schema": {"type": "object", "properties": {}},
     },
+    {
+        "name": "assess_impact",
+        "description": (
+            "List everything connected to an entity, grouped by how many steps "
+            "away it is. Use for questions about what a change touches, what "
+            "depends on something, or what would need checking. It reports "
+            "connections, not predicted consequences."
+        ),
+        "input_schema": {
+            "type": "object",
+            "properties": {
+                "entity": {"type": "string",
+                           "description": "The entity to assess."},
+                "hops": {"type": "integer",
+                         "description": "How far to look. 1-4, default 2."},
+            },
+            "required": ["entity"],
+        },
+    },
 ]
 
 
-async def available_tools(include_external: bool = True) -> list[dict[str, Any]]:
+def action_tools(domain: str) -> list[dict[str, Any]]:
+    """Tool schemas for the actions this domain declares."""
+    try:
+        from ..ontology import get_ontology
+        return [a.as_schema() for a in get_ontology(domain).actions.values()]
+    except Exception as exc:
+        log.warning("Could not read actions for %s: %s", domain, exc)
+        return []
+
+
+async def available_tools(include_external: bool = True,
+                          domain: str = "") -> list[dict[str, Any]]:
     """Built-in tools, plus anything reachable tool servers offer.
 
     External tools are added rather than substituted: the graph tools are what
@@ -99,6 +129,10 @@ async def available_tools(include_external: bool = True) -> list[dict[str, Any]]
     server should not be able to shadow them.
     """
     tools = list(TOOL_SCHEMAS)
+    # Actions are declared locally, so they are added regardless of whether an
+    # external tool server happens to be reachable.
+    if domain:
+        tools += action_tools(domain)
     if not include_external:
         return tools
     try:
@@ -112,8 +146,20 @@ async def available_tools(include_external: bool = True) -> list[dict[str, Any]]
     return tools
 
 
-async def run_tool(name: str, arguments: dict[str, Any], *, domain: str) -> str:
+async def run_tool(name: str, arguments: dict[str, Any], *, domain: str,
+                   principal: Any = None) -> str:
     """Execute a tool and return a compact text result for the model."""
+    if name.startswith("action__"):
+        if principal is None:
+            return ("Actions can only run for a signed-in user. This agent was "
+                    "called without one.")
+        from ..ontology.executor import run_action
+        outcome = await run_action(
+            domain=domain, action_name=name[len("action__"):],
+            arguments=arguments, principal=principal,
+            confirmed=bool(arguments.get("_confirmed")))
+        return outcome.message
+
     builtin = {t["name"] for t in TOOL_SCHEMAS}
     if name not in builtin and "__" in name:
         from ..mcp.registry import get_server_registry
@@ -129,6 +175,11 @@ async def run_tool(name: str, arguments: dict[str, Any], *, domain: str) -> str:
             return await _search_documents(domain, str(arguments.get("query", "")))
         if name == "describe_schema":
             return await _describe_schema(domain)
+        if name == "assess_impact":
+            from ..services.impact import format_impact, impact
+            return _truncate(format_impact(await impact(
+                domain, str(arguments.get("entity", "")),
+                hops=int(arguments.get("hops", 2) or 2))))
         return f"There is no tool called '{name}'."
     except Exception as exc:
         log.warning("Tool %s failed: %s", name, exc)

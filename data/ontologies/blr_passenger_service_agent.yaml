@@ -1,0 +1,148 @@
+key: blr_passenger_service_agent
+name: BLR Passenger Service Agent
+description: Passenger-facing airport service knowledge for Bangalore International
+  Airport Limited, covering flight status, terminal guidance, customer support, airport
+  services, and special assistance.
+entity_types:
+  airport:
+    id_rule: Use the airport/operator name as written; no special code pattern is
+      evident.
+    examples:
+    - Bangalore International Airport Limited
+    - BLR Airport
+    - Kempegowda International Airport Bengaluru
+  terminal:
+    id_rule: Use terminal labels as written, typically T1 or T2 / Terminal 1 or Terminal
+      2.
+    examples:
+    - Terminal 1
+    - Terminal 2
+    - T1
+  flight:
+    id_rule: Use airline flight designator plus number when present; pattern like
+      ^[A-Z]{2,3}\d{1,4}$.
+    examples:
+    - SG205
+    - IX2718
+    - SG-205
+  airline:
+    id_rule: Use the airline name as written; no code convention is consistently shown
+      in the sample.
+    examples:
+    - Lufthansa
+    - SpiceJet
+    - Air India Express
+  airport_service:
+    id_rule: Use the service name as written; no formal code pattern is evident.
+    examples:
+    - Porter Service
+    - Buggy Service
+    - 080 Transit Hotel
+  special_assistance_service:
+    id_rule: Use the service name as written; no special code pattern is evident.
+    examples:
+    - Wheelchair Assistance
+    - Mobility Assist
+    - PRM/PwD Drop Off Zone
+  contact_channel:
+    id_rule: Use the channel value as written; phone numbers may follow ^\+?\d[\d\-
+      ]+$ and emails follow standard email format.
+    examples:
+    - 080-66785555
+    - +91-8884998888
+    - feedback@bialairport.com
+  service_zone:
+    id_rule: Use the zone label as written, often combining terminal, level, and functional
+      area.
+    examples:
+    - Terminal 1 - Zone D
+    - Terminal 2 - International Departures
+    - Terminal 1 - Kerbside / Check-in / Baggage Claim support
+  reference_link:
+    id_rule: Use the URL as written; pattern is a standard https URL.
+    examples:
+    - https://www.bengaluruairport.com/travellers/contact-us
+    - https://www.bengaluruairport.com/travellers/flights/flight-information?flight=SG205
+    - https://www.bengaluruairport.com/care-by-blr/porter
+  passenger_need:
+    id_rule: Use the query text as written; no formal code pattern is evident.
+    examples:
+    - Delayed flight
+    - customer support
+    - Visitor pass
+allowed_triples:
+- - airline
+  - operates_from
+  - terminal
+- - airport
+  - operates_from
+  - terminal
+- - airport_service
+  - available_in
+  - terminal
+- - airport_service
+  - has_contact_channel
+  - contact_channel
+- - airport_service
+  - has_reference
+  - reference_link
+- - airport_service
+  - has_zone
+  - service_zone
+- - flight
+  - arrives_at
+  - airport
+- - flight
+  - departs_from
+  - airport
+- - flight
+  - has_status
+  - passenger_need
+- - flight
+  - uses_terminal
+  - terminal
+- - passenger_need
+  - matched_by
+  - airport_service
+- - passenger_need
+  - matched_by
+  - special_assistance_service
+- - special_assistance_service
+  - available_in
+  - terminal
+- - special_assistance_service
+  - has_reference
+  - reference_link
+- - special_assistance_service
+  - has_zone
+  - service_zone
+open_relations: false
+normalization:
+  strip_type_prefixes: true
+  collapse_whitespace: true
+  id_transforms:
+  - pattern: \s*_x000D_\s*
+    replace: ' '
+    case: ''
+    note: Removes Excel carriage-return artifacts from response text.
+  - pattern: \s+
+    replace: ' '
+    case: ''
+    note: Collapses repeated whitespace in extracted text.
+  - pattern: ^SG-?(\d+)$
+    replace: SG$1
+    case: ''
+    note: Normalizes SpiceJet flight numbers with or without a hyphen.
+  rules_text:
+  - Treat BLR Airport, Bangalore International Airport Limited, and Kempegowda International
+    Airport Bengaluru as the same airport context when the sample clearly refers to
+    the airport operator or location.
+  - Preserve terminal-specific service availability because many services differ between
+    Terminal 1 and Terminal 2.
+  - Keep flight numbers and airline names distinct; a flight may be mentioned without
+    a reason for delay.
+  - 'Store contact channels separately by type when possible: phone, WhatsApp, email,
+    and web reference.'
+  - Do not infer service eligibility beyond what is explicitly stated in the response
+    text.
+custom_prompt: ''

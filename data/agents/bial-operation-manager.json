@@ -1,0 +1,33 @@
+{
+  "key": "bial-operation-manager",
+  "name": "BIAL Operation Manager",
+  "description": "Will act as opertaion Cockpit",
+  "domains": [
+    "bial_airport_operations",
+    "terminal_ops_flight_turnaround",
+    "blr-airport-passenger-assistance",
+    "airport_passenger"
+  ],
+  "system_prompt": "you are BIAL Operation support asssitant be specific and highly analyitical in your approach",
+  "tools": [
+    "expand_entity",
+    "search_documents",
+    "describe_schema",
+    "assess_impact",
+    "flightfeed__get_flight_status",
+    "flightfeed__find_flights_by_route",
+    "search_graph"
+  ],
+  "max_steps": 6,
+  "temperature": 0.2,
+  "verify": true,
+  "starters": [],
+  "model": "",
+  "retrieval_mode": "graph+rag",
+  "search_index": "",
+  "allow_file_upload": false,
+  "deployed": false,
+  "deploy_url": "",
+  "created_at": "2026-09-13T07:02:02.149877+00:00",
+  "updated_at": "2026-09-13T07:02:02.149877+00:00"
+}

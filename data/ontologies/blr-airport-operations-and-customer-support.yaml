@@ -1,0 +1,134 @@
+key: blr-airport-operations-and-customer-support
+name: BLR Airport Operations and Customer Support
+description: Flight movement data for Bangalore International Airport together with
+  customer-support answers about airport services, terminals, and assistance options.
+entity_types:
+  flight_record:
+    id_rule: Use the flight number plus the scheduled date when available; otherwise
+      use the row context from the sheet.
+    examples:
+    - SG205
+    - Flight Arr
+    - Flight Dep
+  airline:
+    id_rule: Use the airline name or airline code as shown in the sheet or answer
+      text.
+    examples:
+    - SpiceJet
+    - Lufthansa
+    - A/L Name Arr
+  airport:
+    id_rule: Use the airport IATA code when present; otherwise the airport name.
+    examples:
+    - Bengaluru
+    - Delhi
+    - Origin IATA
+  terminal:
+    id_rule: Use the terminal label as written, such as T1 or T2.
+    examples:
+    - Terminal 1
+    - Terminal 2
+    - Term Arr
+  gate_or_stand:
+    id_rule: Use the gate or stand label exactly as written.
+    examples:
+    - Gate 38
+    - Stand Arr
+    - Departure Gates
+  flight_status:
+    id_rule: Use the status text exactly as shown in the record or response.
+    examples:
+    - Delayed
+    - Flight Status Arr
+    - Flight Status Dep
+  timestamp:
+    id_rule: Use the timestamp exactly as provided in the source.
+    examples:
+    - '2026-06-19 01:00:00'
+    - SOBT
+    - AOBT
+  service_or_facility:
+    id_rule: Use the service name as written in the response text.
+    examples:
+    - Porter Service
+    - Wheelchair Assistance
+    - Mobility Assist
+  support_contact:
+    id_rule: Use the contact value exactly as written.
+    examples:
+    - 080-66785555
+    - +91-8884998888
+    - feedback@bialairport.com
+  customer_query:
+    id_rule: Use the query text as written in the sheet.
+    examples:
+    - Delayed flight
+    - customer support
+    - why sg-205 delayed
+  response_document:
+    id_rule: Use the query plus row context; no separate stable identifier is visible.
+    examples:
+    - Response
+    - Chatbot Response (Current)
+  special_assistance_area:
+    id_rule: Use the zone or location name as written.
+    examples:
+    - PRM/PwD Drop Off Zone
+    - Wheelchair Assistance Counter
+    - Dedicated PRM Waiting Area
+allowed_triples:
+- - customer_query
+  - answered_by
+  - response_document
+- - flight_record
+  - arrives_at
+  - airport
+- - flight_record
+  - assigned_to
+  - gate_or_stand
+- - flight_record
+  - departs_from
+  - airport
+- - flight_record
+  - has_event_time
+  - timestamp
+- - flight_record
+  - has_status
+  - flight_status
+- - flight_record
+  - operated_by
+  - airline
+- - response_document
+  - mentions_service
+  - service_or_facility
+- - response_document
+  - provides_contact
+  - support_contact
+- - service_or_facility
+  - available_at
+  - terminal
+- - service_or_facility
+  - uses_support_area
+  - special_assistance_area
+open_relations: false
+normalization:
+  strip_type_prefixes: true
+  collapse_whitespace: true
+  id_transforms:
+  - pattern: \bSG\s*205\b
+    replace: SG205
+    case: upper
+    note: Normalizes flight-number spacing for the same flight.
+  - pattern: \bTerminal\s+(\d)\b
+    replace: T$1
+    case: preserve
+    note: Normalizes terminal labels when a compact form is needed.
+  rules_text:
+  - Treat arrival and departure columns as separate event facets of the same flight_record.
+  - Preserve airport codes, flight numbers, and contact details exactly as written
+    unless a transform is explicitly defined.
+  - Keep operational timestamps distinct from service-answer text; do not merge them
+    into one field.
+  - When a response names a service and a terminal, model both separately and link
+    them.
+custom_prompt: ''

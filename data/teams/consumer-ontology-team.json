@@ -1,0 +1,33 @@
+{
+  "key": "consumer-ontology-team",
+  "name": "Consumer Ontology Team",
+  "description": "A small sequence for grounding the ontology in the sample and then validating graph structure.",
+  "entry": "document-analyst",
+  "members": [
+    {
+      "agent": "document-analyst",
+      "hands_off_to": [
+        "schema-designer"
+      ],
+      "when": "After collecting the strongest evidence passages for the main concepts in the sample."
+    },
+    {
+      "agent": "schema-designer",
+      "hands_off_to": [
+        "graph-curator"
+      ],
+      "when": "After drafting the ontology and relationships from the evidenced concepts."
+    },
+    {
+      "agent": "graph-curator",
+      "hands_off_to": [],
+      "when": "After validating the schema shape and normalization choices."
+    }
+  ],
+  "max_handoffs": 6,
+  "max_steps_per_agent": 4,
+  "verify": true,
+  "starters": [],
+  "created_at": "2026-09-02T02:31:02.608841+00:00",
+  "updated_at": "2026-09-02T02:31:02.608841+00:00"
+}

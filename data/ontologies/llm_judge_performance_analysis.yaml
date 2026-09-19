@@ -1,0 +1,136 @@
+key: llm_judge_performance_analysis
+name: LLM Judge Performance Analysis
+description: A reporting collection for evaluating an LLM-as-judge on grounding verdicts,
+  including dashboard summaries, per-conversation logs, judge comments, and day/topic
+  breakdowns.
+entity_types:
+  report:
+    id_rule: Use the report filename when present; otherwise derive from the workbook
+      title/date.
+    examples:
+    - fast_llm_judge_report_2026-07-30.xlsx
+  dashboard:
+    id_rule: Name by report plus sheet name.
+    examples:
+    - Judge Dashboard
+  log_entry:
+    id_rule: Use Conversation ID as the identifier.
+    examples:
+    - 6aa647e9-142e-40dc-8759-b4f0f5dd6bd9
+  conversation:
+    id_rule: Use Conversation ID as the identifier.
+    examples:
+    - 6aa647e9-142e-40dc-8759-b4f0f5dd6bd9
+  user:
+    id_rule: Use User ID as the identifier.
+    examples:
+    - 6aa647e9-142e-40dc-8759-b4f0f5dd6bd9
+  bot_response:
+    id_rule: Use the conversation ID plus response position if needed.
+    examples:
+    - Namaskara from Bangalore International Airport Limited. Thank you for contacting
+      us.
+  context:
+    id_rule: Use the conversation ID plus context source label if needed.
+    examples:
+    - '--- Data for ''food options in Terminal 1 storefront webhooks'' ---'
+  source_url:
+    id_rule: Use the URL string as the identifier.
+    examples:
+    - https://www.bengaluruairport.com/storefront/682af0e2ace9472defda2rc1?QueryProp1=1%20Dosa%201%20Vada%201%20Coffee
+  verdict:
+    id_rule: Use the verdict label as the identifier.
+    examples:
+    - PASS
+    - FAIL
+  judge_comment:
+    id_rule: Use the conversation ID plus verdict date if needed.
+    examples:
+    - food options in Terminal 1 storefront webhooks
+  metric_summary:
+    id_rule: Use the metric name as the identifier.
+    examples:
+    - Total Evaluated
+    - Pass Rate
+    - PASS
+  daily_breakdown:
+    id_rule: Use the ISO date as the identifier.
+    examples:
+    - '2026-05-29'
+    - '2026-06-05'
+    - '2026-07-30'
+  fail_topic:
+    id_rule: Use the topic text as the identifier.
+    examples:
+    - duty
+    - free
+    - veg
+allowed_triples:
+- - daily_breakdown
+  - counts_verdict
+  - verdict
+- - dashboard
+  - summarizes
+  - metric_summary
+- - fail_topic
+  - describes_failures_in
+  - judge_comment
+- - log_entry
+  - cites_source_url
+  - source_url
+- - log_entry
+  - has_bot_response
+  - bot_response
+- - log_entry
+  - has_context
+  - context
+- - log_entry
+  - has_conversation
+  - conversation
+- - log_entry
+  - has_judge_comment
+  - judge_comment
+- - log_entry
+  - has_user
+  - user
+- - log_entry
+  - has_verdict
+  - verdict
+- - report
+  - contains
+  - daily_breakdown
+- - report
+  - contains
+  - dashboard
+- - report
+  - contains
+  - log_entry
+- - report
+  - contains
+  - metric_summary
+open_relations: false
+normalization:
+  strip_type_prefixes: true
+  collapse_whitespace: true
+  id_transforms:
+  - pattern: ^\s+|\s+$
+    replace: ''
+    case: ''
+    note: Trim whitespace from sheet names, labels, and comments
+  - pattern: ^([A-Z]+)$
+    replace: $1
+    case: upper
+    note: Normalize verdict labels like PASS and FAIL to uppercase
+  - pattern: ^([0-9]{4}-[0-9]{2}-[0-9]{2}).*$
+    replace: $1
+    case: ''
+    note: Normalize timestamps to date for daily breakdown identifiers
+  rules_text:
+  - Treat PASS and FAIL as the only clearly evidenced verdict labels in the sample.
+  - Preserve conversation IDs and user IDs exactly as UUID strings.
+  - Keep judge comments as free text; do not split or rewrite them unless needed for
+    analysis.
+  - Use the dashboard metrics as aggregates over the log entries, not as separate
+    facts.
+  - When a row has a blank fail topic or blank count, do not force a topic entity.
+custom_prompt: ''
