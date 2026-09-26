@@ -34,6 +34,23 @@ from ..services.llm import complete_json
 log = logging.getLogger(__name__)
 
 VERDICTS = ("correct", "partial", "incorrect", "refused")
+# Outcomes that are not a judgement on the answer at all. Counting them as
+# "incorrect" makes a timeout or a judge hiccup look like the knowledge graph
+# got the question wrong, and quietly drags accuracy down.
+NOT_SCORED = ("error", "unjudged")
+# The judge is told to reserve "refused" for cases where declining was right,
+# so a refusal is a success and ranks with a correct answer.
+RANK = {"correct": 3, "refused": 3, "partial": 2, "incorrect": 0}
+
+JUDGE_SCHEMA: dict = {
+    "type": "object",
+    "additionalProperties": False,
+    "required": ["verdict", "reason"],
+    "properties": {
+        "verdict": {"type": "string", "enum": list(VERDICTS)},
+        "reason": {"type": "string"},
+    },
+}
 
 JUDGE_SYSTEM = """You compare an answer against a reference answer and judge it.
 
@@ -102,19 +119,30 @@ class Run:
     def scores(self) -> dict[str, Any]:
         total = len(self.results)
         if not total:
-            return {"total": 0}
+            return {"total": 0, "scored": 0, "accuracy": None}
         counts = {v: sum(1 for r in self.results if r.verdict == v) for v in VERDICTS}
-        grounded = [r.grounding for r in self.results if r.grounding is not None]
+        scored = sum(counts.values())
+        grounded = [r.grounding for r in self.results
+                    if r.grounding is not None and r.verdict not in NOT_SCORED]
+        answered = sorted(r.seconds for r in self.results if r.verdict != "error")
+        median = None
+        if answered:
+            mid = len(answered) // 2
+            median = (answered[mid] if len(answered) % 2
+                      else (answered[mid - 1] + answered[mid]) / 2)
         return {
             "total": total,
+            "scored": scored,
             **counts,
-            "errors": sum(1 for r in self.results if r.error),
-            # Partial counts half: an answer carrying some of the reference is
-            # worth more than a wrong one and less than a right one.
-            "accuracy": round((counts["correct"] + counts["partial"] * 0.5) / total, 3),
+            "errors": sum(1 for r in self.results if r.verdict == "error"),
+            "unjudged": sum(1 for r in self.results if r.verdict == "unjudged"),
+            # Accuracy is over the questions that were actually judged. A
+            # correct refusal counts as correct; partial counts half.
+            "accuracy": (round((counts["correct"] + counts["refused"]
+                                + counts["partial"] * 0.5) / scored, 3)
+                         if scored else None),
             "grounding": round(sum(grounded) / len(grounded), 3) if grounded else None,
-            "median_seconds": round(
-                sorted(r.seconds for r in self.results)[total // 2], 2),
+            "median_seconds": round(median, 2) if median is not None else None,
         }
 
     def summary(self) -> dict[str, Any]:
@@ -209,7 +237,8 @@ async def judge(question: str, expected: str, answer: str) -> tuple[str, str]:
               f"Reference answer:\n{expected}\n\n"
               f"Answer to judge:\n{answer}")
     try:
-        raw = await complete_json(JUDGE_SYSTEM, prompt, temperature=0.0)
+        raw = await complete_json(JUDGE_SYSTEM, prompt, temperature=0.0,
+                                  json_schema=JUDGE_SCHEMA)
     except Exception as exc:
         log.warning("Judge failed: %s", exc)
         return "", f"Could not be judged: {exc}"
@@ -242,6 +271,11 @@ async def run_eval(set_key: str, agent_key: str, *, principal: Any = None,
         tools = [t for t in tools if t not in ("search_graph", "expand_entity")]
     elif mode == "graph":
         tools = [t for t in tools if t != "search_documents"]
+    if agent.tools and not tools:
+        raise ValueError(
+            f"Agent '{agent_key}' is set to retrieval mode '{mode}', which removes "
+            f"all of its tools ({', '.join(agent.tools)}). Add a tool that mode "
+            f"allows, or change the mode.")
 
     run = Run(id=uuid.uuid4().hex[:12], set_key=set_key, agent_key=agent_key,
               model=agent.model, started_at=datetime.now(timezone.utc).isoformat())
@@ -253,7 +287,7 @@ async def run_eval(set_key: str, agent_key: str, *, principal: Any = None,
             result = await run_agent(
                 domain, item.question,
                 system_prompt=agent.system_prompt,
-                allowed_tools=tools or agent.tools,
+                allowed_tools=tools,
                 max_steps=agent.max_steps, temperature=agent.temperature,
                 verify=agent.verify, permitted_domains=agent.domains,
                 model=agent.model, principal=principal)
@@ -267,12 +301,15 @@ async def run_eval(set_key: str, agent_key: str, *, principal: Any = None,
             log.warning("Eval question failed: %s", exc)
 
         seconds = round(time.perf_counter() - started, 2)
-        verdict, reason = ("", error) if error else await judge(
-            item.question, item.expected, answer)
+        if error:
+            verdict, reason = "error", f"The agent failed: {error}"
+        else:
+            verdict, reason = await judge(item.question, item.expected, answer)
+            verdict = verdict or "unjudged"
 
         run.results.append(Result(
             question=item.question, expected=item.expected, answer=answer,
-            verdict=verdict or "incorrect", reason=reason, grounding=grounding,
+            verdict=verdict, reason=reason, grounding=grounding,
             tool_calls=calls, seconds=seconds, error=error))
 
         if on_progress:
@@ -291,14 +328,21 @@ def compare(run_a: dict[str, Any], run_b: dict[str, Any]) -> dict[str, Any]:
     fixed, which is not the same as nothing having happened.
     """
     by_question_a = {r["question"]: r for r in run_a.get("results", [])}
-    rank = {"correct": 3, "partial": 2, "refused": 1, "incorrect": 0}
 
-    improved, regressed = [], []
+    improved, regressed, not_comparable = [], [], []
+    compared = 0
     for result_b in run_b.get("results", []):
         result_a = by_question_a.get(result_b["question"])
         if not result_a:
             continue
-        before, after = rank.get(result_a["verdict"], 0), rank.get(result_b["verdict"], 0)
+        # A timeout or a failed judgement on either side says nothing about
+        # whether the answer got better, so it is reported, not ranked.
+        if result_a["verdict"] not in RANK or result_b["verdict"] not in RANK:
+            not_comparable.append({"question": result_b["question"],
+                                   "from": result_a["verdict"], "to": result_b["verdict"]})
+            continue
+        compared += 1
+        before, after = RANK[result_a["verdict"]], RANK[result_b["verdict"]]
         entry = {"question": result_b["question"],
                  "from": result_a["verdict"], "to": result_b["verdict"],
                  "reason": result_b.get("reason", "")}
@@ -309,13 +353,21 @@ def compare(run_a: dict[str, Any], run_b: dict[str, Any]) -> dict[str, Any]:
 
     scores_a = run_a.get("scores") or {}
     scores_b = run_b.get("scores") or {}
+    same_set = run_a.get("set_key") == run_b.get("set_key")
+    acc_a, acc_b = scores_a.get("accuracy"), scores_b.get("accuracy")
     return {
+        "same_set": same_set,
+        "questions_compared": compared,
+        "not_comparable": not_comparable,
+        "warning": (None if same_set else
+                    "These runs used different golden sets, so the accuracy "
+                    "difference is not a like-for-like comparison."),
         "a": {"id": run_a.get("id"), "agent": run_a.get("agent_key"),
               "model": run_a.get("model"), "scores": scores_a},
         "b": {"id": run_b.get("id"), "agent": run_b.get("agent_key"),
               "model": run_b.get("model"), "scores": scores_b},
-        "accuracy_delta": round((scores_b.get("accuracy") or 0)
-                                - (scores_a.get("accuracy") or 0), 3),
+        "accuracy_delta": (round(acc_b - acc_a, 3)
+                           if acc_a is not None and acc_b is not None else None),
         "improved": improved,
         "regressed": regressed,
     }

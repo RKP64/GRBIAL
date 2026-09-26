@@ -51,18 +51,55 @@ class AnthropicProvider(LLMProvider):
                 log.warning("Embedding provider unavailable: %s", exc)
 
     async def complete(self, system: str, user: str, *, temperature: float = 0.1,
-                       json_mode: bool = False) -> str:
+                       json_mode: bool = False,
+                       json_schema: dict | None = None) -> str:
+        """One completion.
+
+        When json_mode is set, the request uses structured outputs so the API
+        constrains generation to valid JSON rather than merely asking for it.
+        Asking is not reliable: a model that adds a code fence or a sentence of
+        preamble produces output that parses nowhere, and the failure lands as
+        a JSONDecodeError several layers away from its cause.
+
+        json_schema, when supplied, is enforced exactly. Structured outputs
+        compile the schema into a grammar and require every property to be
+        declared with additionalProperties false, so there is no catch-all
+        schema for callers that do not know their shape — those keep the
+        asked-for behaviour and the tolerant parsing in base.
+        """
         prompt = user
+        kwargs: dict = {
+            "model": self.model,
+            "max_tokens": self.max_tokens,
+            "system": system or None,
+            # anthropic 1.0 removed temperature, top_p and top_k from the
+            # method signature; they remain valid HTTP body fields and are
+            # passed through extra_body, which works on both 0.x and 1.x.
+            "extra_body": {"temperature": temperature},
+        }
+
         if json_mode:
+            # Structured outputs need a closed schema: the API rejects
+            # additionalProperties: true, so there is no "any JSON object"
+            # form to fall back on. A caller that knows the shape passes it and
+            # gets a hard guarantee; a caller that does not gets the asked-for
+            # version plus tolerant parsing in base.parse_json_response.
+            #
+            # output_config goes through extra_body for the same reason as
+            # temperature: it is a valid body field that the 1.x method
+            # signature does not name, so passing it directly is a TypeError
+            # raised locally before any request is sent.
+            if json_schema is not None:
+                kwargs["extra_body"]["output_config"] = {
+                    "format": {"type": "json_schema", "schema": json_schema}
+                }
             prompt = (f"{user}\n\nRespond with a single valid JSON object and nothing "
                       f"else. Do not wrap it in code fences or add commentary.")
-        response = await self.client.messages.create(
-            model=self.model,
-            max_tokens=self.max_tokens,
-            temperature=temperature,
-            system=system or None,
-            messages=[{"role": "user", "content": prompt}],
-        )
+
+        kwargs["messages"] = [{"role": "user", "content": prompt}]
+
+        response = await self.client.messages.create(**kwargs)
+
         return "".join(block.text for block in response.content
                        if getattr(block, "type", "") == "text")
 
@@ -104,7 +141,8 @@ class AnthropicProvider(LLMProvider):
                 payload.append({"role": m["role"], "content": m["content"]})
 
         response = await self.client.messages.create(
-            model=self.model, max_tokens=self.max_tokens, temperature=temperature,
+            model=self.model, max_tokens=self.max_tokens,
+            extra_body={"temperature": temperature},
             system=system or None, messages=payload,
             tools=[{"name": t["name"], "description": t["description"],
                     "input_schema": t["input_schema"]} for t in tools],

@@ -18,8 +18,10 @@ async def complete(system: str, user: str, *, temperature: float = 0.1,
                                          json_mode=json_mode)
 
 
-async def complete_json(system: str, user: str, *, temperature: float = 0.05) -> dict:
-    return await get_provider().complete_json(system, user, temperature=temperature)
+async def complete_json(system: str, user: str, *, temperature: float = 0.05,
+                        json_schema: dict | None = None) -> dict:
+    return await get_provider().complete_json(system, user, temperature=temperature,
+                                              json_schema=json_schema)
 
 
 async def embed_texts(texts: list[str], batch_size: int = 256) -> list[list[float]]:

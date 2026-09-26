@@ -16,5 +16,6 @@ gremlinpython==3.7.2
 neo4j>=5.14.0
 azure-search-documents>=11.5.0
 boto3>=1.35.0
-anthropic>=0.40.0
+anthropic>=1.5.0,<2   # 1.0 removed temperature/top_p/top_k from messages.create()
 httpx>=0.27.0
+sentence-transformers>=3.0.0

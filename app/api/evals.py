@@ -19,6 +19,8 @@ log = logging.getLogger(__name__)
 
 router = APIRouter(prefix="/evals", tags=["evals"], dependencies=[Depends(viewer)])
 
+_RUNNING: set = set()   # strong references to in-flight evaluation runs
+
 KEY_RE = re.compile(r"^[a-z0-9][a-z0-9_-]{1,48}$")
 MAX_BYTES = 10 * 1024 * 1024
 
@@ -131,6 +133,12 @@ async def start_run(body: RunRequest,
         gset = evals.load_set(body.set_key)
     except KeyError as exc:
         raise HTTPException(status_code=404, detail=str(exc)) from exc
+    # Fail now, with a clear message, rather than minutes later inside the job.
+    try:
+        from ..agent.registry import get_registry
+        get_registry().get(body.agent_key)
+    except KeyError as exc:
+        raise HTTPException(status_code=404, detail=str(exc)) from exc
 
     job = jobs.create("eval", body.agent_key)
     job.total = len(gset.items)
@@ -147,15 +155,25 @@ async def start_run(body: RunRequest,
                                        principal=principal, on_progress=progress)
             job.state = JobState.SUCCEEDED
             job.finished_at = run.finished_at
-            job.emit("info", f"Accuracy {run.scores()['accuracy']:.0%}",
-                     run_id=run.id, scores=run.scores())
+            s = run.scores()
+            headline = (f"Accuracy {s['accuracy']:.0%} over {s['scored']} judged"
+                        if s.get("accuracy") is not None
+                        else "No question could be judged")
+            if s.get("errors") or s.get("unjudged"):
+                headline += (f" · {s.get('errors', 0)} failed, "
+                             f"{s.get('unjudged', 0)} not judged")
+            job.emit("info", headline, run_id=run.id, scores=s)
         except Exception as exc:
             job.state = JobState.FAILED
             job.error = str(exc)
             job.emit("error", f"Run failed: {exc}")
             log.exception("Evaluation run failed")
 
-    asyncio.create_task(work())
+    # asyncio only keeps a weak reference to a task. Without holding one here,
+    # a long run can be garbage-collected part-way and simply stop.
+    task = asyncio.create_task(work())
+    _RUNNING.add(task)
+    task.add_done_callback(_RUNNING.discard)
     return {"job_id": job.id, "questions": len(gset.items)}
 
 

@@ -26,7 +26,7 @@ DEFAULT_HOPS = 2
 
 
 async def impact(domain: str, entity: str, *, hops: int = DEFAULT_HOPS,
-                 limit: int = 200) -> dict[str, Any]:
+                 limit: int = 600) -> dict[str, Any]:
     """Walk outward from one entity and report what is reachable.
 
     Traversal is undirected on purpose. An incident affecting a gate is stored
@@ -61,19 +61,35 @@ async def impact(domain: str, entity: str, *, hops: int = DEFAULT_HOPS,
         adjacency[t].append((s, rel, "in"))
 
     # Breadth-first, so the first time a node is reached is by its shortest path.
+    #
+    # The budget is split per hop rather than shared. With one shared cap, a
+    # hub two hops out (a flight with 150 passengers, a supplier with 400
+    # parts) spends the whole budget before hop three begins, and a 4-hop
+    # request silently comes back as a 2-hop answer. Reserving a share for
+    # every level guarantees each requested hop is actually explored.
+    per_level = max(20, limit // hops)
     seen = {entity: 0}
     how: dict[str, tuple[str, str, str]] = {}   # node -> (via, relation, direction)
     frontier = [entity]
+    truncated_levels: list[int] = []
     for distance in range(1, hops + 1):
-        nxt: list[str] = []
+        # Gather every candidate for this level first, then keep the best
+        # connected. Taking the first N encountered would keep whichever
+        # entities happened to be stored first, and drop the ones that lead
+        # onward to the next hop.
+        candidates: dict[str, tuple[str, str, str]] = {}
         for current in frontier:
             for neighbour, rel, direction in adjacency.get(current, []):
-                if neighbour in seen or len(seen) >= limit:
-                    continue
-                seen[neighbour] = distance
-                how[neighbour] = (current, rel, direction)
-                nxt.append(neighbour)
-        frontier = nxt
+                if neighbour not in seen and neighbour not in candidates:
+                    candidates[neighbour] = (current, rel, direction)
+        ranked = sorted(candidates, key=lambda n: -len(adjacency.get(n, [])))
+        if len(ranked) > per_level:
+            truncated_levels.append(distance)
+            ranked = ranked[:per_level]
+        for neighbour in ranked:
+            seen[neighbour] = distance
+            how[neighbour] = candidates[neighbour]
+        frontier = ranked
         if not frontier:
             break
 
@@ -90,16 +106,38 @@ async def impact(domain: str, entity: str, *, hops: int = DEFAULT_HOPS,
             "via": via, "relation": rel, "direction": direction,
         })
 
+    # Everything needed to draw the result: every reached node with its
+    # distance, and every edge between reached nodes — not only the tree edges,
+    # because the cross-links are what show how tightly the area is knit.
+    reached = set(seen)
+    draw_nodes = [
+        {"id": nid, "type": (nodes.get(nid) or {}).get("type") or "unknown",
+         "distance": d, "degree": len(adjacency.get(nid, [])),
+         "evidence": (nodes.get(nid) or {}).get("evidence", "")}
+        for nid, d in seen.items()
+    ]
+    draw_edges = [
+        {"source": e["source"], "target": e["target"],
+         "relation": e.get("relation") or e.get("type") or ""}
+        for e in graph.get("edges", [])
+        if e.get("source") in reached and e.get("target") in reached
+    ]
+    max_distance = max(seen.values()) if seen else 0
+
     return {
         "entity": entity,
         "found": True,
         "type": (nodes.get(entity) or {}).get("type"),
         "hops": hops,
+        "reached_hops": max_distance,
         "total": len(seen) - 1,
-        "truncated": len(seen) >= limit,
+        "truncated": bool(truncated_levels),
+        "truncated_levels": truncated_levels,
         "by_type": dict(sorted(by_type.items(), key=lambda kv: -kv[1])),
         "by_distance": {str(d): sorted(v, key=lambda x: (x["type"], x["id"]))
                         for d, v in sorted(by_distance.items())},
+        "nodes": draw_nodes,
+        "edges": draw_edges,
     }
 
 

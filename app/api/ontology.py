@@ -17,6 +17,10 @@ router = APIRouter(prefix="/ontologies", tags=["ontology"],
 class EntityTypeIn(BaseModel):
     id_rule: str = ""
     examples: list[str] = Field(default_factory=list)
+    # The shared spine type this domain type joins through (Person, Asset,
+    # Vendor, Location, Process, Document, Organisation, Event). Declared
+    # explicitly: without the field, pydantic would drop it on every save.
+    extends: str = ""
 
 
 class TripleIn(BaseModel):
@@ -70,6 +74,25 @@ def _detail(o: Ontology) -> dict:
         "actions": as_action_spec(o.actions),
         "generated_prompt": o.generated_prompt(),
         "effective_prompt": o.extraction_prompt(),
+    }
+
+
+@router.get("/spine", summary="The shared upper ontology every domain extends")
+async def spine() -> dict:
+    """Spine types, and for each one the domain types that join through it.
+
+    A spine type with more than one domain behind it is a place where a
+    question can cross functions without a hand-written mapping.
+    """
+    from ..ontology.registry import _load_all
+    from ..ontology.spine import join_points, spine_types
+    ontologies = list(_load_all().values())
+    joins = join_points(ontologies)
+    return {
+        "types": spine_types(),
+        "join_points": joins,
+        "shared": [k for k, v in joins.items()
+                   if len({j["domain"] for j in v}) > 1],
     }
 
 

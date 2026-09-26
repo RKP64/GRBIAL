@@ -6,8 +6,10 @@ adding one class here and nothing else.
 """
 from __future__ import annotations
 
+import inspect
 import json
 from abc import ABC, abstractmethod
+from functools import lru_cache
 
 
 class LLMProvider(ABC):
@@ -23,15 +25,27 @@ class LLMProvider(ABC):
         ...
 
     async def complete_json(self, system: str, user: str, *,
-                            temperature: float = 0.05) -> dict:
+                            temperature: float = 0.05,
+                            json_schema: dict | None = None) -> dict:
         """Structured output with tolerant parsing.
 
         Not every model honours a strict JSON mode, so the response is cleaned
         of code fences and surrounding prose before parsing. This is the one
         place that has to be forgiving, and it belongs here rather than in
         every provider.
+
+        json_schema is a hint, not a requirement. Providers that can constrain
+        generation to a schema use it and return output that needs no cleaning;
+        providers that cannot ignore it and the tolerant parse below still
+        applies. Callers therefore never have to know which provider is active.
         """
-        raw = await self.complete(system, user, temperature=temperature, json_mode=True)
+        kwargs: dict = {"temperature": temperature, "json_mode": True}
+        # Only providers that declare json_schema receive it. Checking the
+        # signature rather than catching TypeError keeps a genuine TypeError
+        # raised inside a provider from being silently retried and hidden.
+        if json_schema is not None and _accepts_json_schema(type(self)):
+            kwargs["json_schema"] = json_schema
+        raw = await self.complete(system, user, **kwargs)
         return parse_json_response(raw)
 
     @property
@@ -77,3 +91,17 @@ def parse_json_response(raw: str) -> dict:
         if start != -1 and end > start:
             return json.loads(text[start : end + 1])
         raise
+
+
+@lru_cache(maxsize=None)
+def _accepts_json_schema(provider_cls: type) -> bool:
+    """Whether a provider's complete() takes a json_schema argument.
+
+    Providers are free to ignore structured outputs; the ones that support it
+    opt in by naming the parameter. Cached because it is asked once per call
+    and the answer cannot change at runtime.
+    """
+    try:
+        return "json_schema" in inspect.signature(provider_cls.complete).parameters
+    except (TypeError, ValueError):  # pragma: no cover
+        return False

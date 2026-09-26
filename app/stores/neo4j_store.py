@@ -175,7 +175,7 @@ class Neo4jStore(GraphStore):
         rows = await self._run(
             "UNWIND $terms AS term "
             "MATCH (n:Entity {domain: $domain}) "
-            "WHERE n.id_lower CONTAINS term "
+            "WHERE coalesce(n.id_lower, toLower(n.id)) CONTAINS term "
             "RETURN DISTINCT n.id AS id LIMIT $limit",
             terms=useful,
             domain=domain,
@@ -190,31 +190,57 @@ class Neo4jStore(GraphStore):
         if not node_ids:
             return {"entry_points": [], "nodes": [], "edges": []}
         hops = max(1, min(int(hops or 1), 4))
+
+        # Collect every path first, then aggregate once. Aggregating while a
+        # per-path value is still in scope would make that value an implicit
+        # grouping key and split the result into one row per path.
         rows = await self._run(
             "MATCH (start:Entity {domain: $domain}) WHERE start.id IN $ids "
             f"CALL {{ WITH start "
-            f"  MATCH path = (start)-[*1..{hops}]-(m:Entity {{domain: $domain}}) "
+            f"  MATCH path = (start)-[*1..{hops}]-(:Entity {{domain: $domain}}) "
             f"  RETURN path LIMIT $cap }} "
-            "WITH nodes(path) AS ns, relationships(path) AS rs "
-            "UNWIND ns AS n WITH collect(DISTINCT n) AS allns, rs "
-            "UNWIND rs AS r WITH allns, collect(DISTINCT r) AS allrs "
+            "WITH collect(path) AS paths "
+            "UNWIND paths AS p "
+            "UNWIND nodes(p) AS n "
+            "WITH paths, collect(DISTINCT n) AS ns "
+            "UNWIND paths AS p2 "
+            "UNWIND relationships(p2) AS r "
+            "WITH ns, collect(DISTINCT r) AS rs "
             "RETURN "
-            "  [n IN allns | {id: n.id, type: coalesce(n.type,''), "
-            "                 evidence: coalesce(n.evidence,''), "
-            "                 mentions: coalesce(n.mentions,1)}] AS nodes, "
-            "  [r IN allrs | {source: startNode(r).id, relation: type(r), "
-            "                 target: endNode(r).id, "
-            "                 weight: coalesce(r.weight,1)}] AS edges",
+            "  [n IN ns | {id: n.id, type: coalesce(n.type,''), "
+            "              evidence: coalesce(n.evidence,''), "
+            "              mentions: coalesce(n.mentions,1)}] AS nodes, "
+            "  [r IN rs | {source: startNode(r).id, relation: type(r), "
+            "              target: endNode(r).id, "
+            "              weight: coalesce(r.weight,1)}] AS edges",
             domain=domain,
             ids=node_ids,
             cap=max_neighbours * max(1, len(node_ids)),
         )
-        if not rows:
-            return {"entry_points": node_ids, "nodes": [], "edges": []}
+
+        nodes = rows[0].get("nodes") if rows else None
+        edges = rows[0].get("edges") if rows else None
+
+        # An entry point with no relationships yields no paths, so the query
+        # above returns nothing at all. Fall back to returning the entry nodes
+        # themselves — "this entity exists but is unconnected" is a materially
+        # different answer from "this entity was not found", and the caller
+        # needs to be able to tell them apart.
+        if not nodes:
+            solo = await self._run(
+                "MATCH (n:Entity {domain: $domain}) WHERE n.id IN $ids "
+                "RETURN n.id AS id, coalesce(n.type,'') AS type, "
+                "       coalesce(n.evidence,'') AS evidence, "
+                "       coalesce(n.mentions,1) AS mentions",
+                domain=domain,
+                ids=node_ids,
+            )
+            return {"entry_points": node_ids, "nodes": solo, "edges": []}
+
         return {
             "entry_points": node_ids,
-            "nodes": rows[0].get("nodes") or [],
-            "edges": rows[0].get("edges") or [],
+            "nodes": nodes,
+            "edges": edges or [],
         }
 
     async def node_texts(self, domain: str) -> list[tuple[str, str]]:

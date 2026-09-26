@@ -132,6 +132,12 @@ class Ontology:
             "actions": _actions_to_spec(self.actions),
         }
 
+    def spine_of(self, entity_type: str | None) -> str | None:
+        """The shared spine type this domain type extends, if it declares one."""
+        from .spine import is_spine_type
+        target = (self.entity_types.get(entity_type or "") or {}).get("extends")
+        return target if is_spine_type(target) else None
+
     def summary(self) -> dict[str, Any]:
         return {
             "key": self.key,
@@ -142,6 +148,9 @@ class Ontology:
             "relationship_count": len(self.allowed_triples),
             "has_custom_prompt": bool(self.custom_prompt),
             "open_relations": self.open_relations,
+            # Which shared spine type each domain type joins through.
+            "spine_map": {t: self.spine_of(t) for t in self.entity_types
+                          if self.spine_of(t)},
         }
 
     # ------------------------------------------------------------- normalise
@@ -328,6 +337,10 @@ def save_ontology(spec: dict[str, Any]) -> Ontology:
         probe = IdTransform(t)
         if probe.error:
             raise ValueError(f"Identifier rule /{probe.pattern_src}/ is not valid: {probe.error}")
+    from .spine import validate_extends
+    problems = validate_extends(spec.get("entity_types") or {})
+    if problems:
+        raise ValueError("; ".join(problems))
     spec["key"] = key
     ont = Ontology(spec, builtin=False)
     path = _custom_dir() / f"{key}.yaml"

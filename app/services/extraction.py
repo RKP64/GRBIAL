@@ -11,6 +11,46 @@ from ..usage.recorder import attribute_to
 from ..stores.networkx_store import NetworkXStore
 from .jobs import Job, JobState
 from .llm import complete_json
+
+# The shape every extraction call must return. Providers that support
+# structured outputs compile this into a grammar, which makes a malformed or
+# truncated response impossible rather than merely unlikely; the rest ignore it
+# and rely on tolerant parsing. Deliberately permissive about *values* — the
+# ontology validator is what decides whether a node type or triple is allowed.
+# Its only job here is to guarantee the response parses at all.
+EXTRACTION_SCHEMA: dict = {
+    "type": "object",
+    "additionalProperties": False,
+    "required": ["nodes", "edges"],
+    "properties": {
+        "nodes": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "additionalProperties": False,
+                "required": ["id", "type"],
+                "properties": {
+                    "id": {"type": "string"},
+                    "type": {"type": "string"},
+                    "evidence": {"type": "string"},
+                },
+            },
+        },
+        "edges": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "additionalProperties": False,
+                "required": ["source", "type", "target"],
+                "properties": {
+                    "source": {"type": "string"},
+                    "type": {"type": "string"},
+                    "target": {"type": "string"},
+                },
+            },
+        },
+    },
+}
 from .parsing import Chunk, chunk_file
 
 log = logging.getLogger(__name__)
@@ -81,7 +121,8 @@ async def run_ingestion(job: Job, uploads: list[tuple[str, bytes]]) -> None:
                 return
             try:
                 with attribute_to("extraction", domain=job.domain):
-                    raw = await complete_json(system_prompt, chunk.text)
+                    raw = await complete_json(system_prompt, chunk.text,
+                                              json_schema=EXTRACTION_SCHEMA)
             except Exception as exc:
                 job.counters["chunk_errors"] += 1
                 job.done += 1

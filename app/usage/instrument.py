@@ -84,9 +84,11 @@ class MeteredProvider(LLMProvider):
                      reported=None, operation_default="answering")
         return result
 
-    async def complete_json(self, system: str, user: str, *, temperature: float = 0.05) -> dict:
+    async def complete_json(self, system: str, user: str, *, temperature: float = 0.05,
+                            json_schema: dict | None = None) -> dict:
         started = time.perf_counter()
-        result = await self.inner.complete_json(system, user, temperature=temperature)
+        result = await self.inner.complete_json(system, user, temperature=temperature,
+                                                json_schema=json_schema)
         self._record(model=self._model_name(), started=started,
                      prompt=f"{system}\n{user}", completion=str(result),
                      reported=None, operation_default="extraction")

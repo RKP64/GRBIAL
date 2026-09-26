@@ -16,13 +16,64 @@ async def stats(domain: str, principal: Principal = Depends(current_principal)) 
     return await get_store().stats(domain)
 
 
+def _spine_lookup(domain: str):
+    """type -> spine type for this domain, or an empty map if none is declared."""
+    try:
+        from ..ontology import get_ontology
+        onto = get_ontology(domain)
+        return {t: onto.spine_of(t) for t in onto.entity_types if onto.spine_of(t)}
+    except Exception:
+        return {}
+
+
 @router.get("/{domain}/visualize", summary="Connected sample for the graph view")
 async def visualize(
     domain: str,
-    limit: int = Query(150, ge=10, le=600),
+    limit: int = Query(250, ge=10, le=3000),
     node_type: str | None = None,
+    principal: Principal = Depends(current_principal),
 ) -> dict:
-    return await get_store().sample(domain, limit=limit, node_type=node_type)
+    require_domain(principal, domain)
+    data = await get_store().sample(domain, limit=limit, node_type=node_type)
+    spine = _spine_lookup(domain)
+    for n in data.get("nodes", []):
+        n["spine"] = spine.get(n.get("type") or "")
+    data["edge_count"] = len(data.get("edges", []))
+    data["spine_declared"] = bool(spine)
+    return data
+
+
+@router.get("/{domain}/search", summary="Find entities by name for the graph view")
+async def search_entities(
+    domain: str,
+    q: str = Query(..., min_length=1),
+    limit: int = Query(12, ge=1, le=50),
+    principal: Principal = Depends(current_principal),
+) -> list[dict]:
+    """Type-ahead lookup across the whole domain, not only the drawn sample.
+
+    Ranked exact match first, then prefix, then substring, and within each by
+    how connected the entity is — the well-connected match is usually the one
+    the person meant.
+    """
+    require_domain(principal, domain)
+    needle = q.strip().lower()
+    graph = await get_store().export_json(domain)
+    spine = _spine_lookup(domain)
+    hits = []
+    for n in graph.get("nodes", []):
+        nid = str(n.get("id", ""))
+        low = nid.lower()
+        if needle not in low:
+            continue
+        rank = 0 if low == needle else 1 if low.startswith(needle) else 2
+        hits.append((rank, -int(n.get("degree") or 0), nid, n))
+    hits.sort(key=lambda h: (h[0], h[1], h[2]))
+    return [
+        {"id": nid, "type": n.get("type") or "", "degree": int(n.get("degree") or 0),
+         "spine": spine.get(n.get("type") or "")}
+        for _, _, nid, n in hits[:limit]
+    ]
 
 
 @router.get("/{domain}/subgraph", summary="Neighbourhood around matching nodes")
@@ -108,7 +159,9 @@ async def export_json(domain: str) -> Response:
 
 
 @router.get("/{domain}/impact", summary="What connects to an entity")
-async def impact_report(domain: str, entity: str, hops: int = 2,
+async def impact_report(domain: str, entity: str,
+                        hops: int = Query(2, ge=1, le=4),
+                        limit: int = Query(600, ge=20, le=3000),
                         principal: Principal = Depends(current_principal)) -> dict:
     """Reachability from one entity, grouped by distance.
 
@@ -120,7 +173,11 @@ async def impact_report(domain: str, entity: str, hops: int = 2,
         raise HTTPException(status_code=403,
                             detail=f"You do not have access to '{domain}'.")
     from ..services.impact import impact
-    return await impact(domain, entity, hops=hops)
+    result = await impact(domain, entity, hops=hops, limit=limit)
+    spine = _spine_lookup(domain)
+    for n in result.get("nodes", []) or []:
+        n["spine"] = spine.get(n.get("type") or "")
+    return result
 
 
 # ------------------------------------------------------------------ resolution
